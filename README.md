@@ -1,8 +1,31 @@
+ANGULAR CLI DOC:
+https://github.com/angular/angular-cli
+
+ADD EXTERNAL LIB IN ANGULAR CLI:
+http://stackoverflow.com/questions/38855891/angular-cli-webpack-how-to-add-or-bundle-external-js-files
+
 INSTALLATION ANGULAR CLI ON CLOUD 9:
 http://blog.oasisdigital.com/2016/angular-2-cli-2-minutes-cloud-9/
 
+DEPLOY PROJECT ON HEROKU:
+https://www.angularonrails.com/deploy-angular-cli-webpack-project-heroku/
+
 LINK AFTER RUN:
 https://eric-alter-neolanders.c9users.io/
+
+
+REMOVE GIT ALL CHANGES:
+git reset --hard HEAD
+
+
+STORE STATE OF THE APPLICATION:
+http://blog.angular-university.io/angular-2-redux-ngrx-rxjs/
+
+
+DEPLOY PROJECT ON HEROKU:
+https://www.angularonrails.com/deploy-angular-cli-webpack-project-heroku/
+
+
 
 # MyCliApp
 

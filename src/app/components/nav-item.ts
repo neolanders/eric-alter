@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
-  selector: 'bc-nav-item',
+  selector: 'portfolio-nav-item',
   template: `
     <a md-list-item [routerLink]="routerLink" (click)="activate.emit()">
       <md-icon md-list-icon>{{ icon }}</md-icon>

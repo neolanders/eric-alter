@@ -8,24 +8,24 @@ import * as layout from '../actions/layout';
 
 
 @Component({
-  selector: 'book-collection-app',
+  selector: 'project-collection-app',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <bc-layout>
-      <bc-sidenav [open]="showSidenav$ | async">
-        <bc-nav-item (activate)="closeSidenav()" routerLink="/" icon="book" hint="View your book collection">
-          My Collection
-        </bc-nav-item>
-        <bc-nav-item (activate)="closeSidenav()" routerLink="/book/find" icon="search" hint="Find your next book!">
-          Browse Books
-        </bc-nav-item>
-      </bc-sidenav>
-      <bc-toolbar (openMenu)="openSidenav()">
-        Book Collection
-      </bc-toolbar>
+    <portfolio-layout>
+      <portfolio-sidenav [open]="showSidenav$ | async">
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/" icon="book" hint="View my works">
+          My Work
+        </portfolio-nav-item>
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/book/find" icon="search" hint="Find my projects">
+          Browse Projects
+        </portfolio-nav-item>
+      </portfolio-sidenav>
+      <portfolio-toolbar (openMenu)="openSidenav()">
+        Eric Alter
+      </portfolio-toolbar>
 
       <router-outlet></router-outlet>
-    </bc-layout>
+    </portfolio-layout>
   `
 })
 export class AppComponent {

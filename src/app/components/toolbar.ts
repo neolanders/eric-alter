@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
-  selector: 'bc-toolbar',
+  selector: 'portfolio-toolbar',
   template: `
     <md-toolbar color="primary">
       <button md-icon-button (click)="openMenu.emit()">

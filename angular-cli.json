@@ -43,10 +43,6 @@
   "defaults": {
     "styleExt": "css",
     "prefixInterfaces": false,
-    "inline": {
-      "style": false,
-      "template": false
-    },
     "spec": {
       "class": false,
       "component": true,

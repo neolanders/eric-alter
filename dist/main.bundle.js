@@ -1,11 +1,123 @@
 webpackJsonp([0,3],{
 
-/***/ 220:
+/***/ 181:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(276);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ActionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "i", function() { return AddBookAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "e", function() { return AddBookSuccessAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "f", function() { return AddBookFailAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "j", function() { return RemoveBookAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "g", function() { return RemoveBookSuccessAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "h", function() { return RemoveBookFailAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return LoadAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return LoadSuccessAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return LoadFailAction; });
+
+var ActionTypes = {
+    ADD_BOOK: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Collection] Add Book'),
+    ADD_BOOK_SUCCESS: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Collection] Add Book Success'),
+    ADD_BOOK_FAIL: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Collection] Add Book Fail'),
+    REMOVE_BOOK: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Collection] Remove Book'),
+    REMOVE_BOOK_SUCCESS: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Collection] Remove Book Success'),
+    REMOVE_BOOK_FAIL: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Collection] Remove Book Fail'),
+    LOAD: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Collection] Load'),
+    LOAD_SUCCESS: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Collection] Load Success'),
+    LOAD_FAIL: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Collection] Load Fail'),
+};
+/**
+ * Add Book to Collection Actions
+ */
+var AddBookAction = (function () {
+    function AddBookAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.ADD_BOOK;
+    }
+    return AddBookAction;
+}());
+var AddBookSuccessAction = (function () {
+    function AddBookSuccessAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.ADD_BOOK_SUCCESS;
+    }
+    return AddBookSuccessAction;
+}());
+var AddBookFailAction = (function () {
+    function AddBookFailAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.ADD_BOOK_FAIL;
+    }
+    return AddBookFailAction;
+}());
+/**
+ * Remove Book from Collection Actions
+ */
+var RemoveBookAction = (function () {
+    function RemoveBookAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.REMOVE_BOOK;
+    }
+    return RemoveBookAction;
+}());
+var RemoveBookSuccessAction = (function () {
+    function RemoveBookSuccessAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.REMOVE_BOOK_SUCCESS;
+    }
+    return RemoveBookSuccessAction;
+}());
+var RemoveBookFailAction = (function () {
+    function RemoveBookFailAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.REMOVE_BOOK_FAIL;
+    }
+    return RemoveBookFailAction;
+}());
+/**
+ * Load Collection Actions
+ */
+var LoadAction = (function () {
+    function LoadAction() {
+        this.type = ActionTypes.LOAD;
+    }
+    return LoadAction;
+}());
+var LoadSuccessAction = (function () {
+    function LoadSuccessAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.LOAD_SUCCESS;
+    }
+    return LoadSuccessAction;
+}());
+var LoadFailAction = (function () {
+    function LoadFailAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.LOAD_FAIL;
+    }
+    return LoadFailAction;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/collection.js.map
+
+/***/ },
+
+/***/ 274:
+/***/ function(module, exports) {
+
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/book.js.map
+
+/***/ },
+
+/***/ 275:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(239);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return GoogleBooksService; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -16,25 +128,443 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'app works!';
+
+
+var GoogleBooksService = (function () {
+    function GoogleBooksService(http) {
+        this.http = http;
+        this.API_PATH = 'https://www.googleapis.com/books/v1/volumes';
     }
-    AppComponent = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Component */])({
-            selector: 'app-root',
-            templateUrl: './app.component.html',
-            styleUrls: ['./app.component.css']
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    GoogleBooksService.prototype.searchBooks = function (queryTitle) {
+        return this.http.get(this.API_PATH + "?q=" + queryTitle)
+            .map(function (res) { return res.json().items || []; });
+    };
+    GoogleBooksService.prototype.retrieveBook = function (volumeId) {
+        return this.http.get(this.API_PATH + "/" + volumeId)
+            .map(function (res) { return res.json(); });
+    };
+    GoogleBooksService = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["R" /* Injectable */])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === 'function' && _a) || Object])
+    ], GoogleBooksService);
+    return GoogleBooksService;
+    var _a;
 }());
-//# sourceMappingURL=/home/ubuntu/workspace/src/app.component.js.map
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/google-books.js.map
 
 /***/ },
 
-/***/ 262:
+/***/ 276:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ exports["a"] = type;
+/**
+ * This function coerces a string into a string literal type.
+ * Using tagged union types in TypeScript 2.0, this enables
+ * powerful typechecking of our reducers.
+ *
+ * Since every action label passes through this function it
+ * is a good place to ensure all of our action labels
+ * are unique.
+ */
+var typeCache = {};
+function type(label) {
+    if (typeCache[label]) {
+        throw new Error("Action type \"" + label + "\" is not unique\"");
+    }
+    typeCache[label] = true;
+    return label;
+}
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/util.js.map
+
+/***/ },
+
+/***/ 461:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(276);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ActionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return OpenSidenavAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return CloseSidenavAction; });
+
+var ActionTypes = {
+    OPEN_SIDENAV: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Layout] Open Sidenav'),
+    CLOSE_SIDENAV: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Layout] Close Sidenav')
+};
+var OpenSidenavAction = (function () {
+    function OpenSidenavAction() {
+        this.type = ActionTypes.OPEN_SIDENAV;
+    }
+    return OpenSidenavAction;
+}());
+var CloseSidenavAction = (function () {
+    function CloseSidenavAction() {
+        this.type = ActionTypes.CLOSE_SIDENAV;
+    }
+    return CloseSidenavAction;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/layout.js.map
+
+/***/ },
+
+/***/ 462:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_let__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_let___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_let__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngrx_store__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reducers__ = __webpack_require__(98);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return CollectionPageComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var CollectionPageComponent = (function () {
+    function CollectionPageComponent(store) {
+        this.books$ = store.select(__WEBPACK_IMPORTED_MODULE_3__reducers__["i" /* getBookCollection */]);
+    }
+    CollectionPageComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["G" /* Component */])({
+            selector: 'bc-collection-page',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_1__angular_core__["d" /* ChangeDetectionStrategy */].OnPush,
+            template: "\n    <md-card>\n      <md-card-title>My Collection</md-card-title>\n    </md-card>\n\n    <bc-book-preview-list [books]=\"books$ | async\"></bc-book-preview-list>\n  ",
+            /**
+             * Container components are permitted to have just enough styles
+             * to bring the view together. If the number of styles grow,
+             * consider breaking them out into presentational
+             * components.
+             */
+            styles: ["\n    md-card-title {\n      display: flex;\n      justify-content: center;\n    }\n  "]
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */]) === 'function' && _a) || Object])
+    ], CollectionPageComponent);
+    return CollectionPageComponent;
+    var _a;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/collection-page.js.map
+
+/***/ },
+
+/***/ 463:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_let__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_let___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_let__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_take__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_take___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_take__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngrx_store__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__reducers__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_book__ = __webpack_require__(97);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return FindBookPageComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var FindBookPageComponent = (function () {
+    function FindBookPageComponent(store) {
+        this.store = store;
+        this.searchQuery$ = store.select(__WEBPACK_IMPORTED_MODULE_4__reducers__["d" /* getSearchQuery */]).take(1);
+        this.books$ = store.select(__WEBPACK_IMPORTED_MODULE_4__reducers__["e" /* getSearchResults */]);
+        this.loading$ = store.select(__WEBPACK_IMPORTED_MODULE_4__reducers__["f" /* getSearchLoading */]);
+    }
+    FindBookPageComponent.prototype.search = function (query) {
+        this.store.dispatch(new __WEBPACK_IMPORTED_MODULE_5__actions_book__["d" /* SearchAction */](query));
+    };
+    FindBookPageComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["G" /* Component */])({
+            selector: 'bc-find-book-page',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_2__angular_core__["d" /* ChangeDetectionStrategy */].OnPush,
+            template: "\n    <bc-book-search [query]=\"searchQuery$ | async\" [searching]=\"loading$ | async\" (search)=\"search($event)\"></bc-book-search>\n    <bc-book-preview-list [books]=\"books$ | async\"></bc-book-preview-list>\n  "
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__ngrx_store__["b" /* Store */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__ngrx_store__["b" /* Store */]) === 'function' && _a) || Object])
+    ], FindBookPageComponent);
+    return FindBookPageComponent;
+    var _a;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/find-book-page.js.map
+
+/***/ },
+
+/***/ 464:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return NotFoundPageComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NotFoundPageComponent = (function () {
+    function NotFoundPageComponent() {
+    }
+    NotFoundPageComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'bc-not-found-page',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* ChangeDetectionStrategy */].OnPush,
+            template: "\n    <md-card>\n      <md-card-title>404: Not Found</md-card-title>\n      <md-card-content>\n        <p>Hey! It looks like this page doesn't exist yet.</p>\n      </md-card-content>\n      <md-card-actions>\n        <button md-raised-button color=\"primary\" routerLink=\"/\">Take Me Home</button>\n      </md-card-actions>\n    </md-card>\n  ",
+            styles: ["\n    :host {\n      text-align: center;\n    }\n  "]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], NotFoundPageComponent);
+    return NotFoundPageComponent;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/not-found-page.js.map
+
+/***/ },
+
+/***/ 465:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ngrx_core_add_operator_select__ = __webpack_require__(691);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ngrx_core_add_operator_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ngrx_core_add_operator_select__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngrx_store__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__actions_book__ = __webpack_require__(97);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ViewBookPageComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Note: Container components are also reusable. Whether or not
+ * a component is a presentation component or a container
+ * component is an implementation detail.
+ *
+ * The View Book Page's responsibility is to map router params
+ * to a 'Select' book action. Actually showing the selected
+ * book remains a responsibility of the
+ * SelectedBookPageComponent
+ */
+var ViewBookPageComponent = (function () {
+    function ViewBookPageComponent(store, route) {
+        this.store = store;
+        this.actionsSubscription = route.params
+            .select('id')
+            .map(function (id) { return new __WEBPACK_IMPORTED_MODULE_5__actions_book__["e" /* SelectAction */](id); })
+            .subscribe(store);
+    }
+    ViewBookPageComponent.prototype.ngOnDestroy = function () {
+        this.actionsSubscription.unsubscribe();
+    };
+    ViewBookPageComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["G" /* Component */])({
+            selector: 'bc-view-book-page',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_2__angular_core__["d" /* ChangeDetectionStrategy */].OnPush,
+            template: "\n    <bc-selected-book-page></bc-selected-book-page>\n  "
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__ngrx_store__["b" /* Store */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_4__ngrx_store__["b" /* Store */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* ActivatedRoute */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_3__angular_router__["d" /* ActivatedRoute */]) === 'function' && _b) || Object])
+    ], ViewBookPageComponent);
+    return ViewBookPageComponent;
+    var _a, _b;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/view-book-page.js.map
+
+/***/ },
+
+/***/ 466:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_take__ = __webpack_require__(513);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_take___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_take__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_filter__ = __webpack_require__(511);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_filter___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_filter__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_do__ = __webpack_require__(510);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_do__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_switchMap__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_switchMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_let__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_let___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_let__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngrx_store__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_router__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_observable_of__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_observable_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_google_books__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__reducers__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__actions_book__ = __webpack_require__(97);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return BookExistsGuard; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Guards are hooks into the route resolution process, providing an opportunity
+ * to inform the router's navigation process whether the route should continue
+ * to activate this route. Guards must return an observable of true or false.
+ */
+var BookExistsGuard = (function () {
+    function BookExistsGuard(store, googleBooks, router) {
+        this.store = store;
+        this.googleBooks = googleBooks;
+        this.router = router;
+    }
+    /**
+     * This method creates an observable that waits for the `loaded` property
+     * of the collection state to turn `true`, emitting one time once loading
+     * has finished.
+     */
+    BookExistsGuard.prototype.waitForCollectionToLoad = function () {
+        return this.store.select(__WEBPACK_IMPORTED_MODULE_12__reducers__["a" /* getCollectionLoaded */])
+            .filter(function (loaded) { return loaded; })
+            .take(1);
+    };
+    /**
+     * This method checks if a book with the given ID is already registered
+     * in the Store
+     */
+    BookExistsGuard.prototype.hasBookInStore = function (id) {
+        return this.store.select(__WEBPACK_IMPORTED_MODULE_12__reducers__["b" /* getBookEntities */])
+            .map(function (entities) { return !!entities[id]; })
+            .take(1);
+    };
+    /**
+     * This method loads a book with the given ID from the API and caches
+     * it in the store, returning `true` or `false` if it was found.
+     */
+    BookExistsGuard.prototype.hasBookInApi = function (id) {
+        var _this = this;
+        return this.googleBooks.retrieveBook(id)
+            .map(function (bookEntity) { return new __WEBPACK_IMPORTED_MODULE_13__actions_book__["c" /* LoadAction */](bookEntity); })
+            .do(function (action) { return _this.store.dispatch(action); })
+            .map(function (book) { return !!book; })
+            .catch(function () {
+            _this.router.navigate(['/404']);
+            return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_observable_of__["of"])(false);
+        });
+    };
+    /**
+     * `hasBook` composes `hasBookInStore` and `hasBookInApi`. It first checks
+     * if the book is in store, and if not it then checks if it is in the
+     * API.
+     */
+    BookExistsGuard.prototype.hasBook = function (id) {
+        var _this = this;
+        return this.hasBookInStore(id)
+            .switchMap(function (inStore) {
+            if (inStore) {
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_observable_of__["of"])(inStore);
+            }
+            return _this.hasBookInApi(id);
+        });
+    };
+    /**
+     * This is the actual method the router will call when our guard is run.
+     *
+     * Our guard waits for the collection to load, then it checks if we need
+     * to request a book from the API or if we already have it in our cache.
+     * If it finds it in the cache or in the API, it returns an Observable
+     * of `true` and the route is rendered successfully.
+     *
+     * If it was unable to find it in our cache or in the API, this guard
+     * will return an Observable of `false`, causing the router to move
+     * on to the next candidate route. In this case, it will move on
+     * to the 404 page.
+     */
+    BookExistsGuard.prototype.canActivate = function (route) {
+        var _this = this;
+        return this.waitForCollectionToLoad()
+            .switchMap(function () { return _this.hasBook(route.params['id']); });
+    };
+    BookExistsGuard = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__angular_core__["R" /* Injectable */])(), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_8__ngrx_store__["b" /* Store */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_8__ngrx_store__["b" /* Store */]) === 'function' && _a) || Object, (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_11__services_google_books__["a" /* GoogleBooksService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_11__services_google_books__["a" /* GoogleBooksService */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_9__angular_router__["b" /* Router */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_9__angular_router__["b" /* Router */]) === 'function' && _c) || Object])
+    ], BookExistsGuard);
+    return BookExistsGuard;
+    var _a, _b, _c;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/book-exists.js.map
+
+/***/ },
+
+/***/ 467:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return environment; });
+// The file contents for the current environment will overwrite these during build.
+// The build system defaults to the dev environment which uses `environment.ts`, but if you do
+// `ng build --env=prod` then `environment.prod.ts` will be used instead.
+// The list of which env maps to which file can be found in `angular-cli.json`.
+var environment = {
+    production: false
+};
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/environment.js.map
+
+/***/ },
+
+/***/ 532:
 /***/ function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -43,721 +573,62 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 262;
+webpackEmptyContext.id = 532;
 
 
 /***/ },
 
-/***/ 263:
+/***/ 533:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(337);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts__ = __webpack_require__(733);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__polyfills_ts___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__polyfills_ts__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__gendir_app_app_module_ngfactory__ = __webpack_require__(334);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__ = __webpack_require__(147);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__(662);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_app_module__ = __webpack_require__(709);
 
 
 
 
 
-if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["U" /* enableProdMode */])();
+if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["_40" /* enableProdMode */])();
 }
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__angular_platform_browser__["c" /* platformBrowser */])().bootstrapModuleFactory(__WEBPACK_IMPORTED_MODULE_3__gendir_app_app_module_ngfactory__["a" /* AppModuleNgFactory */]);
-//# sourceMappingURL=/home/ubuntu/workspace/src/main.js.map
+__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_4__app_app_module__["a" /* AppModule */]);
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/main.js.map
 
 /***/ },
 
-/***/ 332:
+/***/ 709:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return styles; });
-/**
- * @fileoverview This file is generated by the Angular 2 template compiler.
- * Do not edit.
- * @suppress {suspiciousCode,uselessCode,missingProperties}
- */
-/* tslint:disable */
-var styles = [''];
-//# sourceMappingURL=/home/ubuntu/workspace/src/app.component.css.shim.ngstyle.js.map
-
-/***/ },
-
-/***/ 333:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__app_app_component__ = __webpack_require__(220);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core_src_linker_view__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core_src_metadata_view__ = __webpack_require__(131);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core_src_linker_view_type__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core_src_change_detection_constants__ = __webpack_require__(59);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_core_src_linker_component_factory__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component_css_shim_ngstyle__ = __webpack_require__(332);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_core_src_change_detection_change_detection_util__ = __webpack_require__(58);
-/* unused harmony export Wrapper_AppComponent */
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppComponentNgFactory; });
-/* unused harmony export View_AppComponent0 */
-/**
- * @fileoverview This file is generated by the Angular 2 template compiler.
- * Do not edit.
- * @suppress {suspiciousCode,uselessCode,missingProperties}
- */
-/* tslint:disable */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-
-
-
-
-
-
-
-
-
-var Wrapper_AppComponent = (function () {
-    function Wrapper_AppComponent() {
-        this._changed = false;
-        this.context = new __WEBPACK_IMPORTED_MODULE_0__app_app_component__["a" /* AppComponent */]();
-    }
-    Wrapper_AppComponent.prototype.ngOnDetach = function (view, componentView, el) {
-    };
-    Wrapper_AppComponent.prototype.ngOnDestroy = function () {
-    };
-    Wrapper_AppComponent.prototype.ngDoCheck = function (view, el, throwOnChange) {
-        var changed = this._changed;
-        this._changed = false;
-        return changed;
-    };
-    Wrapper_AppComponent.prototype.checkHost = function (view, componentView, el, throwOnChange) {
-    };
-    Wrapper_AppComponent.prototype.handleEvent = function (eventName, $event) {
-        var result = true;
-        return result;
-    };
-    Wrapper_AppComponent.prototype.subscribe = function (view, _eventHandler) {
-        this._eventHandler = _eventHandler;
-    };
-    return Wrapper_AppComponent;
-}());
-var renderType_AppComponent_Host = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["createRenderComponentType"]('', 0, __WEBPACK_IMPORTED_MODULE_3__angular_core_src_metadata_view__["b" /* ViewEncapsulation */].None, [], {});
-var View_AppComponent_Host0 = (function (_super) {
-    __extends(View_AppComponent_Host0, _super);
-    function View_AppComponent_Host0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_AppComponent_Host0, renderType_AppComponent_Host, __WEBPACK_IMPORTED_MODULE_4__angular_core_src_linker_view_type__["a" /* ViewType */].HOST, viewUtils, parentView, parentIndex, parentElement, __WEBPACK_IMPORTED_MODULE_5__angular_core_src_change_detection_constants__["b" /* ChangeDetectorStatus */].CheckAlways);
-    }
-    View_AppComponent_Host0.prototype.createInternal = function (rootSelector) {
-        this._el_0 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["selectOrCreateRenderHostElement"](this.renderer, 'app-root', __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["EMPTY_INLINE_ARRAY"], rootSelector, null);
-        this.compView_0 = new View_AppComponent0(this.viewUtils, this, 0, this._el_0);
-        this._AppComponent_0_3 = new Wrapper_AppComponent();
-        this.compView_0.create(this._AppComponent_0_3.context);
-        this.init(this._el_0, (this.renderer.directRenderer ? null : [this._el_0]), null);
-        return new __WEBPACK_IMPORTED_MODULE_6__angular_core_src_linker_component_factory__["b" /* ComponentRef_ */](0, this, this._el_0, this._AppComponent_0_3.context);
-    };
-    View_AppComponent_Host0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === __WEBPACK_IMPORTED_MODULE_0__app_app_component__["a" /* AppComponent */]) && (0 === requestNodeIndex))) {
-            return this._AppComponent_0_3.context;
-        }
-        return notFoundResult;
-    };
-    View_AppComponent_Host0.prototype.detectChangesInternal = function (throwOnChange) {
-        this._AppComponent_0_3.ngDoCheck(this, this._el_0, throwOnChange);
-        this.compView_0.internalDetectChanges(throwOnChange);
-    };
-    View_AppComponent_Host0.prototype.destroyInternal = function () {
-        this.compView_0.destroy();
-    };
-    View_AppComponent_Host0.prototype.visitRootNodesInternal = function (cb, ctx) {
-        cb(this._el_0, ctx);
-    };
-    return View_AppComponent_Host0;
-}(__WEBPACK_IMPORTED_MODULE_1__angular_core_src_linker_view__["a" /* AppView */]));
-var AppComponentNgFactory = new __WEBPACK_IMPORTED_MODULE_6__angular_core_src_linker_component_factory__["a" /* ComponentFactory */]('app-root', View_AppComponent_Host0, __WEBPACK_IMPORTED_MODULE_0__app_app_component__["a" /* AppComponent */]);
-var styles_AppComponent = [__WEBPACK_IMPORTED_MODULE_7__app_component_css_shim_ngstyle__["a" /* styles */]];
-var renderType_AppComponent = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["createRenderComponentType"]('', 0, __WEBPACK_IMPORTED_MODULE_3__angular_core_src_metadata_view__["b" /* ViewEncapsulation */].Emulated, styles_AppComponent, {});
-var View_AppComponent0 = (function (_super) {
-    __extends(View_AppComponent0, _super);
-    function View_AppComponent0(viewUtils, parentView, parentIndex, parentElement) {
-        _super.call(this, View_AppComponent0, renderType_AppComponent, __WEBPACK_IMPORTED_MODULE_4__angular_core_src_linker_view_type__["a" /* ViewType */].COMPONENT, viewUtils, parentView, parentIndex, parentElement, __WEBPACK_IMPORTED_MODULE_5__angular_core_src_change_detection_constants__["b" /* ChangeDetectorStatus */].CheckAlways);
-        this._expr_3 = __WEBPACK_IMPORTED_MODULE_8__angular_core_src_change_detection_change_detection_util__["a" /* UNINITIALIZED */];
-    }
-    View_AppComponent0.prototype.createInternal = function (rootSelector) {
-        var parentRenderNode = this.renderer.createViewRoot(this.parentElement);
-        this._el_0 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["createRenderElement"](this.renderer, parentRenderNode, 'h1', __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["EMPTY_INLINE_ARRAY"], null);
-        this._text_1 = this.renderer.createText(this._el_0, '', null);
-        this._text_2 = this.renderer.createText(parentRenderNode, '\n', null);
-        this.init(null, (this.renderer.directRenderer ? null : [
-            this._el_0,
-            this._text_1,
-            this._text_2
-        ]), null);
-        return null;
-    };
-    View_AppComponent0.prototype.detectChangesInternal = function (throwOnChange) {
-        var currVal_3 = __WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["inlineInterpolate"](1, '\n  ', this.context.title, '\n');
-        if (__WEBPACK_IMPORTED_MODULE_2__angular_core_src_linker_view_utils__["checkBinding"](throwOnChange, this._expr_3, currVal_3)) {
-            this.renderer.setText(this._text_1, currVal_3);
-            this._expr_3 = currVal_3;
-        }
-    };
-    return View_AppComponent0;
-}(__WEBPACK_IMPORTED_MODULE_1__angular_core_src_linker_view__["a" /* AppView */]));
-//# sourceMappingURL=/home/ubuntu/workspace/src/app.component.ngfactory.js.map
-
-/***/ },
-
-/***/ 334:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core_src_linker_ng_module_factory__ = __webpack_require__(130);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_app_module__ = __webpack_require__(335);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_common_src_common_module__ = __webpack_require__(176);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core_src_application_module__ = __webpack_require__(186);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_src_browser__ = __webpack_require__(148);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms_src_directives__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms_src_form_providers__ = __webpack_require__(209);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http_src_http_module__ = __webpack_require__(214);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_src_localization__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_core_src_application_init__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__angular_core_src_testability_testability__ = __webpack_require__(89);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_core_src_application_ref__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_core_src_linker_compiler__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__angular_platform_browser_src_dom_events_hammer_gestures__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_platform_browser_src_dom_events_event_manager__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_platform_browser_src_dom_shared_styles_host__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_platform_browser_src_dom_dom_renderer__ = __webpack_require__(103);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__angular_platform_browser_src_security_dom_sanitization_service__ = __webpack_require__(153);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__angular_core_src_animation_animation_queue__ = __webpack_require__(119);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__angular_core_src_linker_view_utils__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__angular_platform_browser_src_browser_title__ = __webpack_require__(149);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__angular_forms_src_directives_radio_control_value_accessor__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_http_src_backends_browser_xhr__ = __webpack_require__(97);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__angular_http_src_base_response_options__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__angular_http_src_backends_xhr_backend__ = __webpack_require__(144);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__angular_http_src_base_request_options__ = __webpack_require__(98);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__app_component_ngfactory__ = __webpack_require__(333);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__angular_core_src_application_tokens__ = __webpack_require__(57);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__angular_platform_browser_src_dom_events_dom_events__ = __webpack_require__(150);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__angular_platform_browser_src_dom_events_key_events__ = __webpack_require__(151);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__angular_core_src_zone_ng_zone__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__angular_platform_browser_src_dom_debug_ng_probe__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__angular_core_src_console__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__angular_core_src_i18n_tokens__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__angular_core_src_error_handler__ = __webpack_require__(127);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__angular_platform_browser_src_dom_dom_tokens__ = __webpack_require__(71);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__angular_platform_browser_src_dom_animation_driver__ = __webpack_require__(101);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__angular_core_src_render_api__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__angular_core_src_security__ = __webpack_require__(134);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__angular_core_src_change_detection_differs_iterable_differs__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_40__angular_core_src_change_detection_differs_keyvalue_differs__ = __webpack_require__(122);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__angular_http_src_interfaces__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__angular_http_src_http__ = __webpack_require__(145);
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppModuleNgFactory; });
-/**
- * @fileoverview This file is generated by the Angular 2 template compiler.
- * Do not edit.
- * @suppress {suspiciousCode,uselessCode,missingProperties}
- */
-/* tslint:disable */
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var AppModuleInjector = (function (_super) {
-    __extends(AppModuleInjector, _super);
-    function AppModuleInjector(parent) {
-        _super.call(this, parent, [__WEBPACK_IMPORTED_MODULE_26__app_component_ngfactory__["a" /* AppComponentNgFactory */]], [__WEBPACK_IMPORTED_MODULE_26__app_component_ngfactory__["a" /* AppComponentNgFactory */]]);
-    }
-    Object.defineProperty(AppModuleInjector.prototype, "_LOCALE_ID_7", {
-        get: function () {
-            if ((this.__LOCALE_ID_7 == null)) {
-                (this.__LOCALE_ID_7 = 'en-US');
-            }
-            return this.__LOCALE_ID_7;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_NgLocalization_8", {
-        get: function () {
-            if ((this.__NgLocalization_8 == null)) {
-                (this.__NgLocalization_8 = new __WEBPACK_IMPORTED_MODULE_8__angular_common_src_localization__["c" /* NgLocaleLocalization */](this._LOCALE_ID_7));
-            }
-            return this.__NgLocalization_8;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_ApplicationRef_13", {
-        get: function () {
-            if ((this.__ApplicationRef_13 == null)) {
-                (this.__ApplicationRef_13 = this._ApplicationRef__12);
-            }
-            return this.__ApplicationRef_13;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_Compiler_14", {
-        get: function () {
-            if ((this.__Compiler_14 == null)) {
-                (this.__Compiler_14 = new __WEBPACK_IMPORTED_MODULE_12__angular_core_src_linker_compiler__["b" /* Compiler */]());
-            }
-            return this.__Compiler_14;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_APP_ID_15", {
-        get: function () {
-            if ((this.__APP_ID_15 == null)) {
-                (this.__APP_ID_15 = __WEBPACK_IMPORTED_MODULE_27__angular_core_src_application_tokens__["e" /* _appIdRandomProviderFactory */]());
-            }
-            return this.__APP_ID_15;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_DOCUMENT_16", {
-        get: function () {
-            if ((this.__DOCUMENT_16 == null)) {
-                (this.__DOCUMENT_16 = __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_src_browser__["e" /* _document */]());
-            }
-            return this.__DOCUMENT_16;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_HAMMER_GESTURE_CONFIG_17", {
-        get: function () {
-            if ((this.__HAMMER_GESTURE_CONFIG_17 == null)) {
-                (this.__HAMMER_GESTURE_CONFIG_17 = new __WEBPACK_IMPORTED_MODULE_13__angular_platform_browser_src_dom_events_hammer_gestures__["c" /* HammerGestureConfig */]());
-            }
-            return this.__HAMMER_GESTURE_CONFIG_17;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_EVENT_MANAGER_PLUGINS_18", {
-        get: function () {
-            if ((this.__EVENT_MANAGER_PLUGINS_18 == null)) {
-                (this.__EVENT_MANAGER_PLUGINS_18 = [
-                    new __WEBPACK_IMPORTED_MODULE_28__angular_platform_browser_src_dom_events_dom_events__["a" /* DomEventsPlugin */](),
-                    new __WEBPACK_IMPORTED_MODULE_29__angular_platform_browser_src_dom_events_key_events__["a" /* KeyEventsPlugin */](),
-                    new __WEBPACK_IMPORTED_MODULE_13__angular_platform_browser_src_dom_events_hammer_gestures__["a" /* HammerGesturesPlugin */](this._HAMMER_GESTURE_CONFIG_17)
-                ]);
-            }
-            return this.__EVENT_MANAGER_PLUGINS_18;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_EventManager_19", {
-        get: function () {
-            if ((this.__EventManager_19 == null)) {
-                (this.__EventManager_19 = new __WEBPACK_IMPORTED_MODULE_14__angular_platform_browser_src_dom_events_event_manager__["a" /* EventManager */](this._EVENT_MANAGER_PLUGINS_18, this.parent.get(__WEBPACK_IMPORTED_MODULE_30__angular_core_src_zone_ng_zone__["a" /* NgZone */])));
-            }
-            return this.__EventManager_19;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_DomSharedStylesHost_20", {
-        get: function () {
-            if ((this.__DomSharedStylesHost_20 == null)) {
-                (this.__DomSharedStylesHost_20 = new __WEBPACK_IMPORTED_MODULE_15__angular_platform_browser_src_dom_shared_styles_host__["a" /* DomSharedStylesHost */](this._DOCUMENT_16));
-            }
-            return this.__DomSharedStylesHost_20;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_AnimationDriver_21", {
-        get: function () {
-            if ((this.__AnimationDriver_21 == null)) {
-                (this.__AnimationDriver_21 = __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_src_browser__["f" /* _resolveDefaultAnimationDriver */]());
-            }
-            return this.__AnimationDriver_21;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_DomRootRenderer_22", {
-        get: function () {
-            if ((this.__DomRootRenderer_22 == null)) {
-                (this.__DomRootRenderer_22 = new __WEBPACK_IMPORTED_MODULE_16__angular_platform_browser_src_dom_dom_renderer__["b" /* DomRootRenderer_ */](this._DOCUMENT_16, this._EventManager_19, this._DomSharedStylesHost_20, this._AnimationDriver_21, this._APP_ID_15));
-            }
-            return this.__DomRootRenderer_22;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_RootRenderer_23", {
-        get: function () {
-            if ((this.__RootRenderer_23 == null)) {
-                (this.__RootRenderer_23 = __WEBPACK_IMPORTED_MODULE_31__angular_platform_browser_src_dom_debug_ng_probe__["b" /* _createConditionalRootRenderer */](this._DomRootRenderer_22, this.parent.get(__WEBPACK_IMPORTED_MODULE_31__angular_platform_browser_src_dom_debug_ng_probe__["c" /* NgProbeToken */], null), this.parent.get(__WEBPACK_IMPORTED_MODULE_11__angular_core_src_application_ref__["g" /* NgProbeToken */], null)));
-            }
-            return this.__RootRenderer_23;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_DomSanitizer_24", {
-        get: function () {
-            if ((this.__DomSanitizer_24 == null)) {
-                (this.__DomSanitizer_24 = new __WEBPACK_IMPORTED_MODULE_17__angular_platform_browser_src_security_dom_sanitization_service__["b" /* DomSanitizerImpl */]());
-            }
-            return this.__DomSanitizer_24;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_Sanitizer_25", {
-        get: function () {
-            if ((this.__Sanitizer_25 == null)) {
-                (this.__Sanitizer_25 = this._DomSanitizer_24);
-            }
-            return this.__Sanitizer_25;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_AnimationQueue_26", {
-        get: function () {
-            if ((this.__AnimationQueue_26 == null)) {
-                (this.__AnimationQueue_26 = new __WEBPACK_IMPORTED_MODULE_18__angular_core_src_animation_animation_queue__["a" /* AnimationQueue */](this.parent.get(__WEBPACK_IMPORTED_MODULE_30__angular_core_src_zone_ng_zone__["a" /* NgZone */])));
-            }
-            return this.__AnimationQueue_26;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_ViewUtils_27", {
-        get: function () {
-            if ((this.__ViewUtils_27 == null)) {
-                (this.__ViewUtils_27 = new __WEBPACK_IMPORTED_MODULE_19__angular_core_src_linker_view_utils__["ViewUtils"](this._RootRenderer_23, this._Sanitizer_25, this._AnimationQueue_26));
-            }
-            return this.__ViewUtils_27;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_IterableDiffers_28", {
-        get: function () {
-            if ((this.__IterableDiffers_28 == null)) {
-                (this.__IterableDiffers_28 = __WEBPACK_IMPORTED_MODULE_3__angular_core_src_application_module__["b" /* _iterableDiffersFactory */]());
-            }
-            return this.__IterableDiffers_28;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_KeyValueDiffers_29", {
-        get: function () {
-            if ((this.__KeyValueDiffers_29 == null)) {
-                (this.__KeyValueDiffers_29 = __WEBPACK_IMPORTED_MODULE_3__angular_core_src_application_module__["c" /* _keyValueDiffersFactory */]());
-            }
-            return this.__KeyValueDiffers_29;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_SharedStylesHost_30", {
-        get: function () {
-            if ((this.__SharedStylesHost_30 == null)) {
-                (this.__SharedStylesHost_30 = this._DomSharedStylesHost_20);
-            }
-            return this.__SharedStylesHost_30;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_Title_31", {
-        get: function () {
-            if ((this.__Title_31 == null)) {
-                (this.__Title_31 = new __WEBPACK_IMPORTED_MODULE_20__angular_platform_browser_src_browser_title__["a" /* Title */]());
-            }
-            return this.__Title_31;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_RadioControlRegistry_32", {
-        get: function () {
-            if ((this.__RadioControlRegistry_32 == null)) {
-                (this.__RadioControlRegistry_32 = new __WEBPACK_IMPORTED_MODULE_21__angular_forms_src_directives_radio_control_value_accessor__["b" /* RadioControlRegistry */]());
-            }
-            return this.__RadioControlRegistry_32;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_BrowserXhr_33", {
-        get: function () {
-            if ((this.__BrowserXhr_33 == null)) {
-                (this.__BrowserXhr_33 = new __WEBPACK_IMPORTED_MODULE_22__angular_http_src_backends_browser_xhr__["a" /* BrowserXhr */]());
-            }
-            return this.__BrowserXhr_33;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_ResponseOptions_34", {
-        get: function () {
-            if ((this.__ResponseOptions_34 == null)) {
-                (this.__ResponseOptions_34 = new __WEBPACK_IMPORTED_MODULE_23__angular_http_src_base_response_options__["b" /* BaseResponseOptions */]());
-            }
-            return this.__ResponseOptions_34;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_XSRFStrategy_35", {
-        get: function () {
-            if ((this.__XSRFStrategy_35 == null)) {
-                (this.__XSRFStrategy_35 = __WEBPACK_IMPORTED_MODULE_7__angular_http_src_http_module__["b" /* _createDefaultCookieXSRFStrategy */]());
-            }
-            return this.__XSRFStrategy_35;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_XHRBackend_36", {
-        get: function () {
-            if ((this.__XHRBackend_36 == null)) {
-                (this.__XHRBackend_36 = new __WEBPACK_IMPORTED_MODULE_24__angular_http_src_backends_xhr_backend__["b" /* XHRBackend */](this._BrowserXhr_33, this._ResponseOptions_34, this._XSRFStrategy_35));
-            }
-            return this.__XHRBackend_36;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_RequestOptions_37", {
-        get: function () {
-            if ((this.__RequestOptions_37 == null)) {
-                (this.__RequestOptions_37 = new __WEBPACK_IMPORTED_MODULE_25__angular_http_src_base_request_options__["b" /* BaseRequestOptions */]());
-            }
-            return this.__RequestOptions_37;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    Object.defineProperty(AppModuleInjector.prototype, "_Http_38", {
-        get: function () {
-            if ((this.__Http_38 == null)) {
-                (this.__Http_38 = __WEBPACK_IMPORTED_MODULE_7__angular_http_src_http_module__["c" /* httpFactory */](this._XHRBackend_36, this._RequestOptions_37));
-            }
-            return this.__Http_38;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    AppModuleInjector.prototype.createInternal = function () {
-        this._CommonModule_0 = new __WEBPACK_IMPORTED_MODULE_2__angular_common_src_common_module__["a" /* CommonModule */]();
-        this._ApplicationModule_1 = new __WEBPACK_IMPORTED_MODULE_3__angular_core_src_application_module__["a" /* ApplicationModule */]();
-        this._BrowserModule_2 = new __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_src_browser__["d" /* BrowserModule */](this.parent.get(__WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_src_browser__["d" /* BrowserModule */], null));
-        this._InternalFormsSharedModule_3 = new __WEBPACK_IMPORTED_MODULE_5__angular_forms_src_directives__["b" /* InternalFormsSharedModule */]();
-        this._FormsModule_4 = new __WEBPACK_IMPORTED_MODULE_6__angular_forms_src_form_providers__["a" /* FormsModule */]();
-        this._HttpModule_5 = new __WEBPACK_IMPORTED_MODULE_7__angular_http_src_http_module__["a" /* HttpModule */]();
-        this._AppModule_6 = new __WEBPACK_IMPORTED_MODULE_1__app_app_module__["a" /* AppModule */]();
-        this._ErrorHandler_9 = __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_src_browser__["g" /* errorHandler */]();
-        this._ApplicationInitStatus_10 = new __WEBPACK_IMPORTED_MODULE_9__angular_core_src_application_init__["a" /* ApplicationInitStatus */](this.parent.get(__WEBPACK_IMPORTED_MODULE_9__angular_core_src_application_init__["b" /* APP_INITIALIZER */], null));
-        this._Testability_11 = new __WEBPACK_IMPORTED_MODULE_10__angular_core_src_testability_testability__["a" /* Testability */](this.parent.get(__WEBPACK_IMPORTED_MODULE_30__angular_core_src_zone_ng_zone__["a" /* NgZone */]));
-        this._ApplicationRef__12 = new __WEBPACK_IMPORTED_MODULE_11__angular_core_src_application_ref__["d" /* ApplicationRef_ */](this.parent.get(__WEBPACK_IMPORTED_MODULE_30__angular_core_src_zone_ng_zone__["a" /* NgZone */]), this.parent.get(__WEBPACK_IMPORTED_MODULE_32__angular_core_src_console__["a" /* Console */]), this, this._ErrorHandler_9, this, this._ApplicationInitStatus_10, this.parent.get(__WEBPACK_IMPORTED_MODULE_10__angular_core_src_testability_testability__["b" /* TestabilityRegistry */], null), this._Testability_11);
-        return this._AppModule_6;
-    };
-    AppModuleInjector.prototype.getInternal = function (token, notFoundResult) {
-        if ((token === __WEBPACK_IMPORTED_MODULE_2__angular_common_src_common_module__["a" /* CommonModule */])) {
-            return this._CommonModule_0;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_3__angular_core_src_application_module__["a" /* ApplicationModule */])) {
-            return this._ApplicationModule_1;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_4__angular_platform_browser_src_browser__["d" /* BrowserModule */])) {
-            return this._BrowserModule_2;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_5__angular_forms_src_directives__["b" /* InternalFormsSharedModule */])) {
-            return this._InternalFormsSharedModule_3;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_6__angular_forms_src_form_providers__["a" /* FormsModule */])) {
-            return this._FormsModule_4;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_7__angular_http_src_http_module__["a" /* HttpModule */])) {
-            return this._HttpModule_5;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_1__app_app_module__["a" /* AppModule */])) {
-            return this._AppModule_6;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_33__angular_core_src_i18n_tokens__["a" /* LOCALE_ID */])) {
-            return this._LOCALE_ID_7;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_8__angular_common_src_localization__["b" /* NgLocalization */])) {
-            return this._NgLocalization_8;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_34__angular_core_src_error_handler__["a" /* ErrorHandler */])) {
-            return this._ErrorHandler_9;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_9__angular_core_src_application_init__["a" /* ApplicationInitStatus */])) {
-            return this._ApplicationInitStatus_10;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_10__angular_core_src_testability_testability__["a" /* Testability */])) {
-            return this._Testability_11;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_11__angular_core_src_application_ref__["d" /* ApplicationRef_ */])) {
-            return this._ApplicationRef__12;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_11__angular_core_src_application_ref__["e" /* ApplicationRef */])) {
-            return this._ApplicationRef_13;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_12__angular_core_src_linker_compiler__["b" /* Compiler */])) {
-            return this._Compiler_14;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_27__angular_core_src_application_tokens__["d" /* APP_ID */])) {
-            return this._APP_ID_15;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_35__angular_platform_browser_src_dom_dom_tokens__["a" /* DOCUMENT */])) {
-            return this._DOCUMENT_16;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_13__angular_platform_browser_src_dom_events_hammer_gestures__["b" /* HAMMER_GESTURE_CONFIG */])) {
-            return this._HAMMER_GESTURE_CONFIG_17;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_14__angular_platform_browser_src_dom_events_event_manager__["c" /* EVENT_MANAGER_PLUGINS */])) {
-            return this._EVENT_MANAGER_PLUGINS_18;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_14__angular_platform_browser_src_dom_events_event_manager__["a" /* EventManager */])) {
-            return this._EventManager_19;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_15__angular_platform_browser_src_dom_shared_styles_host__["a" /* DomSharedStylesHost */])) {
-            return this._DomSharedStylesHost_20;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_36__angular_platform_browser_src_dom_animation_driver__["a" /* AnimationDriver */])) {
-            return this._AnimationDriver_21;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_16__angular_platform_browser_src_dom_dom_renderer__["a" /* DomRootRenderer */])) {
-            return this._DomRootRenderer_22;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_37__angular_core_src_render_api__["a" /* RootRenderer */])) {
-            return this._RootRenderer_23;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_17__angular_platform_browser_src_security_dom_sanitization_service__["a" /* DomSanitizer */])) {
-            return this._DomSanitizer_24;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_38__angular_core_src_security__["a" /* Sanitizer */])) {
-            return this._Sanitizer_25;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_18__angular_core_src_animation_animation_queue__["a" /* AnimationQueue */])) {
-            return this._AnimationQueue_26;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_19__angular_core_src_linker_view_utils__["ViewUtils"])) {
-            return this._ViewUtils_27;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_39__angular_core_src_change_detection_differs_iterable_differs__["a" /* IterableDiffers */])) {
-            return this._IterableDiffers_28;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_40__angular_core_src_change_detection_differs_keyvalue_differs__["a" /* KeyValueDiffers */])) {
-            return this._KeyValueDiffers_29;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_15__angular_platform_browser_src_dom_shared_styles_host__["b" /* SharedStylesHost */])) {
-            return this._SharedStylesHost_30;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_20__angular_platform_browser_src_browser_title__["a" /* Title */])) {
-            return this._Title_31;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_21__angular_forms_src_directives_radio_control_value_accessor__["b" /* RadioControlRegistry */])) {
-            return this._RadioControlRegistry_32;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_22__angular_http_src_backends_browser_xhr__["a" /* BrowserXhr */])) {
-            return this._BrowserXhr_33;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_23__angular_http_src_base_response_options__["a" /* ResponseOptions */])) {
-            return this._ResponseOptions_34;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_41__angular_http_src_interfaces__["b" /* XSRFStrategy */])) {
-            return this._XSRFStrategy_35;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_24__angular_http_src_backends_xhr_backend__["b" /* XHRBackend */])) {
-            return this._XHRBackend_36;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_25__angular_http_src_base_request_options__["a" /* RequestOptions */])) {
-            return this._RequestOptions_37;
-        }
-        if ((token === __WEBPACK_IMPORTED_MODULE_42__angular_http_src_http__["a" /* Http */])) {
-            return this._Http_38;
-        }
-        return notFoundResult;
-    };
-    AppModuleInjector.prototype.destroyInternal = function () {
-        this._ApplicationRef__12.ngOnDestroy();
-    };
-    return AppModuleInjector;
-}(__WEBPACK_IMPORTED_MODULE_0__angular_core_src_linker_ng_module_factory__["a" /* NgModuleInjector */]));
-var AppModuleNgFactory = new __WEBPACK_IMPORTED_MODULE_0__angular_core_src_linker_ng_module_factory__["b" /* NgModuleFactory */](AppModuleInjector, __WEBPACK_IMPORTED_MODULE_1__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/home/ubuntu/workspace/src/app.module.ngfactory.js.map
-
-/***/ },
-
-/***/ 335:
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(147);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(312);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(316);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__(67);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngrx_store__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngrx_effects__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngrx_db__ = __webpack_require__(448);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngrx_router_store__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngrx_store_devtools__ = __webpack_require__(705);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_material__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components__ = __webpack_require__(715);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__effects_book__ = __webpack_require__(723);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__effects_collection__ = __webpack_require__(724);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__guards_book_exists__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__containers_app__ = __webpack_require__(720);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__containers_find_book_page__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__containers_view_book_page__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__containers_selected_book_page__ = __webpack_require__(721);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__containers_collection_page__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__containers_not_found_page__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_google_books__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__routes__ = __webpack_require__(732);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__reducers__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__db__ = __webpack_require__(722);
 /* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -773,81 +644,1437 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* NgModule */])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]
-            ],
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["b" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */]
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["e" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_9__angular_material__["MaterialModule"].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_10__components__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_21__routes__["a" /* routes */], { useHash: true }),
+                /**
+                 * StoreModule.provideStore is imported once in the root module, accepting a reducer
+                 * function or object map of reducer functions. If passed an object of
+                 * reducers, combineReducers will be run creating your application
+                 * meta-reducer. This returns all providers for an @ngrx/store
+                 * based application.
+                 */
+                __WEBPACK_IMPORTED_MODULE_4__ngrx_store__["g" /* StoreModule */].provideStore(__WEBPACK_IMPORTED_MODULE_22__reducers__["j" /* reducer */]),
+                /**
+                 * @ngrx/router-store keeps router state up-to-date in the store and uses
+                 * the store as the single source of truth for the router's state.
+                 */
+                __WEBPACK_IMPORTED_MODULE_7__ngrx_router_store__["b" /* RouterStoreModule */].connectRouter(),
+                /**
+                 * Store devtools instrument the store retaining past versions of state
+                 * and recalculating new states. This enables powerful time-travel
+                 * debugging.
+                 *
+                 * To use the debugger, install the Redux Devtools extension for either
+                 * Chrome or Firefox
+                 *
+                 * See: https://github.com/zalmoxisus/redux-devtools-extension
+                 */
+                __WEBPACK_IMPORTED_MODULE_8__ngrx_store_devtools__["a" /* StoreDevtoolsModule */].instrumentOnlyWithExtension(),
+                /**
+                 * EffectsModule.run() sets up the effects class to be initialized
+                 * immediately when the application starts.
+                 *
+                 * See: https://github.com/ngrx/effects/blob/master/docs/api.md#run
+                 */
+                __WEBPACK_IMPORTED_MODULE_5__ngrx_effects__["c" /* EffectsModule */].run(__WEBPACK_IMPORTED_MODULE_11__effects_book__["a" /* BookEffects */]),
+                __WEBPACK_IMPORTED_MODULE_5__ngrx_effects__["c" /* EffectsModule */].run(__WEBPACK_IMPORTED_MODULE_12__effects_collection__["a" /* CollectionEffects */]),
+                /**
+                 * `provideDB` sets up @ngrx/db with the provided schema and makes the Database
+                 * service available.
+                 */
+                __WEBPACK_IMPORTED_MODULE_6__ngrx_db__["b" /* DBModule */].provideDB(__WEBPACK_IMPORTED_MODULE_23__db__["a" /* schema */]),
             ],
-            providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_14__containers_app__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_15__containers_find_book_page__["a" /* FindBookPageComponent */],
+                __WEBPACK_IMPORTED_MODULE_17__containers_selected_book_page__["a" /* SelectedBookPageComponent */],
+                __WEBPACK_IMPORTED_MODULE_16__containers_view_book_page__["a" /* ViewBookPageComponent */],
+                __WEBPACK_IMPORTED_MODULE_18__containers_collection_page__["a" /* CollectionPageComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__containers_not_found_page__["a" /* NotFoundPageComponent */]
+            ],
+            providers: [
+                __WEBPACK_IMPORTED_MODULE_13__guards_book_exists__["a" /* BookExistsGuard */],
+                __WEBPACK_IMPORTED_MODULE_20__services_google_books__["a" /* GoogleBooksService */]
+            ],
+            bootstrap: [
+                __WEBPACK_IMPORTED_MODULE_14__containers_app__["a" /* AppComponent */]
+            ]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/home/ubuntu/workspace/src/app.module.js.map
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/app.module.js.map
 
 /***/ },
 
-/***/ 336:
+/***/ 710:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `angular-cli.json`.
-var environment = {
-    production: false
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_book__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_book___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__models_book__);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return BookAuthorsComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-//# sourceMappingURL=/home/ubuntu/workspace/src/environment.js.map
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var BookAuthorsComponent = (function () {
+    function BookAuthorsComponent() {
+    }
+    Object.defineProperty(BookAuthorsComponent.prototype, "authors", {
+        get: function () {
+            return this.book.volumeInfo.authors;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__models_book__["Book"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__models_book__["Book"]) === 'function' && _a) || Object)
+    ], BookAuthorsComponent.prototype, "book", void 0);
+    BookAuthorsComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'bc-book-authors',
+            template: "\n    <h5 md-subheader>Written By:</h5>\n    <span>\n      {{ authors | bcAddCommas }}\n    </span>\n  ",
+            styles: ["\n    h5 {\n      margin-bottom: 5px;\n    }\n  "]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], BookAuthorsComponent);
+    return BookAuthorsComponent;
+    var _a;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/book-authors.js.map
 
 /***/ },
 
-/***/ 337:
+/***/ 711:
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(351);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_book__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_book___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__models_book__);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return BookDetailComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var BookDetailComponent = (function () {
+    function BookDetailComponent() {
+        this.add = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* EventEmitter */]();
+        this.remove = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* EventEmitter */]();
+    }
+    Object.defineProperty(BookDetailComponent.prototype, "id", {
+        /**
+         * Tip: Utilize getters to keep templates clean
+         */
+        get: function () {
+            return this.book.id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BookDetailComponent.prototype, "title", {
+        get: function () {
+            return this.book.volumeInfo.title;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BookDetailComponent.prototype, "subtitle", {
+        get: function () {
+            return this.book.volumeInfo.subtitle;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BookDetailComponent.prototype, "description", {
+        get: function () {
+            return this.book.volumeInfo.description;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BookDetailComponent.prototype, "thumbnail", {
+        get: function () {
+            return this.book.volumeInfo.imageLinks.smallThumbnail;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__models_book__["Book"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__models_book__["Book"]) === 'function' && _a) || Object)
+    ], BookDetailComponent.prototype, "book", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', Boolean)
+    ], BookDetailComponent.prototype, "inCollection", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Output */])(), 
+        __metadata('design:type', Object)
+    ], BookDetailComponent.prototype, "add", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Output */])(), 
+        __metadata('design:type', Object)
+    ], BookDetailComponent.prototype, "remove", void 0);
+    BookDetailComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'bc-book-detail',
+            template: "\n    <md-card *ngIf=\"book\">\n      <md-card-title-group>\n        <md-card-title>{{ title }}</md-card-title>\n        <md-card-subtitle *ngIf=\"subtitle\">{{ subtitle }}</md-card-subtitle>\n        <img md-card-sm-image *ngIf=\"thumbnail\" [src]=\"thumbnail\"/>\n      </md-card-title-group>\n      <md-card-content>\n        <p [innerHtml]=\"description\"></p>\n      </md-card-content>\n      <md-card-footer class=\"footer\">\n        <bc-book-authors [book]=\"book\"></bc-book-authors>\n      </md-card-footer>\n      <md-card-actions align=\"end\">\n        <button md-raised-button color=\"warn\" *ngIf=\"inCollection\" (click)=\"remove.emit(book)\">\n        Remove Book from Collection\n        </button>\n\n        <button md-raised-button color=\"primary\" *ngIf=\"!inCollection\" (click)=\"add.emit(book)\">\n        Add Book to Collection\n        </button>\n      </md-card-actions>\n    </md-card>\n\n  ",
+            styles: ["\n    :host {\n      display: flex;\n      justify-content: center;\n      margin: 75px 0;\n    }\n    md-card {\n      max-width: 600px;\n    }\n    md-card-title {\n      margin-left: 10px;\n    }\n    img {\n      width: 60px;\n      min-width: 60px;\n      margin-left: 5px;\n    }\n    md-card-content {\n      margin-top: 15px;\n      margin-bottom: 125px;\n    }\n    md-card-actions {\n      margin-bottom: 0 !important;\n      margin-right: 0;\n    }\n    md-card-footer {\n      padding: 0 25px 25px;\n    }\n  "]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], BookDetailComponent);
+    return BookDetailComponent;
+    var _a;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/book-detail.js.map
+
+/***/ },
+
+/***/ 712:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return BookPreviewListComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var BookPreviewListComponent = (function () {
+    function BookPreviewListComponent() {
+    }
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', Array)
+    ], BookPreviewListComponent.prototype, "books", void 0);
+    BookPreviewListComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'bc-book-preview-list',
+            template: "\n    <bc-book-preview *ngFor=\"let book of books\" [book]=\"book\"></bc-book-preview>\n  ",
+            styles: ["\n    :host {\n      display: flex;\n      flex-wrap: wrap;\n      justify-content: center;\n    }\n  "]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], BookPreviewListComponent);
+    return BookPreviewListComponent;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/book-preview-list.js.map
+
+/***/ },
+
+/***/ 713:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_book__ = __webpack_require__(274);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_book___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__models_book__);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return BookPreviewComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var BookPreviewComponent = (function () {
+    function BookPreviewComponent() {
+    }
+    Object.defineProperty(BookPreviewComponent.prototype, "id", {
+        get: function () {
+            return this.book.id;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BookPreviewComponent.prototype, "title", {
+        get: function () {
+            return this.book.volumeInfo.title;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BookPreviewComponent.prototype, "subtitle", {
+        get: function () {
+            return this.book.volumeInfo.subtitle;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BookPreviewComponent.prototype, "description", {
+        get: function () {
+            return this.book.volumeInfo.description;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(BookPreviewComponent.prototype, "thumbnail", {
+        get: function () {
+            if (this.book.volumeInfo.imageLinks) {
+                return this.book.volumeInfo.imageLinks.smallThumbnail;
+            }
+            return false;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__models_book__["Book"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__models_book__["Book"]) === 'function' && _a) || Object)
+    ], BookPreviewComponent.prototype, "book", void 0);
+    BookPreviewComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'bc-book-preview',
+            template: "\n    <a [routerLink]=\"['/book', id]\">\n      <md-card>\n        <md-card-title-group>\n          <img md-card-sm-image *ngIf=\"thumbnail\" [src]=\"thumbnail\"/>\n          <md-card-title>{{ title }}</md-card-title>\n          <md-card-subtitle *ngIf=\"subtitle\">{{ subtitle }}</md-card-subtitle>\n        </md-card-title-group>\n        <md-card-content>\n          <p *ngIf=\"description\">{{ description | bcEllipsis }}</p>\n        </md-card-content>\n        <md-card-footer>\n          <bc-book-authors [book]=\"book\"></bc-book-authors>\n        </md-card-footer>\n      </md-card>\n    </a>\n  ",
+            styles: ["\n    md-card {\n      width: 400px;\n      height: 300px;\n      margin: 15px;\n    }\n    md-card-title {\n      margin-right: 10px;\n    }\n    a {\n      color: inherit;\n      text-decoration: none;\n    }\n    img {\n      width: 60px;\n      min-width: 60px;\n      margin-left: 5px;\n    }\n    md-card-content {\n      margin-top: 15px;\n    }\n    span {\n      display: inline-block;\n      font-size: 13px;\n    }\n    md-card-footer {\n      padding: 0 25px 25px;\n    }\n  "]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], BookPreviewComponent);
+    return BookPreviewComponent;
+    var _a;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/book-preview.js.map
+
+/***/ },
+
+/***/ 714:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_debounceTime__ = __webpack_require__(509);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_debounceTime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__(894);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_distinctUntilChanged___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_distinctUntilChanged__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return BookSearchComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var BookSearchComponent = (function () {
+    function BookSearchComponent() {
+        this.query = '';
+        this.searching = false;
+        this.search = new __WEBPACK_IMPORTED_MODULE_3__angular_core__["_20" /* EventEmitter */]();
+    }
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', String)
+    ], BookSearchComponent.prototype, "query", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', Object)
+    ], BookSearchComponent.prototype, "searching", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__angular_core__["C" /* Output */])(), 
+        __metadata('design:type', Object)
+    ], BookSearchComponent.prototype, "search", void 0);
+    BookSearchComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__angular_core__["G" /* Component */])({
+            selector: 'bc-book-search',
+            template: "\n    <md-card>\n      <md-card-title>Find a Book</md-card-title>\n      <md-card-content>\n        <md-input placeholder=\"Search for a book\" [value]=\"query\" (keyup)=\"search.emit($event.target.value)\"></md-input>\n        <md-spinner [class.show]=\"searching\"></md-spinner>\n      </md-card-content>\n    </md-card>\n  ",
+            styles: ["\n    md-card-title,\n    md-card-content {\n      display: flex;\n      justify-content: center;\n    }\n\n    md-input {\n      width: 300px;\n    }\n\n    md-card-spinner {\n      padding-left: 60px; // Make room for the spinner\n    }\n\n    md-spinner {\n      width: 30px;\n      height: 30px;\n      position: relative;\n      top: 10px;\n      left: 10px;\n      opacity: 0.0;\n    }\n\n    md-spinner.show {\n      opacity: 1.0;\n    }\n  "]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], BookSearchComponent);
+    return BookSearchComponent;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/book-search.js.map
+
+/***/ },
+
+/***/ 715:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(402);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(95);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__book_authors__ = __webpack_require__(710);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__book_detail__ = __webpack_require__(711);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__book_preview__ = __webpack_require__(713);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__book_preview_list__ = __webpack_require__(712);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__book_search__ = __webpack_require__(714);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__layout__ = __webpack_require__(716);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__nav_item__ = __webpack_require__(717);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__sidenav__ = __webpack_require__(718);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__toolbar__ = __webpack_require__(719);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pipes__ = __webpack_require__(727);
+/* unused harmony export COMPONENTS */
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ComponentsModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var COMPONENTS = [
+    __WEBPACK_IMPORTED_MODULE_5__book_authors__["a" /* BookAuthorsComponent */],
+    __WEBPACK_IMPORTED_MODULE_6__book_detail__["a" /* BookDetailComponent */],
+    __WEBPACK_IMPORTED_MODULE_7__book_preview__["a" /* BookPreviewComponent */],
+    __WEBPACK_IMPORTED_MODULE_8__book_preview_list__["a" /* BookPreviewListComponent */],
+    __WEBPACK_IMPORTED_MODULE_9__book_search__["a" /* BookSearchComponent */],
+    __WEBPACK_IMPORTED_MODULE_10__layout__["a" /* LayoutComponent */],
+    __WEBPACK_IMPORTED_MODULE_11__nav_item__["a" /* NavItemComponent */],
+    __WEBPACK_IMPORTED_MODULE_12__sidenav__["a" /* SidenavComponent */],
+    __WEBPACK_IMPORTED_MODULE_13__toolbar__["a" /* ToolbarComponent */],
+];
+var ComponentsModule = (function () {
+    function ComponentsModule() {
+    }
+    ComponentsModule = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* ReactiveFormsModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material__["MaterialModule"],
+                __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */],
+                __WEBPACK_IMPORTED_MODULE_14__pipes__["a" /* PipesModule */],
+            ],
+            declarations: COMPONENTS,
+            exports: COMPONENTS
+        }), 
+        __metadata('design:paramtypes', [])
+    ], ComponentsModule);
+    return ComponentsModule;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/index.js.map
+
+/***/ },
+
+/***/ 716:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return LayoutComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LayoutComponent = (function () {
+    function LayoutComponent() {
+    }
+    LayoutComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'bc-layout',
+            template: "\n    <md-sidenav-layout fullscreen>\n      \n      <ng-content></ng-content>\n\n    </md-sidenav-layout>\n  ",
+            styles: ["\n    md-sidenav-layout {\n      background: rgba(0, 0, 0, 0.03);\n    }\n    \n    *, /deep/ * {\n      -webkit-font-smoothing: antialiased;\n      -moz-osx-font-smoothing: grayscale;\n    }\n  "]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], LayoutComponent);
+    return LayoutComponent;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/layout.js.map
+
+/***/ },
+
+/***/ 717:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return NavItemComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var NavItemComponent = (function () {
+    function NavItemComponent() {
+        this.icon = '';
+        this.hint = '';
+        this.routerLink = '/';
+        this.activate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* EventEmitter */]();
+    }
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', String)
+    ], NavItemComponent.prototype, "icon", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', String)
+    ], NavItemComponent.prototype, "hint", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', Object)
+    ], NavItemComponent.prototype, "routerLink", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Output */])(), 
+        __metadata('design:type', Object)
+    ], NavItemComponent.prototype, "activate", void 0);
+    NavItemComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'bc-nav-item',
+            template: "\n    <a md-list-item [routerLink]=\"routerLink\" (click)=\"activate.emit()\">\n      <md-icon md-list-icon>{{ icon }}</md-icon>\n      <span md-line><ng-content></ng-content></span>\n      <span md-line class=\"secondary\">{{ hint }}</span>\n    </a>\n  ",
+            styles: ["\n    .secondary {\n      color: rgba(0, 0, 0, 0.54);\n    }\n  "]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], NavItemComponent);
+    return NavItemComponent;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/nav-item.js.map
+
+/***/ },
+
+/***/ 718:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SidenavComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SidenavComponent = (function () {
+    function SidenavComponent() {
+        this.open = false;
+    }
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Input */])(), 
+        __metadata('design:type', Object)
+    ], SidenavComponent.prototype, "open", void 0);
+    SidenavComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'bc-sidenav',
+            template: "\n    <md-sidenav [opened]=\"open\">\n      <md-nav-list>\n        <ng-content></ng-content>\n      </md-nav-list>\n    </md-sidenav>\n  ",
+            styles: ["\n    md-sidenav {\n      width: 300px;\n    }\n  "]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], SidenavComponent);
+    return SidenavComponent;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/sidenav.js.map
+
+/***/ },
+
+/***/ 719:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ToolbarComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ToolbarComponent = (function () {
+    function ToolbarComponent() {
+        this.openMenu = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* EventEmitter */]();
+    }
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Output */])(), 
+        __metadata('design:type', Object)
+    ], ToolbarComponent.prototype, "openMenu", void 0);
+    ToolbarComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'bc-toolbar',
+            template: "\n    <md-toolbar color=\"primary\">\n      <button md-icon-button (click)=\"openMenu.emit()\">\n        <md-icon>menu</md-icon>\n      </button>\n      <ng-content></ng-content>\n    </md-toolbar>\n  "
+        }), 
+        __metadata('design:paramtypes', [])
+    ], ToolbarComponent);
+    return ToolbarComponent;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/toolbar.js.map
+
+/***/ },
+
+/***/ 720:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_let__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_let___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_let__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngrx_store__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__reducers__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions_layout__ = __webpack_require__(461);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AppComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AppComponent = (function () {
+    function AppComponent(store) {
+        this.store = store;
+        /**
+         * Selectors can be applied with the `select` operator which passes the state
+         * tree to the provided selector
+         */
+        this.showSidenav$ = this.store.select(__WEBPACK_IMPORTED_MODULE_3__reducers__["c" /* getShowSidenav */]);
+    }
+    AppComponent.prototype.closeSidenav = function () {
+        /**
+         * All state updates are handled through dispatched actions in 'container'
+         * components. This provides a clear, reproducible history of state
+         * updates and user interaction through the life of our
+         * application.
+         */
+        this.store.dispatch(new __WEBPACK_IMPORTED_MODULE_4__actions_layout__["b" /* CloseSidenavAction */]());
+    };
+    AppComponent.prototype.openSidenav = function () {
+        this.store.dispatch(new __WEBPACK_IMPORTED_MODULE_4__actions_layout__["c" /* OpenSidenavAction */]());
+    };
+    AppComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_core__["G" /* Component */])({
+            selector: 'book-collection-app',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_1__angular_core__["d" /* ChangeDetectionStrategy */].OnPush,
+            template: "\n    <bc-layout>\n      <bc-sidenav [open]=\"showSidenav$ | async\">\n        <bc-nav-item (activate)=\"closeSidenav()\" routerLink=\"/\" icon=\"book\" hint=\"View your book collection\">\n          My Collection\n        </bc-nav-item>\n        <bc-nav-item (activate)=\"closeSidenav()\" routerLink=\"/book/find\" icon=\"search\" hint=\"Find your next book!\">\n          Browse Books\n        </bc-nav-item>\n      </bc-sidenav>\n      <bc-toolbar (openMenu)=\"openSidenav()\">\n        Book Collection\n      </bc-toolbar>\n\n      <router-outlet></router-outlet>\n    </bc-layout>\n  "
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_2__ngrx_store__["b" /* Store */]) === 'function' && _a) || Object])
+    ], AppComponent);
+    return AppComponent;
+    var _a;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/app.js.map
+
+/***/ },
+
+/***/ 721:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngrx_store__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__reducers__ = __webpack_require__(98);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions_collection__ = __webpack_require__(181);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return SelectedBookPageComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var SelectedBookPageComponent = (function () {
+    function SelectedBookPageComponent(store) {
+        this.store = store;
+        this.book$ = store.select(__WEBPACK_IMPORTED_MODULE_2__reducers__["g" /* getSelectedBook */]);
+        this.isSelectedBookInCollection$ = store.select(__WEBPACK_IMPORTED_MODULE_2__reducers__["h" /* isSelectedBookInCollection */]);
+    }
+    SelectedBookPageComponent.prototype.addToCollection = function (book) {
+        this.store.dispatch(new __WEBPACK_IMPORTED_MODULE_3__actions_collection__["i" /* AddBookAction */](book));
+    };
+    SelectedBookPageComponent.prototype.removeFromCollection = function (book) {
+        this.store.dispatch(new __WEBPACK_IMPORTED_MODULE_3__actions_collection__["j" /* RemoveBookAction */](book));
+    };
+    SelectedBookPageComponent = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["G" /* Component */])({
+            selector: 'bc-selected-book-page',
+            changeDetection: __WEBPACK_IMPORTED_MODULE_0__angular_core__["d" /* ChangeDetectionStrategy */].OnPush,
+            template: "\n    <bc-book-detail\n      [book]=\"book$ | async\"\n      [inCollection]=\"isSelectedBookInCollection$ | async\"\n      (add)=\"addToCollection($event)\"\n      (remove)=\"removeFromCollection($event)\">\n    </bc-book-detail>\n  "
+        }), 
+        __metadata('design:paramtypes', [(typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__ngrx_store__["b" /* Store */]) === 'function' && _a) || Object])
+    ], SelectedBookPageComponent);
+    return SelectedBookPageComponent;
+    var _a;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/selected-book-page.js.map
+
+/***/ },
+
+/***/ 722:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return schema; });
+/**
+ * ngrx/db uses a simple schema config object to initialize stores in IndexedDB.
+ */
+var schema = {
+    version: 1,
+    name: 'books_app',
+    stores: {
+        books: {
+            autoIncrement: true,
+            primaryKey: 'id'
+        }
+    }
+};
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/db.js.map
+
+/***/ },
+
+/***/ 723:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_catch__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_debounceTime__ = __webpack_require__(509);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_debounceTime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_debounceTime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_skip__ = __webpack_require__(898);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_skip___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_skip__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_takeUntil__ = __webpack_require__(900);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_takeUntil___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_takeUntil__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngrx_effects__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_Observable__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_observable_empty__ = __webpack_require__(515);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_observable_empty___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_observable_empty__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_observable_of__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_observable_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_google_books__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__actions_book__ = __webpack_require__(97);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return BookEffects; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Effects offer a way to isolate and easily test side-effects within your
+ * application. StateUpdates is an observable of the latest state and
+ * dispatched action. The `toPayload` helper function returns just
+ * the payload of the currently dispatched action, useful in
+ * instances where the current state is not necessary.
+ *
+ * If you are unfamiliar with the operators being used in these examples, please
+ * check out the sources below:
+ *
+ * Official Docs: http://reactivex.io/rxjs/manual/overview.html#categories-of-operators
+ * RxJS 5 Operators By Example: https://gist.github.com/btroncone/d6cf141d6f2c00dc6b35
+ */
+var BookEffects = (function () {
+    function BookEffects(actions$, googleBooks) {
+        var _this = this;
+        this.actions$ = actions$;
+        this.googleBooks = googleBooks;
+        this.search$ = this.actions$
+            .ofType(__WEBPACK_IMPORTED_MODULE_12__actions_book__["a" /* ActionTypes */].SEARCH)
+            .debounceTime(300)
+            .map(function (action) { return action.payload; })
+            .switchMap(function (query) {
+            if (query === '') {
+                return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_9_rxjs_observable_empty__["empty"])();
+            }
+            var nextSearch$ = _this.actions$.ofType(__WEBPACK_IMPORTED_MODULE_12__actions_book__["a" /* ActionTypes */].SEARCH).skip(1);
+            return _this.googleBooks.searchBooks(query)
+                .takeUntil(nextSearch$)
+                .map(function (books) { return new __WEBPACK_IMPORTED_MODULE_12__actions_book__["b" /* SearchCompleteAction */](books); })
+                .catch(function () { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_observable_of__["of"])(new __WEBPACK_IMPORTED_MODULE_12__actions_book__["b" /* SearchCompleteAction */]([])); });
+        });
+    }
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__ngrx_effects__["a" /* Effect */])(), 
+        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_8_rxjs_Observable__["Observable"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_8_rxjs_Observable__["Observable"]) === 'function' && _a) || Object)
+    ], BookEffects.prototype, "search$", void 0);
+    BookEffects = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__angular_core__["R" /* Injectable */])(), 
+        __metadata('design:paramtypes', [(typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_7__ngrx_effects__["b" /* Actions */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__ngrx_effects__["b" /* Actions */]) === 'function' && _b) || Object, (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_11__services_google_books__["a" /* GoogleBooksService */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_11__services_google_books__["a" /* GoogleBooksService */]) === 'function' && _c) || Object])
+    ], BookEffects);
+    return BookEffects;
+    var _a, _b, _c;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/book.js.map
+
+/***/ },
+
+/***/ 724:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_map__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_startWith__ = __webpack_require__(899);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_startWith__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_switchMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_mergeMap__ = __webpack_require__(896);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_mergeMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_mergeMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toArray__ = __webpack_require__(901);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toArray___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toArray__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ngrx_effects__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ngrx_db__ = __webpack_require__(448);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_observable_defer__ = __webpack_require__(909);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_rxjs_observable_defer___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_rxjs_observable_defer__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_observable_of__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_rxjs_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_rxjs_observable_of__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__actions_collection__ = __webpack_require__(181);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return CollectionEffects; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+var CollectionEffects = (function () {
+    function CollectionEffects(actions$, db) {
+        var _this = this;
+        this.actions$ = actions$;
+        this.db = db;
+        /**
+         * This effect does not yield any actions back to the store. Set
+         * `dispatch` to false to hint to @ngrx/effects that it should
+         * ignore any elements of this effect stream.
+         *
+         * The `defer` observable accepts an observable factory function
+         * that is called when the observable is subscribed to.
+         * Wrapping the database open call in `defer` makes
+         * effect easier to test.
+         */
+        this.openDB$ = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_10_rxjs_observable_defer__["defer"])(function () {
+            return _this.db.open('books_app');
+        });
+        /**
+         * This effect makes use of the `startWith` operator to trigger
+         * the effect immediately on startup.
+         */
+        this.loadCollection$ = this.actions$
+            .ofType(__WEBPACK_IMPORTED_MODULE_12__actions_collection__["a" /* ActionTypes */].LOAD)
+            .startWith(new __WEBPACK_IMPORTED_MODULE_12__actions_collection__["b" /* LoadAction */]())
+            .switchMap(function () {
+            return _this.db.query('books')
+                .toArray()
+                .map(function (books) { return new __WEBPACK_IMPORTED_MODULE_12__actions_collection__["c" /* LoadSuccessAction */](books); })
+                .catch(function (error) { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_11_rxjs_observable_of__["of"])(new __WEBPACK_IMPORTED_MODULE_12__actions_collection__["d" /* LoadFailAction */](error)); });
+        });
+        this.addBookToCollection$ = this.actions$
+            .ofType(__WEBPACK_IMPORTED_MODULE_12__actions_collection__["a" /* ActionTypes */].ADD_BOOK)
+            .map(function (action) { return action.payload; })
+            .mergeMap(function (book) {
+            return _this.db.insert('books', [book])
+                .map(function () { return new __WEBPACK_IMPORTED_MODULE_12__actions_collection__["e" /* AddBookSuccessAction */](book); })
+                .catch(function () { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_11_rxjs_observable_of__["of"])(new __WEBPACK_IMPORTED_MODULE_12__actions_collection__["f" /* AddBookFailAction */](book)); });
+        });
+        this.removeBookFromCollection$ = this.actions$
+            .ofType(__WEBPACK_IMPORTED_MODULE_12__actions_collection__["a" /* ActionTypes */].REMOVE_BOOK)
+            .map(function (action) { return action.payload; })
+            .mergeMap(function (book) {
+            return _this.db.executeWrite('books', 'delete', [book.id])
+                .map(function () { return new __WEBPACK_IMPORTED_MODULE_12__actions_collection__["g" /* RemoveBookSuccessAction */](book); })
+                .catch(function () { return __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_11_rxjs_observable_of__["of"])(new __WEBPACK_IMPORTED_MODULE_12__actions_collection__["h" /* RemoveBookFailAction */](book)); });
+        });
+    }
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__ngrx_effects__["a" /* Effect */])({ dispatch: false }), 
+        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"]) === 'function' && _a) || Object)
+    ], CollectionEffects.prototype, "openDB$", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__ngrx_effects__["a" /* Effect */])(), 
+        __metadata('design:type', (typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"]) === 'function' && _b) || Object)
+    ], CollectionEffects.prototype, "loadCollection$", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__ngrx_effects__["a" /* Effect */])(), 
+        __metadata('design:type', (typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"]) === 'function' && _c) || Object)
+    ], CollectionEffects.prototype, "addBookToCollection$", void 0);
+    __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_7__ngrx_effects__["a" /* Effect */])(), 
+        __metadata('design:type', (typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_9_rxjs_Observable__["Observable"]) === 'function' && _d) || Object)
+    ], CollectionEffects.prototype, "removeBookFromCollection$", void 0);
+    CollectionEffects = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__angular_core__["R" /* Injectable */])(), 
+        __metadata('design:paramtypes', [(typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__ngrx_effects__["b" /* Actions */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_7__ngrx_effects__["b" /* Actions */]) === 'function' && _e) || Object, (typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_8__ngrx_db__["a" /* Database */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_8__ngrx_db__["a" /* Database */]) === 'function' && _f) || Object])
+    ], CollectionEffects);
+    return CollectionEffects;
+    var _a, _b, _c, _d, _e, _f;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/collection.js.map
+
+/***/ },
+
+/***/ 725:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return AddCommasPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AddCommasPipe = (function () {
+    function AddCommasPipe() {
+    }
+    AddCommasPipe.prototype.transform = function (authors) {
+        if (!authors)
+            return 'Author Unknown';
+        switch (authors.length) {
+            case 0:
+                return 'Author Unknown';
+            case 1:
+                return authors[0];
+            case 2:
+                return authors.join(' and ');
+            default:
+                var last = authors[authors.length - 1];
+                var remaining = authors.slice(0, -1);
+                return remaining.join(', ') + ", and " + last;
+        }
+    };
+    AddCommasPipe = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Pipe */])({ name: 'bcAddCommas' }), 
+        __metadata('design:paramtypes', [])
+    ], AddCommasPipe);
+    return AddCommasPipe;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/add-commas.js.map
+
+/***/ },
+
+/***/ 726:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return EllipsisPipe; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var EllipsisPipe = (function () {
+    function EllipsisPipe() {
+    }
+    EllipsisPipe.prototype.transform = function (str) {
+        var withoutHtml = str.replace(/(<([^>]+)>)/ig, '');
+        if (str.length >= 250) {
+            return withoutHtml.slice(0, 250) + '...';
+        }
+        return withoutHtml;
+    };
+    EllipsisPipe = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["J" /* Pipe */])({ name: 'bcEllipsis' }), 
+        __metadata('design:paramtypes', [])
+    ], EllipsisPipe);
+    return EllipsisPipe;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/ellipsis.js.map
+
+/***/ },
+
+/***/ 727:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__add_commas__ = __webpack_require__(725);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ellipsis__ = __webpack_require__(726);
+/* unused harmony export PIPES */
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return PipesModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var PIPES = [
+    __WEBPACK_IMPORTED_MODULE_1__add_commas__["a" /* AddCommasPipe */],
+    __WEBPACK_IMPORTED_MODULE_2__ellipsis__["a" /* EllipsisPipe */],
+];
+var PipesModule = (function () {
+    function PipesModule() {
+    }
+    PipesModule = __decorate([
+        __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: PIPES,
+            exports: PIPES
+        }), 
+        __metadata('design:paramtypes', [])
+    ], PipesModule);
+    return PipesModule;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/index.js.map
+
+/***/ },
+
+/***/ 728:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_reselect__ = __webpack_require__(505);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_reselect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_reselect__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__actions_book__ = __webpack_require__(97);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actions_collection__ = __webpack_require__(181);
+/* harmony export (immutable) */ exports["a"] = reducer;
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return getEntities; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return getIds; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return getSelectedId; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "e", function() { return getSelected; });
+/* unused harmony export getAll */
+
+
+
+;
+var initialState = {
+    ids: [],
+    entities: {},
+    selectedBookId: null,
+};
+function reducer(state, action) {
+    if (state === void 0) { state = initialState; }
+    switch (action.type) {
+        case __WEBPACK_IMPORTED_MODULE_1__actions_book__["a" /* ActionTypes */].SEARCH_COMPLETE:
+        case __WEBPACK_IMPORTED_MODULE_2__actions_collection__["a" /* ActionTypes */].LOAD_SUCCESS: {
+            var books = action.payload;
+            var newBooks = books.filter(function (book) { return !state.entities[book.id]; });
+            var newBookIds = newBooks.map(function (book) { return book.id; });
+            var newBookEntities = newBooks.reduce(function (entities, book) {
+                return Object.assign(entities, (_a = {},
+                    _a[book.id] = book,
+                    _a
+                ));
+                var _a;
+            }, {});
+            return {
+                ids: state.ids.concat(newBookIds),
+                entities: Object.assign({}, state.entities, newBookEntities),
+                selectedBookId: state.selectedBookId
+            };
+        }
+        case __WEBPACK_IMPORTED_MODULE_1__actions_book__["a" /* ActionTypes */].LOAD: {
+            var book_1 = action.payload;
+            if (state.ids.indexOf(book_1.id) > -1) {
+                return state;
+            }
+            return {
+                ids: state.ids.concat([book_1.id]),
+                entities: Object.assign({}, state.entities, (_a = {},
+                    _a[book_1.id] = book_1,
+                    _a
+                )),
+                selectedBookId: state.selectedBookId
+            };
+        }
+        case __WEBPACK_IMPORTED_MODULE_1__actions_book__["a" /* ActionTypes */].SELECT: {
+            return {
+                ids: state.ids,
+                entities: state.entities,
+                selectedBookId: action.payload
+            };
+        }
+        default: {
+            return state;
+        }
+    }
+    var _a;
+}
+/**
+ * Because the data structure is defined within the reducer it is optimal to
+ * locate our selector functions at this level. If store is to be thought of
+ * as a database, and reducers the tables, selectors can be considered the
+ * queries into said database. Remember to keep your selectors small and
+ * focused so they can be combined and composed to fit each particular
+ * use-case.
+ */
+var getEntities = function (state) { return state.entities; };
+var getIds = function (state) { return state.ids; };
+var getSelectedId = function (state) { return state.selectedBookId; };
+var getSelected = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getEntities, getSelectedId, function (entities, selectedId) {
+    return entities[selectedId];
+});
+var getAll = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getEntities, getIds, function (entities, ids) {
+    return ids.map(function (id) { return entities[id]; });
+});
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/books.js.map
+
+/***/ },
+
+/***/ 729:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_collection__ = __webpack_require__(181);
+/* harmony export (immutable) */ exports["a"] = reducer;
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return getLoaded; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return getLoading; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return getIds; });
+
+;
+var initialState = {
+    loaded: false,
+    loading: false,
+    ids: []
+};
+function reducer(state, action) {
+    if (state === void 0) { state = initialState; }
+    switch (action.type) {
+        case __WEBPACK_IMPORTED_MODULE_0__actions_collection__["a" /* ActionTypes */].LOAD: {
+            return Object.assign({}, state, {
+                loading: true
+            });
+        }
+        case __WEBPACK_IMPORTED_MODULE_0__actions_collection__["a" /* ActionTypes */].LOAD_SUCCESS: {
+            var books = action.payload;
+            return {
+                loaded: true,
+                loading: false,
+                ids: books.map(function (book) { return book.id; })
+            };
+        }
+        case __WEBPACK_IMPORTED_MODULE_0__actions_collection__["a" /* ActionTypes */].ADD_BOOK_SUCCESS:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_collection__["a" /* ActionTypes */].REMOVE_BOOK_FAIL: {
+            var book = action.payload;
+            if (state.ids.indexOf(book.id) > -1) {
+                return state;
+            }
+            return Object.assign({}, state, {
+                ids: state.ids.concat([book.id])
+            });
+        }
+        case __WEBPACK_IMPORTED_MODULE_0__actions_collection__["a" /* ActionTypes */].REMOVE_BOOK_SUCCESS:
+        case __WEBPACK_IMPORTED_MODULE_0__actions_collection__["a" /* ActionTypes */].ADD_BOOK_FAIL: {
+            var book_1 = action.payload;
+            return Object.assign({}, state, {
+                ids: state.ids.filter(function (id) { return id !== book_1.id; })
+            });
+        }
+        default: {
+            return state;
+        }
+    }
+}
+var getLoaded = function (state) { return state.loaded; };
+var getLoading = function (state) { return state.loading; };
+var getIds = function (state) { return state.ids; };
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/collection.js.map
+
+/***/ },
+
+/***/ 730:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_layout__ = __webpack_require__(461);
+/* harmony export (immutable) */ exports["a"] = reducer;
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return getShowSidenav; });
+
+var initialState = {
+    showSidenav: false,
+};
+function reducer(state, action) {
+    if (state === void 0) { state = initialState; }
+    switch (action.type) {
+        case __WEBPACK_IMPORTED_MODULE_0__actions_layout__["a" /* ActionTypes */].CLOSE_SIDENAV:
+            return {
+                showSidenav: false
+            };
+        case __WEBPACK_IMPORTED_MODULE_0__actions_layout__["a" /* ActionTypes */].OPEN_SIDENAV:
+            return {
+                showSidenav: true
+            };
+        default:
+            return state;
+    }
+}
+var getShowSidenav = function (state) { return state.showSidenav; };
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/layout.js.map
+
+/***/ },
+
+/***/ 731:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_book__ = __webpack_require__(97);
+/* harmony export (immutable) */ exports["a"] = reducer;
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return getIds; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return getQuery; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return getLoading; });
+
+;
+var initialState = {
+    ids: [],
+    loading: false,
+    query: ''
+};
+function reducer(state, action) {
+    if (state === void 0) { state = initialState; }
+    switch (action.type) {
+        case __WEBPACK_IMPORTED_MODULE_0__actions_book__["a" /* ActionTypes */].SEARCH: {
+            var query = action.payload;
+            if (query === '') {
+                return {
+                    ids: [],
+                    loading: false,
+                    query: query
+                };
+            }
+            return Object.assign({}, state, {
+                query: query,
+                loading: true
+            });
+        }
+        case __WEBPACK_IMPORTED_MODULE_0__actions_book__["a" /* ActionTypes */].SEARCH_COMPLETE: {
+            var books = action.payload;
+            return {
+                ids: books.map(function (book) { return book.id; }),
+                loading: false,
+                query: state.query
+            };
+        }
+        default: {
+            return state;
+        }
+    }
+}
+var getIds = function (state) { return state.ids; };
+var getQuery = function (state) { return state.query; };
+var getLoading = function (state) { return state.loading; };
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/search.js.map
+
+/***/ },
+
+/***/ 732:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__guards_book_exists__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__containers_find_book_page__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__containers_view_book_page__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__containers_collection_page__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__containers_not_found_page__ = __webpack_require__(464);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return routes; });
+
+
+
+
+
+var routes = [
+    {
+        path: '',
+        component: __WEBPACK_IMPORTED_MODULE_3__containers_collection_page__["a" /* CollectionPageComponent */]
+    },
+    {
+        path: 'book/find',
+        component: __WEBPACK_IMPORTED_MODULE_1__containers_find_book_page__["a" /* FindBookPageComponent */]
+    },
+    {
+        path: 'book/:id',
+        canActivate: [__WEBPACK_IMPORTED_MODULE_0__guards_book_exists__["a" /* BookExistsGuard */]],
+        component: __WEBPACK_IMPORTED_MODULE_2__containers_view_book_page__["a" /* ViewBookPageComponent */]
+    },
+    {
+        path: '**',
+        component: __WEBPACK_IMPORTED_MODULE_4__containers_not_found_page__["a" /* NotFoundPageComponent */]
+    }
+];
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/routes.js.map
+
+/***/ },
+
+/***/ 733:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__ = __webpack_require__(747);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_core_js_es6_symbol__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(344);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__ = __webpack_require__(740);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_core_js_es6_object___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_core_js_es6_object__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(340);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__ = __webpack_require__(736);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_core_js_es6_function___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_core_js_es6_function__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(346);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__ = __webpack_require__(742);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_core_js_es6_parse_int__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(345);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__ = __webpack_require__(741);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_core_js_es6_parse_float__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(343);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__ = __webpack_require__(739);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_core_js_es6_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_core_js_es6_number__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(342);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__ = __webpack_require__(738);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_core_js_es6_math___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_core_js_es6_math__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(350);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__ = __webpack_require__(746);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_core_js_es6_string___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_core_js_es6_string__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(339);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__ = __webpack_require__(735);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_core_js_es6_date___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_core_js_es6_date__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__ = __webpack_require__(734);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_core_js_es6_array___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_core_js_es6_array__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(348);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__ = __webpack_require__(744);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10_core_js_es6_regexp__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__ = __webpack_require__(737);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_core_js_es6_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11_core_js_es6_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(349);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__ = __webpack_require__(745);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_core_js_es6_set___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_core_js_es6_set__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__ = __webpack_require__(743);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_core_js_es6_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__ = __webpack_require__(748);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_core_js_es7_reflect__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(501);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__ = __webpack_require__(932);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_zone_js_dist_zone__);
 
 
@@ -865,17 +2092,220 @@ var environment = {
 
 
 
-//# sourceMappingURL=/home/ubuntu/workspace/src/polyfills.js.map
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/polyfills.js.map
 
 /***/ },
 
-/***/ 502:
+/***/ 933:
 /***/ function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(263);
+module.exports = __webpack_require__(533);
 
+
+/***/ },
+
+/***/ 97:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__util__ = __webpack_require__(276);
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return ActionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return SearchAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return SearchCompleteAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return LoadAction; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "e", function() { return SelectAction; });
+
+/**
+ * For each action type in an action group, make a simple
+ * enum object for all of this group's action types.
+ *
+ * The 'type' utility function coerces strings into string
+ * literal types and runs a simple check to guarantee all
+ * action types in the application are unique.
+ */
+var ActionTypes = {
+    SEARCH: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Book] Search'),
+    SEARCH_COMPLETE: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Book] Search Complete'),
+    LOAD: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Book] Load'),
+    SELECT: __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__util__["a" /* type */])('[Book] Select'),
+};
+/**
+ * Every action is comprised of at least a type and an optional
+ * payload. Expressing actions as classes enables powerful
+ * type checking in reducer functions.
+ *
+ * See Discriminated Unions: https://www.typescriptlang.org/docs/handbook/advanced-types.html#discriminated-unions
+ */
+var SearchAction = (function () {
+    function SearchAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.SEARCH;
+    }
+    return SearchAction;
+}());
+var SearchCompleteAction = (function () {
+    function SearchCompleteAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.SEARCH_COMPLETE;
+    }
+    return SearchCompleteAction;
+}());
+var LoadAction = (function () {
+    function LoadAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.LOAD;
+    }
+    return LoadAction;
+}());
+var SelectAction = (function () {
+    function SelectAction(payload) {
+        this.payload = payload;
+        this.type = ActionTypes.SELECT;
+    }
+    return SelectAction;
+}());
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/book.js.map
+
+/***/ },
+
+/***/ 98:
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_reselect__ = __webpack_require__(505);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_reselect___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_reselect__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngrx_router_store__ = __webpack_require__(452);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngrx_core_compose__ = __webpack_require__(692);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngrx_core_compose___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__ngrx_core_compose__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngrx_store_freeze__ = __webpack_require__(886);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngrx_store_freeze___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_ngrx_store_freeze__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ngrx_store__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__search__ = __webpack_require__(731);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__books__ = __webpack_require__(728);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__collection__ = __webpack_require__(729);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__layout__ = __webpack_require__(730);
+/* harmony export (immutable) */ exports["j"] = reducer;
+/* unused harmony export getBooksState */
+/* harmony export (binding) */ __webpack_require__.d(exports, "b", function() { return getBookEntities; });
+/* unused harmony export getBookIds */
+/* unused harmony export getSelectedBookId */
+/* harmony export (binding) */ __webpack_require__.d(exports, "g", function() { return getSelectedBook; });
+/* unused harmony export getSearchState */
+/* unused harmony export getSearchBookIds */
+/* harmony export (binding) */ __webpack_require__.d(exports, "d", function() { return getSearchQuery; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "f", function() { return getSearchLoading; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "e", function() { return getSearchResults; });
+/* unused harmony export getCollectionState */
+/* harmony export (binding) */ __webpack_require__.d(exports, "a", function() { return getCollectionLoaded; });
+/* unused harmony export getCollectionLoading */
+/* unused harmony export getCollectionBookIds */
+/* harmony export (binding) */ __webpack_require__.d(exports, "i", function() { return getBookCollection; });
+/* harmony export (binding) */ __webpack_require__.d(exports, "h", function() { return isSelectedBookInCollection; });
+/* unused harmony export getLayoutState */
+/* harmony export (binding) */ __webpack_require__.d(exports, "c", function() { return getShowSidenav; });
+
+
+
+
+
+
+
+
+
+
+/**
+ * Because metareducers take a reducer function and return a new reducer,
+ * we can use our compose helper to chain them together. Here we are
+ * using combineReducers to make our top level reducer, and then
+ * wrapping that in storeLogger. Remember that compose applies
+ * the result from right to left.
+ */
+var reducers = {
+    search: __WEBPACK_IMPORTED_MODULE_6__search__["a" /* reducer */],
+    books: __WEBPACK_IMPORTED_MODULE_7__books__["a" /* reducer */],
+    collection: __WEBPACK_IMPORTED_MODULE_8__collection__["a" /* reducer */],
+    layout: __WEBPACK_IMPORTED_MODULE_9__layout__["a" /* reducer */],
+    router: __WEBPACK_IMPORTED_MODULE_1__ngrx_router_store__["a" /* routerReducer */],
+};
+var developmentReducer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__ngrx_core_compose__["compose"])(__WEBPACK_IMPORTED_MODULE_4_ngrx_store_freeze__["storeFreeze"], __WEBPACK_IMPORTED_MODULE_5__ngrx_store__["h" /* combineReducers */])(reducers);
+var productionReducer = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5__ngrx_store__["h" /* combineReducers */])(reducers);
+function reducer(state, action) {
+    if (__WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].production) {
+        return productionReducer(state, action);
+    }
+    else {
+        return developmentReducer(state, action);
+    }
+}
+/**
+ * A selector function is a map function factory. We pass it parameters and it
+ * returns a function that maps from the larger state tree into a smaller
+ * piece of state. This selector simply selects the `books` state.
+ *
+ * Selectors are used with the `select` operator.
+ *
+ * ```ts
+ * class MyComponent {
+ * 	constructor(state$: Observable<State>) {
+ * 	  this.booksState$ = state$.select(getBooksState);
+ * 	}
+ * }
+ * ```
+ */
+var getBooksState = function (state) { return state.books; };
+/**
+ * Every reducer module exports selector functions, however child reducers
+ * have no knowledge of the overall state tree. To make them useable, we
+ * need to make new selectors that wrap them.
+ *
+ * Once again our compose function comes in handy. From right to left, we
+ * first select the books state then we pass the state to the book
+ * reducer's getBooks selector, finally returning an observable
+ * of search results.
+ *
+ * Share memoizes the selector functions and publishes the result. This means
+ * every time you call the selector, you will get back the same result
+ * observable. Each subscription to the resultant observable
+ * is shared across all subscribers.
+ */
+var getBookEntities = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getBooksState, __WEBPACK_IMPORTED_MODULE_7__books__["b" /* getEntities */]);
+var getBookIds = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getBooksState, __WEBPACK_IMPORTED_MODULE_7__books__["c" /* getIds */]);
+var getSelectedBookId = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getBooksState, __WEBPACK_IMPORTED_MODULE_7__books__["d" /* getSelectedId */]);
+var getSelectedBook = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getBooksState, __WEBPACK_IMPORTED_MODULE_7__books__["e" /* getSelected */]);
+/**
+ * Just like with the books selectors, we also have to compose the search
+ * reducer's and collection reducer's selectors.
+ */
+var getSearchState = function (state) { return state.search; };
+var getSearchBookIds = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getSearchState, __WEBPACK_IMPORTED_MODULE_6__search__["b" /* getIds */]);
+var getSearchQuery = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getSearchState, __WEBPACK_IMPORTED_MODULE_6__search__["c" /* getQuery */]);
+var getSearchLoading = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getSearchState, __WEBPACK_IMPORTED_MODULE_6__search__["d" /* getLoading */]);
+/**
+ * Some selector functions create joins across parts of state. This selector
+ * composes the search result IDs to return an array of books in the store.
+ */
+var getSearchResults = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getBookEntities, getSearchBookIds, function (books, searchIds) {
+    return searchIds.map(function (id) { return books[id]; });
+});
+var getCollectionState = function (state) { return state.collection; };
+var getCollectionLoaded = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getCollectionState, __WEBPACK_IMPORTED_MODULE_8__collection__["b" /* getLoaded */]);
+var getCollectionLoading = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getCollectionState, __WEBPACK_IMPORTED_MODULE_8__collection__["c" /* getLoading */]);
+var getCollectionBookIds = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getCollectionState, __WEBPACK_IMPORTED_MODULE_8__collection__["d" /* getIds */]);
+var getBookCollection = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getBookEntities, getCollectionBookIds, function (entities, ids) {
+    return ids.map(function (id) { return entities[id]; });
+});
+var isSelectedBookInCollection = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getCollectionBookIds, getSelectedBookId, function (ids, selected) {
+    return ids.indexOf(selected) > -1;
+});
+/**
+ * Layout Reducers
+ */
+var getLayoutState = function (state) { return state.layout; };
+var getShowSidenav = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0_reselect__["createSelector"])(getLayoutState, __WEBPACK_IMPORTED_MODULE_9__layout__["b" /* getShowSidenav */]);
+//# sourceMappingURL=C:/Users/dell/WebstormProjects/eric-alter/src/index.js.map
 
 /***/ }
 
-},[502]);
+},[933]);
 //# sourceMappingURL=main.bundle.map

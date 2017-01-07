@@ -24,6 +24,7 @@ http://blog.angular-university.io/angular-2-redux-ngrx-rxjs/
 
 DEPLOY PROJECT ON HEROKU:
 https://www.angularonrails.com/deploy-angular-cli-webpack-project-heroku/
+https://angular-cli-heroku.herokuapp.com/
 
 
 

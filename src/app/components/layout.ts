@@ -5,9 +5,7 @@ import { Component } from '@angular/core';
   selector: 'portfolio-layout',
   template: `
     <md-sidenav-layout fullscreen>
-      
       <ng-content></ng-content>
-
     </md-sidenav-layout>
   `,
   styles: [`

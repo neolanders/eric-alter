@@ -1,5 +1,5 @@
 {
-  "name": "my-cli-app",
+  "name": "eric-alter",
   "version": "0.0.0",
   "license": "MIT",
   "angular-cli": {},
@@ -47,16 +47,9 @@
     "karma-cli": "^1.0.1",
     "karma-jasmine": "^1.0.2",
     "karma-remap-istanbul": "^0.2.1",
-    "ngrx-store-freeze": "^0.1.6",
     "protractor": "~4.0.13",
     "ts-node": "1.2.1",
     "tslint": "^4.0.2",
     "typescript": "~2.0.3"
-<<<<<<< HEAD:package.heroku.json
-
-  },
-  "devDependencies": {}
-=======
   }
->>>>>>> f21cfbf015b080c326bc04214a9929ec0feed416:package.origin.json
 }

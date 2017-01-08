@@ -16,8 +16,14 @@ import * as layout from '../actions/layout';
         <portfolio-nav-item (activate)="closeSidenav()" routerLink="/" icon="book" hint="View my works">
           My Work
         </portfolio-nav-item>
-        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/book/find" icon="search" hint="Find my projects">
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/project/find" icon="search" hint="Find my projects">
           Browse Projects
+        </portfolio-nav-item>
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/resume" icon="search" hint="Find my projects">
+          Resume
+        </portfolio-nav-item>
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/details" icon="search" hint="Find my projects">
+          This portfolio
         </portfolio-nav-item>
       </portfolio-sidenav>
       <portfolio-toolbar (openMenu)="openSidenav()">

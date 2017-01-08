@@ -17,6 +17,9 @@ https://eric-alter-neolanders.c9users.io/
 REMOVE GIT ALL CHANGES:
 git reset --hard HEAD
 
+git pull origin master
+
+
 
 STORE STATE OF THE APPLICATION:
 http://blog.angular-university.io/angular-2-redux-ngrx-rxjs/
@@ -25,6 +28,12 @@ http://blog.angular-university.io/angular-2-redux-ngrx-rxjs/
 DEPLOY PROJECT ON HEROKU:
 https://www.angularonrails.com/deploy-angular-cli-webpack-project-heroku/
 https://angular-cli-heroku.herokuapp.com/
+
+
+
+CREATE NEW COMPONENTS USING ANGULAR CLI:
+
+cd src/app/components
 
 
 

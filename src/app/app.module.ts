@@ -18,6 +18,8 @@ import { BookExistsGuard } from './guards/book-exists';
 import { AppComponent } from './containers/app';
 import { FindBookPageComponent } from './containers/find-book-page';
 import { ViewBookPageComponent } from './containers/view-book-page';
+import { ResumeComponent } from './containers/resume/resume.component';
+import { DetailsComponent } from './containers/details/details.component';
 import { SelectedBookPageComponent } from './containers/selected-book-page';
 import { CollectionPageComponent } from './containers/collection-page';
 import { NotFoundPageComponent } from './containers/not-found-page';
@@ -27,6 +29,7 @@ import { GoogleBooksService } from './services/google-books';
 import { routes } from './routes';
 import { reducer } from './reducers';
 import { schema } from './db';
+
 
 
 
@@ -83,10 +86,14 @@ import { schema } from './db';
   declarations: [
     AppComponent,
     FindBookPageComponent,
+    ResumeComponent,
+    DetailsComponent,
     SelectedBookPageComponent,
     ViewBookPageComponent,
     CollectionPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    ResumeComponent,
+    DetailsComponent
   ],
   providers: [
     BookExistsGuard,

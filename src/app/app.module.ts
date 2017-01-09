@@ -26,6 +26,9 @@ import { NotFoundPageComponent } from './containers/not-found-page';
 
 import { GoogleBooksService } from './services/google-books';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreLogMonitorModule, useLogMonitor } from '@ngrx/store-log-monitor';
+
 import { routes } from './routes';
 import { reducer } from './reducers';
 import { schema } from './db';
@@ -67,6 +70,13 @@ import { schema } from './db';
      * See: https://github.com/zalmoxisus/redux-devtools-extension
      */
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    StoreDevtoolsModule.instrumentStore({
+      monitor: useLogMonitor({
+        visible: true,
+        position: 'right'
+      })
+    }),
+    StoreLogMonitorModule,
 
     /**
      * EffectsModule.run() sets up the effects class to be initialized

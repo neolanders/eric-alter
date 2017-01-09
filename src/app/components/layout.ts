@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   template: `
     <md-sidenav-layout fullscreen>
       <ng-content></ng-content>
+      <ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>
     </md-sidenav-layout>
   `,
   styles: [`

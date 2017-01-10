@@ -2,7 +2,6 @@ import { createSelector } from 'reselect';
 import { ActionReducer } from '@ngrx/store';
 import * as fromRouter from '@ngrx/router-store';
 import { environment } from '../../environments/environment';
-import { Book } from '../models/book';
 
 /**
  * The compose function is one of our most handy tools. In basic terms, you give

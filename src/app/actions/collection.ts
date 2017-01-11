@@ -1,62 +1,61 @@
 import { Action } from '@ngrx/store';
-import { Book } from '../models/book';
+import { Project } from '../models/project';
 import { type } from '../util';
 
-
 export const ActionTypes = {
-  ADD_BOOK:             type('[Collection] Add Book'),
-  ADD_BOOK_SUCCESS:     type('[Collection] Add Book Success'),
-  ADD_BOOK_FAIL:        type('[Collection] Add Book Fail'),
-  REMOVE_BOOK:          type('[Collection] Remove Book'),
-  REMOVE_BOOK_SUCCESS:  type('[Collection] Remove Book Success'),
-  REMOVE_BOOK_FAIL:     type('[Collection] Remove Book Fail'),
-  LOAD:                 type('[Collection] Load'),
-  LOAD_SUCCESS:         type('[Collection] Load Success'),
-  LOAD_FAIL:            type('[Collection] Load Fail'),
+  ADD_PROJECT:             type('[Collection] Add Project'),
+  ADD_PROJECT_SUCCESS:     type('[Collection] Add Project Success'),
+  ADD_PROJECT_FAIL:        type('[Collection] Add Project Fail'),
+  REMOVE_PROJECT:          type('[Collection] Remove Project'),
+  REMOVE_PROJECT_SUCCESS:  type('[Collection] Remove Project Success'),
+  REMOVE_PROJECT_FAIL:     type('[Collection] Remove Project Fail'),
+  LOAD:                    type('[Collection] Load'),
+  LOAD_SUCCESS:            type('[Collection] Load Success'),
+  LOAD_FAIL:               type('[Collection] Load Fail'),
 };
 
 
 /**
- * Add Book to Collection Actions
+ * Add PROJECT to Collection Actions
  */
-export class AddBookAction implements Action {
-  type = ActionTypes.ADD_BOOK;
+export class AddProjectAction implements Action {
+  type = ActionTypes.ADD_PROJECT;
 
-  constructor(public payload: Book) { }
+  constructor(public payload: Project) { }
 }
 
-export class AddBookSuccessAction implements Action {
-  type = ActionTypes.ADD_BOOK_SUCCESS;
+export class AddProjectSuccessAction implements Action {
+  type = ActionTypes.ADD_PROJECT_SUCCESS;
 
-  constructor(public payload: Book) { }
+  constructor(public payload: Project) { }
 }
 
-export class AddBookFailAction implements Action {
-  type = ActionTypes.ADD_BOOK_FAIL;
+export class AddProjectFailAction implements Action {
+  type = ActionTypes.ADD_PROJECT_FAIL;
 
-  constructor(public payload: Book) { }
+  constructor(public payload: Project) { }
 }
 
 
 /**
- * Remove Book from Collection Actions
+ * Remove PROJECT from Collection Actions
  */
-export class RemoveBookAction implements Action {
-  type = ActionTypes.REMOVE_BOOK;
+export class RemoveProjectAction implements Action {
+  type = ActionTypes.REMOVE_PROJECT;
 
-  constructor(public payload: Book) { }
+  constructor(public payload: Project) { }
 }
 
-export class RemoveBookSuccessAction implements Action {
-  type = ActionTypes.REMOVE_BOOK_SUCCESS;
+export class RemoveProjectSuccessAction implements Action {
+  type = ActionTypes.REMOVE_PROJECT_SUCCESS;
 
-  constructor(public payload: Book) { }
+  constructor(public payload: Project) { }
 }
 
-export class RemoveBookFailAction implements Action {
-  type = ActionTypes.REMOVE_BOOK_FAIL;
+export class RemoveProjectFailAction implements Action {
+  type = ActionTypes.REMOVE_PROJECT_FAIL;
 
-  constructor(public payload: Book) { }
+  constructor(public payload: Project) { }
 }
 
 /**
@@ -71,7 +70,7 @@ export class LoadAction implements Action {
 export class LoadSuccessAction implements Action {
   type = ActionTypes.LOAD_SUCCESS;
 
-  constructor(public payload: Book[]) { }
+  constructor(public payload: Project[]) { }
 }
 
 export class LoadFailAction implements Action {
@@ -82,12 +81,12 @@ export class LoadFailAction implements Action {
 
 
 export type Actions
-  = AddBookAction
-  | AddBookSuccessAction
-  | AddBookFailAction
-  | RemoveBookAction
-  | RemoveBookSuccessAction
-  | RemoveBookFailAction
+  = AddProjectAction
+  | AddProjectSuccessAction
+  | AddProjectFailAction
+  | RemoveProjectAction
+  | RemoveProjectSuccessAction
+  | RemoveProjectFailAction
   | LoadAction
   | LoadSuccessAction
   | LoadFailAction

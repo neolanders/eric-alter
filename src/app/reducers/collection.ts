@@ -23,34 +23,34 @@ export function reducer(state = initialState, action: collection.Actions): State
     }
 
     case collection.ActionTypes.LOAD_SUCCESS: {
-      const books = action.payload;
+      const projects = action.payload;
 
       return {
         loaded: true,
         loading: false,
-        ids: books.map(book => book.id)
+        ids: projects.map(project => project.id)
       };
     }
 
-    case collection.ActionTypes.ADD_BOOK_SUCCESS:
-    case collection.ActionTypes.REMOVE_BOOK_FAIL: {
-      const book = action.payload;
+    case collection.ActionTypes.ADD_PROJECT_SUCCESS:
+    case collection.ActionTypes.REMOVE_PROJECT_FAIL: {
+      const project = action.payload;
 
-      if (state.ids.indexOf(book.id) > -1) {
+      if (state.ids.indexOf(project.id) > -1) {
         return state;
       }
 
       return Object.assign({}, state, {
-        ids: [ ...state.ids, book.id ]
+        ids: [ ...state.ids, project.id ]
       });
     }
 
-    case collection.ActionTypes.REMOVE_BOOK_SUCCESS:
-    case collection.ActionTypes.ADD_BOOK_FAIL: {
-      const book = action.payload;
+    case collection.ActionTypes.REMOVE_PROJECT_SUCCESS:
+    case collection.ActionTypes.ADD_PROJECT_FAIL: {
+      const project = action.payload;
 
       return Object.assign({}, state, {
-        ids: state.ids.filter(id => id !== book.id)
+        ids: state.ids.filter(id => id !== project.id)
       });
     }
 
@@ -60,9 +60,6 @@ export function reducer(state = initialState, action: collection.Actions): State
   }
 }
 
-
 export const getLoaded = (state: State) => state.loaded;
-
 export const getLoading = (state: State) => state.loading;
-
 export const getIds = (state: State) => state.ids;

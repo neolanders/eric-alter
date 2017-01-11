@@ -1,20 +1,20 @@
 import { Routes } from '@angular/router';
-import { BookExistsGuard } from './guards/book-exists';
-import { FindBookPageComponent } from './containers/find-book-page';
-import { ResumeComponent } from './containers/resume/resume.component';
-import { DetailsComponent } from './containers/details/details.component';
-import { NotFoundPageComponent } from './containers/not-found-page';
-import { ViewBookPageComponent } from './containers/view-book-page';
-import { CollectionPageComponent } from './containers/collection-page';
+import { ProjectExistsGuard } from './guards/project-exists';
+import { FindProjectPageComponent } from './pages/find-project-page';
+import { ResumeComponent } from './pages/resume/resume.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { NotFoundPageComponent } from './pages/not-found-page';
+import { ViewProjectPageComponent } from './pages/view-project-page';
+import { HomePageComponent } from './pages/home-page';
 
 export const routes: Routes = [
   {
     path: '',
-    component: CollectionPageComponent
+    component: HomePageComponent
   },
   {
     path: 'project/find',
-    component: FindBookPageComponent
+    component: FindProjectPageComponent
   },
   {
     path: 'resume',
@@ -25,9 +25,9 @@ export const routes: Routes = [
     component: DetailsComponent
   },
   {
-    path: 'book/:id',
-    canActivate: [ BookExistsGuard ],
-    component: ViewBookPageComponent
+    path: 'project/:id',
+    canActivate: [ ProjectExistsGuard ],
+    component: ViewProjectPageComponent
   },
   {
     path: '**',

@@ -35,7 +35,8 @@ CREATE NEW COMPONENTS USING ANGULAR CLI:
 
 cd src/app/components
 
-
+STATES DEBUGGER:
+https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
 
 # MyCliApp
 

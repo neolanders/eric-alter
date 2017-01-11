@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import * as book from '../actions/book';
+import * as project from '../actions/project';
 
 
 export interface State {
@@ -14,9 +14,9 @@ const initialState: State = {
   query: ''
 };
 
-export function reducer(state = initialState, action: book.Actions): State {
+export function reducer(state = initialState, action: project.Actions): State {
   switch (action.type) {
-    case book.ActionTypes.SEARCH: {
+    case project.ActionTypes.SEARCH: {
       const query = action.payload;
 
       if (query === '') {
@@ -33,11 +33,11 @@ export function reducer(state = initialState, action: book.Actions): State {
       });
     }
 
-    case book.ActionTypes.SEARCH_COMPLETE: {
-      const books = action.payload;
+    case project.ActionTypes.SEARCH_COMPLETE: {
+      const projects = action.payload;
 
       return {
-        ids: books.map(book => book.id),
+        ids: projects.map(project => project.id),
         loading: false,
         query: state.query
       };
@@ -49,9 +49,6 @@ export function reducer(state = initialState, action: book.Actions): State {
   }
 }
 
-
 export const getIds = (state: State) => state.ids;
-
 export const getQuery = (state: State) => state.query;
-
 export const getLoading = (state: State) => state.loading;

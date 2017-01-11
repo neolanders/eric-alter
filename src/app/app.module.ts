@@ -11,27 +11,25 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MaterialModule } from '@angular/material';
 
 import { ComponentsModule } from './components';
-import { BookEffects } from './effects/book';
+import { ProjectEffects } from './effects/project';
 import { CollectionEffects } from './effects/collection';
-import { BookExistsGuard } from './guards/book-exists';
+import { ProjectExistsGuard } from './guards/project-exists';
 
-import { AppComponent } from './containers/app';
-import { FindBookPageComponent } from './containers/find-book-page';
-import { ViewBookPageComponent } from './containers/view-book-page';
-import { ResumeComponent } from './containers/resume/resume.component';
-import { DetailsComponent } from './containers/details/details.component';
-import { SelectedBookPageComponent } from './containers/selected-book-page';
-import { CollectionPageComponent } from './containers/collection-page';
-import { NotFoundPageComponent } from './containers/not-found-page';
+import { AppComponent } from './pages/app';
+import { FindProjectPageComponent } from './pages/find-project-page';
+import { ViewProjectPageComponent } from './pages/view-project-page';
+import { ResumeComponent } from './pages/resume/resume.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { SelectedProjectPageComponent } from './pages/selected-project-page';
+import { HomePageComponent } from './pages/home-page';
+import { NotFoundPageComponent } from './pages/not-found-page';
 
 import { GoogleBooksService } from './services/google-books';
+import { ProjectsService } from './services/projects';
 
 import { routes } from './routes';
 import { reducer } from './reducers';
 import { schema } from './db';
-
-
-
 
 @NgModule({
   imports: [
@@ -67,14 +65,14 @@ import { schema } from './db';
      * See: https://github.com/zalmoxisus/redux-devtools-extension
      */
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
-   
+    
     /**
      * EffectsModule.run() sets up the effects class to be initialized
      * immediately when the application starts.
      *
      * See: https://github.com/ngrx/effects/blob/master/docs/api.md#run
      */
-    EffectsModule.run(BookEffects),
+    EffectsModule.run(ProjectEffects),
     EffectsModule.run(CollectionEffects),
 
     /**
@@ -85,19 +83,20 @@ import { schema } from './db';
   ],
   declarations: [
     AppComponent,
-    FindBookPageComponent,
+    FindProjectPageComponent,
     ResumeComponent,
     DetailsComponent,
-    SelectedBookPageComponent,
-    ViewBookPageComponent,
-    CollectionPageComponent,
+    SelectedProjectPageComponent,
+    ViewProjectPageComponent,
+    HomePageComponent,
     NotFoundPageComponent,
     ResumeComponent,
     DetailsComponent
   ],
   providers: [
-    BookExistsGuard,
-    GoogleBooksService
+    ProjectExistsGuard,
+    GoogleBooksService,
+    ProjectsService
   ],
   bootstrap: [
     AppComponent

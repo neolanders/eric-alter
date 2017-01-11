@@ -13,7 +13,7 @@ import { defer } from 'rxjs/observable/defer';
 import { of } from 'rxjs/observable/of';
 
 import * as collection from '../actions/collection';
-import { Book } from '../models/book';
+import { Project } from '../models/project';
 
 
 @Injectable()
@@ -32,7 +32,7 @@ export class CollectionEffects {
    */
   @Effect({ dispatch: false })
   openDB$: Observable<any> = defer(() => {
-    return this.db.open('books_app');
+    return this.db.open('projects_app');
   });
 
   /**
@@ -44,30 +44,30 @@ export class CollectionEffects {
     .ofType(collection.ActionTypes.LOAD)
     .startWith(new collection.LoadAction())
     .switchMap(() =>
-      this.db.query('books')
+      this.db.query('projects')
         .toArray()
-        .map((books: Book[]) => new collection.LoadSuccessAction(books))
+        .map((projects: Project[]) => new collection.LoadSuccessAction(projects))
         .catch(error => of(new collection.LoadFailAction(error)))
     );
 
   @Effect()
-  addBookToCollection$: Observable<Action> = this.actions$
-    .ofType(collection.ActionTypes.ADD_BOOK)
-    .map((action: collection.AddBookAction) => action.payload)
-    .mergeMap(book =>
-      this.db.insert('books', [ book ])
-        .map(() => new collection.AddBookSuccessAction(book))
-        .catch(() => of(new collection.AddBookFailAction(book)))
+  addProjectToCollection$: Observable<Action> = this.actions$
+    .ofType(collection.ActionTypes.ADD_PROJECT)
+    .map((action: collection.AddProjectAction) => action.payload)
+    .mergeMap(project =>
+      this.db.insert('projects', [ project ])
+        .map(() => new collection.AddProjectSuccessAction(project))
+        .catch(() => of(new collection.AddProjectFailAction(project)))
     );
 
 
   @Effect()
-  removeBookFromCollection$: Observable<Action> = this.actions$
-    .ofType(collection.ActionTypes.REMOVE_BOOK)
-    .map((action: collection.RemoveBookAction) => action.payload)
-    .mergeMap(book =>
-      this.db.executeWrite('books', 'delete', [ book.id ])
-        .map(() => new collection.RemoveBookSuccessAction(book))
-        .catch(() => of(new collection.RemoveBookFailAction(book)))
+  removeProjectFromCollection$: Observable<Action> = this.actions$
+    .ofType(collection.ActionTypes.REMOVE_PROJECT)
+    .map((action: collection.RemoveProjectAction) => action.payload)
+    .mergeMap(project =>
+      this.db.executeWrite('projects', 'delete', [ project.id ])
+        .map(() => new collection.RemoveProjectSuccessAction(project))
+        .catch(() => of(new collection.RemoveProjectFailAction(project)))
     );
 }

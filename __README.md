@@ -16,10 +16,13 @@ https://eric-alter-neolanders.c9users.io/
 
 REMOVE GIT ALL CHANGES:
 git reset --hard HEAD
-
 git pull origin master
 
-
+MERGE CONFLICT:
+after merge:
+git add __file__
+git commit
+git push
 
 STORE STATE OF THE APPLICATION:
 http://blog.angular-university.io/angular-2-redux-ngrx-rxjs/

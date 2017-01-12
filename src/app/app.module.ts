@@ -19,6 +19,7 @@ import { AppComponent } from './pages/app';
 import { FindProjectPageComponent } from './pages/find-project-page';
 import { ViewProjectPageComponent } from './pages/view-project-page';
 import { ResumeComponent } from './pages/resume/resume.component';
+import { ContactComponent } from './pages/contact/contact.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { SelectedProjectPageComponent } from './pages/selected-project-page';
 import { HomePageComponent } from './pages/home-page';
@@ -86,12 +87,14 @@ import { schema } from './db';
     FindProjectPageComponent,
     ResumeComponent,
     DetailsComponent,
+    ContactComponent,
     SelectedProjectPageComponent,
     ViewProjectPageComponent,
     HomePageComponent,
     NotFoundPageComponent,
     ResumeComponent,
-    DetailsComponent
+    DetailsComponent,
+    ContactComponent
   ],
   providers: [
     ProjectExistsGuard,

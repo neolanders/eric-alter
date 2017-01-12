@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { ProjectExistsGuard } from './guards/project-exists';
 import { FindProjectPageComponent } from './pages/find-project-page';
 import { ResumeComponent } from './pages/resume/resume.component';
+import { ContactComponent } from './pages/contact/contact.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { NotFoundPageComponent } from './pages/not-found-page';
 import { ViewProjectPageComponent } from './pages/view-project-page';
@@ -23,6 +24,10 @@ export const routes: Routes = [
   {
     path: 'details',
     component: DetailsComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   },
   {
     path: 'project/:id',

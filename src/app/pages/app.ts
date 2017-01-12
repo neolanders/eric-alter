@@ -19,17 +19,19 @@ import * as layout from '../actions/layout';
         <portfolio-nav-item (activate)="closeSidenav()" routerLink="/project/find" icon="search" hint="Find my projects">
           Browse Projects
         </portfolio-nav-item>
-        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/resume" icon="search" hint="Find my projects">
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/resume" icon="book" hint="My Resume">
           Resume
         </portfolio-nav-item>
-        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/details" icon="search" hint="Find my projects">
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/details" icon="create" hint="Why this portfolio">
           This portfolio
+        </portfolio-nav-item>
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/contact" icon="contact mail" hint="Contact me">
+          Contact
         </portfolio-nav-item>
       </portfolio-sidenav>
       <portfolio-toolbar (openMenu)="openSidenav()">
-        Eric Alter
+        Eric Alter 
       </portfolio-toolbar>
-
       <router-outlet></router-outlet>
     </portfolio-layout>
   `

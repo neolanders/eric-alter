@@ -1,0 +1,19 @@
+<div class="connect" *ngIf="!boolMessageSent">
+  <div class="connect__header">Connect</div>
+  <!--<div class="connect__input">-->
+    <!--<input type="text" placeholder="Name" [(ngModel)]="name">-->
+  <!--</div>-->
+  <!--<div class="connect__input">-->
+    <!--<input type="text" placeholder="Email" [(ngModel)]="email">-->
+  <!--</div>-->
+  <!--<div class="connect__input connect__input&#45;&#45;message">-->
+    <!--<textarea type="text" placeholder="Message" [(ngModel)]="message"></textarea>-->
+  <!--</div>-->
+  <div class="connect__input">
+    <button class="btn connect__send" (click)="sendMessage()">Send</button>
+  </div>
+</div>
+
+<div class="connect__okay" *ngIf="boolMessageSent">
+  <img src="img/okay.png" alt="">
+</div>

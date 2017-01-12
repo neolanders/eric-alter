@@ -41,6 +41,17 @@ cd src/app/components
 STATES DEBUGGER:
 https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=en
 
+
+FIREBASE ACCOUNT GOOGLE:
+https://console.firebase.google.com/project/eric-alter/authentication/users
+
+
+ANGULAR 2 3D ANNIMATE:
+http://www.angularjs4u.com/angularjs2/angular-2-3d-effects-examples-resources/
+
+Flip only with css: To display project and more details
+http://blog.mgechev.com/2013/05/04/css3-flipping-effect/
+
 # MyCliApp
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.

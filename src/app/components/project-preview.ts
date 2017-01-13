@@ -4,21 +4,34 @@ import { Project } from '../models/project';
 @Component({
   selector: 'bc-project-preview',
   template: `
-    <a [routerLink]="['/project', id]">
-      <md-card>
-        <md-card-title-group>
-          <img md-card-sm-image *ngIf="thumbnail" [src]="thumbnail"/>
-          <md-card-title>{{ title }}</md-card-title>
-          <md-card-subtitle *ngIf="subtitle">{{ subtitle }}</md-card-subtitle>
-        </md-card-title-group>
-        <md-card-content>
-          <p *ngIf="description">{{ description | bcEllipsis }}</p>
-        </md-card-content>
-        <md-card-footer>
-          <bc-project-authors [project]="project"></bc-project-authors>
-        </md-card-footer>
-      </md-card>
-    </a>
+    <!--<a [routerLink]="['/project', id]">-->
+      <div class="panel">
+        <md-card class="front card">
+          <md-card-title-group>
+            <img md-card-sm-image *ngIf="thumbnail" [src]="thumbnail"/>
+            <md-card-title>{{ title }}</md-card-title>
+            <md-card-subtitle *ngIf="subtitle">{{ subtitle }}</md-card-subtitle>
+          </md-card-title-group>
+          <md-card-content>
+            <p *ngIf="description">{{ description | bcEllipsis }}</p>
+          </md-card-content>
+          <md-card-footer>
+            <bc-project-authors [project]="project"></bc-project-authors>
+          </md-card-footer>
+        </md-card>
+        <md-card class="back card">
+          <md-card-title-group>
+            ddddd BACK
+          </md-card-title-group>
+          <md-card-content>
+            ddddddd
+          </md-card-content>
+          <md-card-footer>
+            6666666
+          </md-card-footer>
+        </md-card>
+      </div>      
+    <!--</a>-->
   `,
   styleUrls: ['./project-preview.scss']
 })

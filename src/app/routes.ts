@@ -30,6 +30,10 @@ export const routes: Routes = [
     component: ContactComponent
   },
   {
+    path: 'playground',
+    loadChildren: './pages/playground/playground.module#PlaygroundModule' // -- for aot compilation
+  },
+  {
     path: 'project/:id',
     canActivate: [ ProjectExistsGuard ],
     component: ViewProjectPageComponent

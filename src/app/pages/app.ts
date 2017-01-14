@@ -28,6 +28,9 @@ import * as layout from '../actions/layout';
         <portfolio-nav-item (activate)="closeSidenav()" routerLink="/contact" icon="contact mail" hint="Contact me">
           Contact
         </portfolio-nav-item>
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/playground" icon="chrome reader mode" hint="Playground">
+          Playground
+        </portfolio-nav-item>
       </portfolio-sidenav>
       <portfolio-toolbar (openMenu)="openSidenav()">
         Eric Alter 

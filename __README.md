@@ -52,12 +52,28 @@ http://www.angularjs4u.com/angularjs2/angular-2-3d-effects-examples-resources/
 Flip only with css: To display project and more details
 http://blog.mgechev.com/2013/05/04/css3-flipping-effect/
 
+
+AOT:
+ng-build --aot
+ng-serve --aot
+
+
+TODO:
+- Finish to configure firebase for messaging https://console.firebase.google.com/project/eric-alter/database/data
+  Implement contact page service based on
+- Test ThreeJs install in playgroung and make some nice stuff (ex: cube)
+- Add ng2-translate (translate menu see ng2-admin data structure)
+
+
 # MyCliApp
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+
+
 
 ## Code scaffolding
 

@@ -9,18 +9,18 @@ import { Component, ElementRef, OnInit } from '@angular/core';
   styleUrls: ['./threejs.component.scss']
 })
 export class ThreejsComponent implements OnInit {
-  renderer: THREE.WebGLRenderer;
+  // renderer: THREE.WebGLRenderer;
   hostElement: ElementRef;
   constructor(el:ElementRef) {
     this.hostElement = el;
   }
 
   ngOnInit() {
-    this.renderer = new THREE.WebGLRenderer({ alpha: true});
-    this.renderer.setSize(500,500);
-    this.renderer.setClearColor(0xFFAAAAFF,1);
-    this.hostElement.nativeElement.appendChild(this.renderer.domElement);
-    this.renderer.clear();
+    // this.renderer = new THREE.WebGLRenderer({ alpha: true});
+    // this.renderer.setSize(500,500);
+    // this.renderer.setClearColor(0xFFAAAAFF,1);
+    // this.hostElement.nativeElement.appendChild(this.renderer.domElement);
+    // this.renderer.clear();
   }
 
 }

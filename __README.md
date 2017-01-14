@@ -57,6 +57,10 @@ AOT:
 ng-build --aot
 ng-serve --aot
 
+THREE JS INSTALLATION:
+http://stackoverflow.com/questions/40250592/angular-2-and-three-js
+typings install dt~three --global --save
+
 
 TODO:
 - Finish to configure firebase for messaging https://console.firebase.google.com/project/eric-alter/database/data

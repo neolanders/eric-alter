@@ -1,6 +1,7 @@
 // Threejs samples https://threejs.org/examples/#webgl_geometry_cube
 
-/// <reference path="../../../../../typings/globals/three/index.d.ts" />
+
+/*   /// <reference path="../../../../../typings/globals/three/index.d.ts" /> */
 import { Component, ElementRef, OnInit } from '@angular/core';
 
 @Component({

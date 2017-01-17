@@ -6,12 +6,12 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { NotFoundPageComponent } from './pages/not-found-page';
 import { ViewProjectPageComponent } from './pages/view-project-page';
-import { HomePageComponent } from './pages/home-page';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
+    component: HomeComponent
   },
   {
     path: 'project/find',

@@ -22,7 +22,8 @@ import { ResumeComponent } from './pages/resume/resume.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { SelectedProjectPageComponent } from './pages/selected-project-page';
-import { HomePageComponent } from './pages/home-page';
+import { HomeComponent } from './pages/home/home.component';
+// import { HomePageComponent } from './pages/home-page';
 import { NotFoundPageComponent } from './pages/not-found-page';
 
 import { GoogleBooksService } from './services/google-books';
@@ -31,6 +32,7 @@ import { ProjectsService } from './services/projects';
 import { routes } from './routes';
 import { reducer } from './reducers';
 import { schema } from './db';
+
 
 
 @NgModule({
@@ -91,11 +93,12 @@ import { schema } from './db';
     ContactComponent,
     SelectedProjectPageComponent,
     ViewProjectPageComponent,
-    HomePageComponent,
+    // HomePageComponent,
     NotFoundPageComponent,
     ResumeComponent,
     DetailsComponent,
-    ContactComponent
+    ContactComponent,
+    HomeComponent
   ],
   providers: [
     ProjectExistsGuard,

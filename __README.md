@@ -69,6 +69,10 @@ TODO:
 - Add ng2-translate (translate menu see ng2-admin data structure)
 
 
+RESSOURCES:
+images: https://stocksnap.io/search/technology
+
+
 # MyCliApp
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.

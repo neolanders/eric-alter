@@ -18,10 +18,12 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.scss"
+        "styles.scss",
+        "../node_modules/materialize-css/dist/css/materialize.min.css"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/materialize-css/dist/js/materialize.min.js",
         "../node_modules/three/build/three.min.js"
       ],
       "environments": {

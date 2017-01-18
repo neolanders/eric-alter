@@ -3,10 +3,11 @@ import { ProjectExistsGuard } from './guards/project-exists';
 import { FindProjectPageComponent } from './pages/find-project-page';
 import { ResumeComponent } from './pages/resume/resume.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { DetailsComponent } from './pages/details/details.component';
+import { AboutComponent } from './pages/about/about.component';
 import { NotFoundPageComponent } from './pages/not-found-page';
 import { ViewProjectPageComponent } from './pages/view-project-page';
 import { HomeComponent } from './pages/home/home.component';
+import { WorkComponent } from './pages/work/work.component';
 
 export const routes: Routes = [
   {
@@ -22,8 +23,12 @@ export const routes: Routes = [
     component: ResumeComponent
   },
   {
-    path: 'details',
-    component: DetailsComponent
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'work',
+    component: WorkComponent
   },
   {
     path: 'contact',

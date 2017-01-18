@@ -13,28 +13,29 @@ import * as layout from '../actions/layout';
   template: `
     <portfolio-layout>
       <portfolio-sidenav [open]="showSidenav$ | async">
-        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/" icon="book" hint="View my works">
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/about" icon="create" hint="About">
+          About
+        </portfolio-nav-item>
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/work" icon="book" hint="View my works">
           My Work
         </portfolio-nav-item>
+        <!--<portfolio-nav-item (activate)="closeSidenav()" routerLink="/" icon="book" hint="View my works">-->
+          <!--My Work-->
+        <!--</portfolio-nav-item>-->
         <portfolio-nav-item (activate)="closeSidenav()" routerLink="/project/find" icon="search" hint="Find my projects">
           Browse Projects
+        </portfolio-nav-item>
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/contact" icon="mail" hint="Contact me">
+          Contact
+        </portfolio-nav-item>
+        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/playground" icon="mode" hint="Playground">
+          Playground
         </portfolio-nav-item>
         <portfolio-nav-item (activate)="closeSidenav()" routerLink="/resume" icon="book" hint="My Resume">
           Resume
         </portfolio-nav-item>
-        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/details" icon="create" hint="Why this portfolio">
-          This portfolio
-        </portfolio-nav-item>
-        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/contact" icon="contact mail" hint="Contact me">
-          Contact
-        </portfolio-nav-item>
-        <portfolio-nav-item (activate)="closeSidenav()" routerLink="/playground" icon="chrome reader mode" hint="Playground">
-          Playground
-        </portfolio-nav-item>
       </portfolio-sidenav>
-      <portfolio-toolbar (openMenu)="openSidenav()">
-        Eric Alter 
-      </portfolio-toolbar>
+      <portfolio-toolbar (openMenu)="openSidenav()"></portfolio-toolbar>
       <router-outlet></router-outlet>
     </portfolio-layout>
   `

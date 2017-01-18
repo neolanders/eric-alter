@@ -20,9 +20,10 @@ import { FindProjectPageComponent } from './pages/find-project-page';
 import { ViewProjectPageComponent } from './pages/view-project-page';
 import { ResumeComponent } from './pages/resume/resume.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { DetailsComponent } from './pages/details/details.component';
+import { AboutComponent } from './pages/about/about.component';
 import { SelectedProjectPageComponent } from './pages/selected-project-page';
 import { HomeComponent } from './pages/home/home.component';
+import { WorkComponent } from './pages/work/work.component';
 // import { HomePageComponent } from './pages/home-page';
 import { NotFoundPageComponent } from './pages/not-found-page';
 
@@ -32,6 +33,7 @@ import { ProjectsService } from './services/projects';
 import { routes } from './routes';
 import { reducer } from './reducers';
 import { schema } from './db';
+
 
 
 
@@ -89,16 +91,16 @@ import { schema } from './db';
     AppComponent,
     FindProjectPageComponent,
     ResumeComponent,
-    DetailsComponent,
+    AboutComponent,
     ContactComponent,
     SelectedProjectPageComponent,
     ViewProjectPageComponent,
     // HomePageComponent,
     NotFoundPageComponent,
     ResumeComponent,
-    DetailsComponent,
     ContactComponent,
-    HomeComponent
+    HomeComponent,
+    WorkComponent
   ],
   providers: [
     ProjectExistsGuard,

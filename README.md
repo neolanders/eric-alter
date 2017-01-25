@@ -1,12 +1,12 @@
+
+
 # ![AngularJS](https://angular.io/resources/images/logos/standard/shield-large.png)
 
-#### *Technology that I used in this portfolio*
+#### *Technology that I used in this portfolio - References*
 
 ##### Current Angular 2 version:
 ![version](https://img.shields.io/npm/v/@angular/core.svg?maxAge=2592000)
 
-#### *Contributing*
-*Please send a pull request to add any links and use the issues for general questions, thanks!*
 
 ### Introduction
 * [Official Angular 2 Design Docs (Google)](https://drive.google.com/drive/folders/0B7Ovm8bUYiUDR29iSkEyMk5pVUk)

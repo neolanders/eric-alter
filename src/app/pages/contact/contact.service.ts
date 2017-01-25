@@ -3,7 +3,7 @@ import { Message } from '../../models/message';
 
 //import * as Firebase from 'firebase/firebase';
 
-var Firebase = require('firebase/firebase');
+// var Firebase = require('firebase/firebase');
 
 // let Firebase = firebaseLib.initializeApp({
 //     apiKey: '<your-api-key>',
@@ -19,7 +19,7 @@ export class ContactService {
     public db: any; // Firebase;
 
     constructor() {
-        this.db = new Firebase('https://eric-alter.firebaseio.com/messages');
+        // this.db = new Firebase('https://eric-alter.firebaseio.com/messages');
     }
 
     create(name: string, email: string, message: string, date?: string) {

@@ -9,7 +9,6 @@ import { ProjectDetailComponent } from './project-detail';
 import { ProjectPreviewComponent } from './project-preview';
 import { ProjectPreviewListComponent } from './project-preview-list';
 import { ProjectSearchComponent } from './project-search';
-import { LayoutComponent } from './layout';
 import { NavItemComponent } from './nav-item';
 import { SidenavComponent } from './sidenav';
 import { ToolbarComponent } from './toolbar';
@@ -23,7 +22,6 @@ export const COMPONENTS = [
   ProjectPreviewComponent,
   ProjectPreviewListComponent,
   ProjectSearchComponent,
-  LayoutComponent,
   NavItemComponent,
   SidenavComponent,
   ToolbarComponent,

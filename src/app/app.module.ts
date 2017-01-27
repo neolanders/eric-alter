@@ -31,6 +31,7 @@ import { NotFoundPageComponent } from './pages/not-found-page';
 
 import { GoogleBooksService } from './services/google-books';
 import { ProjectsService } from './services/projects';
+import { AppMenuService }from './services/app.menu.service';
 
 import { routes } from './routes';
 import { reducer } from './reducers';
@@ -107,7 +108,8 @@ import { schema } from './db';
   providers: [
     ProjectExistsGuard,
     GoogleBooksService,
-    ProjectsService
+    ProjectsService,
+    AppMenuService
   ],
   bootstrap: [
     AppComponent

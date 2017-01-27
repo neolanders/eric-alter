@@ -1,18 +1,4 @@
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
-  .parallax img{
-    display: block;
-  }
-}
-.parallax-container .section {
-  width: 100%;
-}
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
+.about {
+  min-height: 100vh;
+  background-image: url('assets/img/bg4.jpg');
 }

@@ -13,7 +13,7 @@ import { AppMenuService } from '../services/app.menu.service';
           <md-icon>menu</md-icon>
         </button> 
       </md-toolbar> 
-      <md-nav-list>
+      <md-nav-list class="hide-on-med-and-down">
           <md-list-item *ngFor="let link of items">
               <a md-line routerLink="{{link.routerLink}}">{{ link.label }}</a>
               <button md-icon-button>

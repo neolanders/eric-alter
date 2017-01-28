@@ -12,15 +12,10 @@ import { AppMenuService } from '../services/app.menu.service';
         <button md-icon-button (click)="openMenu.emit()">
           <md-icon>menu</md-icon>
         </button> 
-      </md-toolbar> 
-      <md-nav-list class="hide-on-med-and-down">
-          <md-list-item *ngFor="let link of items">
-              <a md-line routerLink="{{link.routerLink}}">{{ link.label }}</a>
-              <button md-icon-button>
-                  <md-icon>info</md-icon>
-              </button>
-            </md-list-item>
-      </md-nav-list>
+        <span class="hide-on-med-and-down"  layout="row" layout-align="space-around center">
+          <button *ngFor="let link of items" routerLink="{{link.routerLink}}">{{ link.label }}</button> 
+        </span>
+      </md-toolbar>
     `
 })
 export class ToolbarComponent {

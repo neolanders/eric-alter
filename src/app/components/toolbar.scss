@@ -20,4 +20,16 @@
   span {
     padding-left: 10px;
   }
+  .header-menu {
+    button {
+      background-color: transparent;
+      border: none;
+      color: #FFFFFF;
+      font-size: 15px;
+      border-left: 1px solid #FFF;
+      &:first-child {
+        border-left: none;
+      }
+    }
+  }
 }

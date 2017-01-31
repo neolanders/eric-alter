@@ -11,6 +11,7 @@ import { DBModule } from '@ngrx/db';
 import { RouterStoreModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MaterialModule } from '@angular/material';
+import { SlimScrollModule } from 'ng2-slimscroll';
 
 import { ComponentsModule } from './components';
 import { ProjectEffects } from './effects/project';
@@ -44,6 +45,7 @@ import { schema } from './db';
   imports: [
     CommonModule,
     BrowserModule,
+    SlimScrollModule,
     MaterialModule.forRoot(),
     ComponentsModule,
     RouterModule.forRoot(routes, { useHash: true }),

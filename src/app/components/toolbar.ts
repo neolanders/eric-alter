@@ -12,7 +12,7 @@ import { AppMenuService } from '../services/app.menu.service';
         <button md-icon-button (click)="openMenu.emit()">
           <md-icon>menu</md-icon>
         </button> 
-        <span class="hide-on-med-and-down"  layout="row" layout-align="space-around center">
+        <span class="hide-on-med-and-down header-menu"  layout="row" layout-align="space-around center">
           <button *ngFor="let link of items" routerLink="{{link.routerLink}}">{{ link.label }}</button> 
         </span>
       </md-toolbar>

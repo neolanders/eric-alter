@@ -14,6 +14,7 @@ import { MaterialModule } from '@angular/material';
 import { SlimScrollModule } from 'ng2-slimscroll';
 
 import { ComponentsModule } from './components';
+// import { SharedModule } from './app.shared.module';
 import { ProjectEffects } from './effects/project';
 import { CollectionEffects } from './effects/collection';
 import { ProjectExistsGuard } from './guards/project-exists';
@@ -43,6 +44,7 @@ import { schema } from './db';
 
 @NgModule({
   imports: [
+    // SharedModule,
     CommonModule,
     BrowserModule,
     SlimScrollModule,

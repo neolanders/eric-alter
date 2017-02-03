@@ -1,0 +1,136 @@
+{
+    "LOGIN": {
+        "TITLE": "Connexion au Tableau de bord",
+        "WARNING": "Avertissement!",
+        "USER_OR_EMAIL_PLACEHOLDER": "Courriel",
+        "PASSWORD": "Mot de passe",
+        "PASSWORD_PLACEHOLDER": "Mot de passe",
+        "PASSWORD_VALIDATE": "Veuillez entrer le mot de passe de votre compte.",
+        "CONFIRM_PASSWORD": "Confirmer votre mot de passe",
+        "COMPARE_PASSWORD_VALIDATE": "Les champs \"Mot de passe\" et \"Confirmer votre mot de passe\" doivent être identiques.",
+        "LOGIN_BTN": "Connexion",
+        "REMEMBER_ME": "Se souvenir de moi",
+        "NO_ACCOUNT_QUESTION": "Vous n'avez pas de compte?",
+        "REGISTER": "Inscription",
+        "CREATE_ACCOUNT": "Créer un compte",
+        "LOGIN_TITLE": "Se connecter",
+        "EMAIL": "Courriel",
+        "EMAIL_VALIDATE": "Veuillez entrer votre adresse courriel au format xyz@exemple.com.",
+        "ACCEPT_CONDITIONS": "J'ai lu et j'accepte les <a href=\"#\">conditions générales</a> et <a href=\"#\">politique de confidentialité</a>",
+        "CREATE": "Créer",
+        "EMAIL_CONFIRMED_MSG": "Votre adresse courriel est maintenant confirmée.<br />Veuillez vous connecter pour accéder à votre tableau de bord.",
+        "EMAIL_COULDNT_BE_VALIDATED_MSG": "FR -- Email couldn't be validated"
+    },
+    "ACCOUNT": {
+        "TITLE": "Mon Compte",
+        "CONNECTION_INFORMATIONS": "Informations de connexion",
+        "FORM": {
+            "MEMBER_SINCE": "Membre depuis",
+            "EMAIL": "Courriel",
+            "PASSWORD": "Mot de passe",
+            "MODIFY": "Modifier"
+        },
+        "MODIFY_PASSWORD": {
+            "TITLE": "Modifier votre Mot de passe",
+            "OLD_PASSWORD_LABEL": "Ancien Mot de passe",
+            "OLD_PASSWORD_PLACEHOLDER": "Ancien Mot de passe",
+            "NEW_PASSWORD_LABEL": "Nouveau Mot de passe",
+            "NEW_PASSWORD_PLACEHOLDER": "Nouveau Mot de passe",
+            "REPEAT_PASSWORD_LABEL": "Confirmer votre nouveau Mot de passe",
+            "REPEAT_PASSWORD_PLACEHOLDER": "Répéter",
+            "SUBMIT_BTN": "Actualiser",
+            "CANCEL_BTN": "Annuler",
+            "PASS_MATCH_MSG": "Les mots de passes ne correspondent pas",
+            "SUCCESS": "Vous avez changé votre mot de passe avec succès."
+        },
+        "MODIFY_EMAIL": {
+            "TITLE": "Modifier votre adresse courriel",
+            "EMAIL_LABEL": "Adresse Courriel",
+            "EMAIL_PLACEHOLDER": "Adresse Courriel",
+            "SUBMIT_BTN": "Actualiser",
+            "CANCEL_BTN": "Annuler",
+            "SUCCESS_MSG": "Vous avez changé votre adresse courriel avec succès."
+        }
+    },
+    "PROFILE": {
+        "TITLE": "Mon compte",
+        "TITLE_MODAL": "S.V.P, Complétez votre profil.",
+        "EDIT_TITLE": "Modifier mon compte",
+        "MODIFY_PWD_TITLE": "Modifier Password",
+        "MODIFY_PREFS_TITLE": "Preferences de communication",
+        "PROPERTY_TITLE": "Mes Proprietés",
+        "EDIT_MSG_HTML": {
+            "SUCCESS": "Vous avez mis à jour vos informations avec succès.",
+            "ERROR": "Une <strong>erreur</strong> est survenue."
+        },
+        "FORM": {
+            "FIRST_NAME": "Prénom",
+            "LAST_NAME": "Nom",
+            "EMAIL": "Courriel",
+            "PHONE": "Téléphone",
+            "ADRESS": "Adresse de résidence ",
+            "POSTALCODE": "Code postale",
+            "CITY": "Ville",
+            "PROVINCE": "Province",
+            "PHONE": "Téléphone à la maison",
+            "MOBILE": "Téléphone cellulaire",
+            "LANGUAGE": "Langue",
+            "PASSWORD": "Mot de passe",
+            "REPEAT": "Répéter",
+            "PASS_MATCH_MSG": "Les mots de passes ne correspondent pas.",
+            "SUBMIT": "Soumettre",
+            "PREF": {
+                "EMAIL": "Courriel",
+                "SMS": "Sms",
+                "PUSH": "Notifications"
+            }
+        },
+        "COMMUNICATION": {
+            "LANGUAGE_PLACEHOLDER": "Aucune langue sélectionnée",
+            "ENGLISH": "Anglais",
+            "FRENCH": "French"
+        }
+    },
+    "LANGUAGES": {
+        "FRENCH": "Français",
+        "ENGLISH": "Anglais"
+    },
+    "SIGNIN": {
+        "SIGNIN_ERROR_MES": "Votre adresse de courriel ou votre mot de passe est incorrect."
+    },
+    "REGISTER": {
+        "CREATE_ACCOUNT_ERROR_MSG": "Il existe déjà un compte pour cette adresse courriel. S'il s'agit de votre adresse de courriel, cliquez ici pour obtenir votre mot de passe et accéder à votre compte.",
+        "CREATE_ACCOUNT_SUCCESS_MSG": "Votre compte à été créer. \n Un courriel à été envoyer à votre émail avec un lien pour confirmer votre adresse."
+    },
+    "MENU": {
+        "LOGIN": "Connexion",
+        "PROFILE": "Mon compte",
+        "SIGN_OUT": "Déconnexion",
+        "DASHBOARD": "Tableau de bord",
+        "ACCOUNT": "Compte",
+        "NOTIFICATIONS": "Notifications",
+        "SERVICES": "Services",
+        "FAVORITES": "Favoris",
+        "MAILS": "Messagerie",
+        "HELP": "Aide",
+        "CONFIGURATION": "Configuration"
+    },
+    "BUTTON": {
+        "BACK": "Retour",
+        "VALIDATE": "Valider",
+        "MODIFY": "Modifier",
+        "LATER": "Je le ferais plus tard"
+    },
+    "PAGE_TOP": {
+        "SEARCH_PLACEHOLDER": "Recherche..."
+    },
+    "SERVICES": {
+        "EVALUATION_VALUE": {
+            "TITLE": "Valeur d'évaluation",
+            "PAGE_TITLE": "Extrait du rôle d'évaluation foncière"
+        },
+        "COMPARABLE_SALES": {
+            "TITLE": "Comparable de ventes"
+        }
+    }
+}

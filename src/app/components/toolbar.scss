@@ -27,6 +27,9 @@
       color: #FFFFFF;
       font-size: 15px;
       border-left: 1px solid #FFF;
+      &:hover {
+        color: #795548;
+      }
       &:first-child {
         border-left: none;
       }

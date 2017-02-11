@@ -9,6 +9,7 @@ http://blog.oasisdigital.com/2016/angular-2-cli-2-minutes-cloud-9/
 
 DEPLOY PROJECT ON HEROKU:
 https://www.angularonrails.com/deploy-angular-cli-webpack-project-heroku/
+git push heroku master
 
 LINK AFTER RUN:
 https://eric-alter-neolanders.c9users.io/

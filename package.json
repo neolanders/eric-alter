@@ -12,7 +12,7 @@
     "e2e": "protractor",
     "preinstall": "npm cache clean; npm install -g rxjs; npm install -g http-server",
     "postinstall": "ng build && mv dist/* .",
-    "heroku-prebuild": "npm install -g @angular/cli; ng version"
+    "heroku-prebuild": "npm uninstall -g angular-cli; npm install -g @angular/cli; ng version"
   },
   "private": true,
   "dependencies": {

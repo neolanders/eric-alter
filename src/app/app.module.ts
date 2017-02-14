@@ -12,6 +12,7 @@ import { RouterStoreModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MaterialModule } from '@angular/material';
 import { SlimScrollModule } from 'ng2-slimscroll';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 import { ComponentsModule } from './components';
 // import { SharedModule } from './app.shared.module';
@@ -48,6 +49,7 @@ import { schema } from './db';
     CommonModule,
     BrowserModule,
     SlimScrollModule,
+    ChartsModule,
     MaterialModule.forRoot(),
     ComponentsModule,
     RouterModule.forRoot(routes, { useHash: true }),

@@ -5,7 +5,7 @@ import { Component,
 @Component({
   selector: 'portfolio-sidenav',
   template: `
-    <mat-nav-list>
+    <md-nav-list>
       <portfolio-nav-item (activate)="openMenu.emit()" routerLink="/about" icon="create" hint="About">
         About
       </portfolio-nav-item>
@@ -27,10 +27,10 @@ import { Component,
       <portfolio-nav-item (activate)="openMenu.emit()" routerLink="/resume" icon="book" hint="My Resume">
         Resume
       </portfolio-nav-item>
-    </mat-nav-list>
+    </md-nav-list>
   `,
   styles: [`
-    mat-sidenav {
+    md-sidenav {
       width: 300px;
     }
   `]

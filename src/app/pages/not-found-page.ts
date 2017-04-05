@@ -11,7 +11,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
         <p>Hey! It looks like this page doesn't exist yet.</p>
       </md-card-content>
       <md-card-actions>
-        <button mat-raised-button color="primary" routerLink="/">Take Me Home</button>
+        <button md-raised-button color="primary" routerLink="/">Take Me Home</button>
       </md-card-actions>
     </md-card>
   `,

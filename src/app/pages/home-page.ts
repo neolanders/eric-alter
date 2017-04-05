@@ -18,7 +18,7 @@ import { Project } from '../models/project';
   /**
    * Container components are permitted to have just enough styles
    * to bring the view together. If the number of styles grow,
-   * consider breaking them out into presentational 
+   * consider breaking them out into presentational
    * components.
    */
   styleUrls: ['./app.scss'],

@@ -18,11 +18,10 @@ import { Project } from '../models/project';
         <bc-project-authors [project]="project"></bc-project-authors>
       </md-card-footer>
       <md-card-actions align="end">
-        <button md-raised-button color="warn" *ngIf="inCollection" (click)="remove.emit(project)">
+        <button mat-raised-button color="warn" *ngIf="inCollection" (click)="remove.emit(project)">
         Remove Project from Collection
         </button>
-
-        <button md-raised-button color="primary" *ngIf="!inCollection" (click)="add.emit(project)">
+        <button mat-raised-button color="primary" *ngIf="!inCollection" (click)="add.emit(project)">
         Add Project to Collection
         </button>
       </md-card-actions>

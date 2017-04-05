@@ -46,7 +46,7 @@ import { Project } from '../models/project';
                         </p>
                         <br><br>
                         <a href="http://jrichardhill.com/" target="_blank">
-                            <div class="md-button-ripple">LAUNCH WEBSITE</div>
+                            <div class="mat-button-ripple">LAUNCH WEBSITE</div>
                         </a>
                         <a [routerLink]="['/project', id]" class="waves-effect waves-light btn">
                             <i class="material-icons">cloud</i>ADD TO FAVORITE

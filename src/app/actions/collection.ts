@@ -21,7 +21,7 @@ export const ActionTypes = {
 export class AddProjectAction implements Action {
   type = ActionTypes.ADD_PROJECT;
 
-  constructor(public payload: Project) { }
+  constructor(public payload?: any) { }
 }
 
 export class AddProjectSuccessAction implements Action {
@@ -64,7 +64,7 @@ export class RemoveProjectFailAction implements Action {
 export class LoadAction implements Action {
   type = ActionTypes.LOAD;
 
-  constructor() { }
+  constructor(public payload?: any) { }
 }
 
 export class LoadSuccessAction implements Action {

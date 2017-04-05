@@ -1,6 +1,4 @@
-import { createSelector } from 'reselect';
 import * as collection from '../actions/collection';
-
 
 export interface State {
   loaded: boolean;

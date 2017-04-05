@@ -20,9 +20,9 @@ export function reducer(state = initialState, action: project.Actions | collecti
     case project.ActionTypes.SEARCH_COMPLETE:
     case collection.ActionTypes.LOAD_SUCCESS: {
       const projects = action.payload;
-      const newProjects = projects.filter(project => !state.entities[project.id]);
+      const newProjects = projects.filter((project: Project) => !state.entities[project.id]);
 
-      const newProjectIds = newProjects.map(project => project.id);
+      const newProjectIds = newProjects.map((project: Project) => project.id);
       const newProjectEntities = newProjects.reduce((entities: { [id: string]: Project }, project: Project) => {
         return Object.assign(entities, {
           [project.id]: project

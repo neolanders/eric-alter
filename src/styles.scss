@@ -1,14 +1,14 @@
 @import '~@angular/material/core/theming/all-theme';
 
-@include md-core();
+@include mat-core();
 
-$app-primary: md-palette($md-grey, 800);
-$app-accent:  md-palette($md-light-blue, 600, A100, A400);
-$app-warn:    md-palette($md-grey, 500);
+$app-primary: mat-palette($mat-grey, 800);
+$app-accent:  mat-palette($mat-light-blue, 600, A100, A400);
+$app-warn:    mat-palette($mat-grey, 500);
 
 // $app-theme: md-light-theme($app-primary, $app-accent, $app-warn);
 
-$app-theme: md-dark-theme($app-primary, $app-accent, $app-warn);
+$app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
 @include angular-material-theme($app-theme);
 

@@ -1,4 +1,4 @@
-import './polyfills.ts';
+// This file is required by karma.conf.js and loads recursively all the .spec and framework files
 
 import 'zone.js/dist/long-stack-trace-zone';
 import 'zone.js/dist/proxy.js';
@@ -12,6 +12,9 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
+// fixes typing errors in Atom editor
+import {} from 'jasmine';
+
 // Unfortunately there's no typing for the `__karma__` variable. Just declare it as any.
 declare var __karma__: any;
 declare var require: any;
@@ -21,11 +24,11 @@ __karma__.loaded = function () {};
 
 // First, initialize the Angular testing environment.
 getTestBed().initTestEnvironment(
-  BrowserDynamicTestingModule,
-  platformBrowserDynamicTesting()
+    BrowserDynamicTestingModule,
+    platformBrowserDynamicTesting()
 );
 // Then we find all the tests.
-let context = require.context('./', true, /\.spec\.ts$/);
+const context = require.context('./', true, /\.spec\.ts$/);
 // And load the modules.
 context.keys().map(context);
 // Finally, start Karma to run the tests.

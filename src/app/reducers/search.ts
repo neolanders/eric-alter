@@ -1,6 +1,5 @@
-import { createSelector } from 'reselect';
+import { Project } from '../models/project';
 import * as project from '../actions/project';
-
 
 export interface State {
   ids: string[];
@@ -37,7 +36,7 @@ export function reducer(state = initialState, action: project.Actions): State {
       const projects = action.payload;
 
       return {
-        ids: projects.map(project => project.id),
+        ids: projects.map((project: Project) => project.id),
         loading: false,
         query: state.query
       };

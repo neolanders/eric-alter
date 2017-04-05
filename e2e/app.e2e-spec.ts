@@ -1,10 +1,10 @@
-import { MyCliAppPage } from './app.po';
+import { AngularCliProjectPage } from './app.po';
 
-describe('my-cli-app App', function() {
-  let page: MyCliAppPage;
+describe('angular-cli-project App', () => {
+  let page: AngularCliProjectPage;
 
   beforeEach(() => {
-    page = new MyCliAppPage();
+    page = new AngularCliProjectPage();
   });
 
   it('should display message saying app works', () => {

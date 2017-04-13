@@ -26,12 +26,17 @@
       border: none;
       color: #FFFFFF;
       font-size: 15px;
-      border-left: 1px solid #FFF;
       &:hover {
         color: #795548;
       }
-      &:first-child {
-        border-left: none;
+      &:last-child:after{
+        content: '';
+      }
+      &:after{
+        display: inline-block;
+        content: '/';
+        color: #eee;
+        margin: 0 15px;
       }
     }
   }

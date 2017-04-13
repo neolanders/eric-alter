@@ -6,8 +6,6 @@ $app-primary: mat-palette($mat-grey, 800);
 $app-accent:  mat-palette($mat-light-blue, 600, A100, A400);
 $app-warn:    mat-palette($mat-grey, 500);
 
-// $app-theme: md-light-theme($app-primary, $app-accent, $app-warn);
-
 $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
 @include angular-material-theme($app-theme);
@@ -21,5 +19,9 @@ body {
     color: #FFF;
     font-family: Semibold;
     font-size: 110px;
+  }
+  .btn {
+    border-radius: 15px;
+    background-color: #FDCD3B;
   }
 }

@@ -1,19 +1,48 @@
-<div class="connect" *ngIf="!boolMessageSent">
-  <div class="connect__header">Connect</div>
-  <!--<div class="connect__input">-->
-    <!--<input type="text" placeholder="Name" [(ngModel)]="name">-->
-  <!--</div>-->
-  <!--<div class="connect__input">-->
-    <!--<input type="text" placeholder="Email" [(ngModel)]="email">-->
-  <!--</div>-->
-  <!--<div class="connect__input connect__input&#45;&#45;message">-->
-    <!--<textarea type="text" placeholder="Message" [(ngModel)]="message"></textarea>-->
-  <!--</div>-->
-  <div class="connect__input">
-    <button class="btn connect__send" (click)="sendMessage()">Send</button>
-  </div>
+<div class="page-content" *ngIf="boolMessageSent">
+  <h5>Message Sent</h5>
 </div>
-
-<div class="connect__okay" *ngIf="boolMessageSent">
-  <img src="img/okay.png" alt="">
+<div class="page-content" *ngIf="!boolMessageSent">
+  <h5>Contact Me</h5>
+  <span>If you have any questions relative to my expertise or projects I did, do not hesitate to contact me...</span>
+  <br/><br/>
+  <form novalidate [formGroup]="form" (submit)="onSubmit(form.value)">
+      <md-input-container class="full-width">
+        <input mdInput
+               type="text"
+               formControlName="name"
+               id="name"
+               placeholder="Full Name">
+      </md-input-container>
+      <div ngxErrors="name" #email="ngxErrors">
+        <div class="form-control-feedback"
+             ngxError="required" [when]="['touched']">
+          Please enter your name.
+        </div>
+      </div>
+      <md-input-container class="full-width">
+        <input mdInput type="email"
+               formControlName="email"
+               id="email"
+               placeholder="Email">
+      </md-input-container>
+      <div ngxErrors="email" #email="ngxErrors">
+        <div class="form-control-feedback" ngxError="required" [when]="['touched']">
+          Please enter your email.
+        </div>
+      </div>
+      <md-input-container class="full-width">
+        <textarea mdInput
+                  formControlName="message"
+                  id="message"
+                  placeholder="Message"></textarea>
+      </md-input-container>
+      <div ngxErrors="message" #lastname="ngxErrors">
+        <div class="form-control-feedback"
+             ngxError="required" [when]="['touched']">
+          Please enter your message.
+        </div>
+      </div>
+      <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" site_key="6LeC9RwUAAAAALj2PBMxg4cK_uoHg5wncPz4ynTa"></re-captcha>
+      <button [disabled]="!form.valid || !captchaValid" type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </div>

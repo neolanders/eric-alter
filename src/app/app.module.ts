@@ -13,6 +13,10 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { MaterialModule } from '@angular/material';
 import { SlimScrollModule } from 'ng2-slimscroll';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReCaptchaModule } from 'angular2-recaptcha';
+import { AngularFireModule } from 'angularfire2';
 
 import { ComponentsModule } from './components';
 // import { SharedModule } from './app.shared.module';
@@ -41,17 +45,30 @@ import { reducer } from './reducers';
 import { schema } from './db';
 
 
-
+// Must export the config
+export const firebaseConfig = {
+  apiKey: "AIzaSyC8KEzZnONE8ROjQCcrFIOiCd6PEvPShsU",
+  authDomain: "eric-alter.firebaseapp.com",
+  databaseURL: "https://eric-alter.firebaseio.com",
+  projectId: "eric-alter",
+  storageBucket: "eric-alter.appspot.com",
+  messagingSenderId: "1087141875668"
+};
 
 @NgModule({
   imports: [
     // SharedModule,
     CommonModule,
     BrowserModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgxErrorsModule,
+    ReCaptchaModule,
     SlimScrollModule,
     ChartsModule,
     MaterialModule.forRoot(),
     ComponentsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes, { useHash: true }),
 
     /**

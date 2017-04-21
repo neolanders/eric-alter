@@ -2,7 +2,8 @@
   <div class="nav-wrapper container">
     <a id="logo-container" href="#" class="brand-logo">Senior Front-End / Full Stack Developer</a>
     <ul class="right hide-on-med-and-down">
-      <li><a routerLink="./#section-skiils">My Skills</a></li>
+      <li><a pageScroll href="#section-skills">My Skills</a></li>
+      <!--[routerLink]="['/']" fragment="section-skills"-->
     </ul>
     <ul id="nav-mobile" class="side-nav">
       <li><a href="#">Navbar Link</a></li>
@@ -28,7 +29,7 @@
   </div>
 </div>
 <div class="container">
-  <div class="section" id="section-skiils">
+  <div class="section">
     <div class="row">
       <div class="col s12 m4">
         <div class="icon-block">
@@ -64,7 +65,7 @@
   </div>
   <div class="parallax"><img src="assets/img/bg2.jpg" alt="Unsplashed background img 2"></div>
 </div>
-<div class="container">
+<div class="container" id="section-skills">
   <div class="section">
     <div class="row">
       <div class="col s12 center">

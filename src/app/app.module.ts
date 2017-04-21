@@ -17,6 +17,7 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReCaptchaModule } from 'angular2-recaptcha';
 import { AngularFireModule } from 'angularfire2';
+import { Ng2PageScrollModule } from 'ng2-page-scroll';
 
 import { ComponentsModule } from './components';
 // import { SharedModule } from './app.shared.module';
@@ -66,6 +67,7 @@ export const firebaseConfig = {
     ReCaptchaModule,
     SlimScrollModule,
     ChartsModule,
+    Ng2PageScrollModule.forRoot(),
     MaterialModule.forRoot(),
     ComponentsModule,
     AngularFireModule.initializeApp(firebaseConfig),

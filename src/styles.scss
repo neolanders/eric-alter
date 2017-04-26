@@ -12,16 +12,18 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 
 
 body {
-
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-
   h1 {
     color: #FFF;
     font-family: Semibold;
     font-size: 110px;
+    margin: 0 1.68rem;
   }
   .btn {
     border-radius: 15px;
     background-color: #ee6e73;
+  }
+  .row {
+    margin-bottom: 0px !important;
   }
 }

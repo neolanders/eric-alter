@@ -69,6 +69,8 @@ export class ContactComponent implements OnInit {
   public boolMessageSent: boolean = false;
   public messages: FirebaseListObservable<any[]>;
 
+  // https://console.firebase.google.com/project/eric-alter/database/data/messages/-KiDXnDaHNOv9rQ_SP77
+
   constructor(@Inject(FormBuilder) public fb: FormBuilder,
               private router: Router,
               public af: AngularFire) {

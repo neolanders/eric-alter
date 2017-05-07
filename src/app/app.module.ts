@@ -22,7 +22,6 @@ import { AngularFireModule } from 'angularfire2';
 import { Ng2SimplePageScrollModule } from 'ng2-simple-page-scroll';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ComponentsModule } from './components';
-// import { SharedModule } from './app.shared.module';
 import { ProjectEffects } from './effects/project';
 import { CollectionEffects } from './effects/collection';
 import { ProjectExistsGuard } from './guards/project-exists';
@@ -74,7 +73,6 @@ let imports = {
 
 @NgModule({
   imports: [
-    // SharedModule,
     CommonModule,
     BrowserModule,
     HttpModule,

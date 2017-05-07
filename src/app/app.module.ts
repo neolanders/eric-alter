@@ -3,8 +3,10 @@
 import { NgModule, } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule, Http } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { DBModule } from '@ngrx/db';
@@ -17,8 +19,8 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReCaptchaModule } from 'angular2-recaptcha';
 import { AngularFireModule } from 'angularfire2';
-import { Ng2PageScrollModule } from 'ng2-page-scroll';
-
+import { Ng2SimplePageScrollModule } from 'ng2-simple-page-scroll';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ComponentsModule } from './components';
 // import { SharedModule } from './app.shared.module';
 import { ProjectEffects } from './effects/project';
@@ -56,22 +58,39 @@ export const firebaseConfig = {
   messagingSenderId: "1087141875668"
 };
 
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: Http) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
+let imports = {
+  loader: {
+    provide: TranslateLoader,
+    useFactory: HttpLoaderFactory,
+    deps: [Http],
+  },
+  isolate: false
+};
+
 @NgModule({
   imports: [
     // SharedModule,
     CommonModule,
     BrowserModule,
+    HttpModule,
     ReactiveFormsModule,
     FormsModule,
     NgxErrorsModule,
     ReCaptchaModule,
+    BrowserAnimationsModule,
     SlimScrollModule,
     ChartsModule,
-    Ng2PageScrollModule.forRoot(),
+    Ng2SimplePageScrollModule.forRoot(),
     MaterialModule.forRoot(),
     ComponentsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes, { useHash: true }),
+    TranslateModule.forRoot(imports),
 
     /**
      * StoreModule.provideStore is imported once in the root module, accepting a reducer

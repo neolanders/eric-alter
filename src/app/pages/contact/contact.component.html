@@ -6,6 +6,7 @@
   <span>If you have any questions relative to my expertise or projects I did, do not hesitate to contact me...</span>
   <br/><br/>
   <form novalidate [formGroup]="form" (submit)="onSubmit(form.value)">
+      <i class="material-icons prefix">account_circle</i>
       <md-input-container class="full-width">
         <input mdInput
                type="text"
@@ -19,6 +20,7 @@
           Please enter your name.
         </div>
       </div>
+      <i class="material-icons prefix">email</i>
       <md-input-container class="full-width">
         <input mdInput type="email"
                formControlName="email"
@@ -30,6 +32,7 @@
           Please enter your email.
         </div>
       </div>
+      <i class="material-icons prefix">send</i>
       <md-input-container class="full-width">
         <textarea mdInput
                   formControlName="message"

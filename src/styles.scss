@@ -14,10 +14,10 @@ $app-theme: mat-dark-theme($app-primary, $app-accent, $app-warn);
 body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
   h1 {
-    color: #FFF;
-    font-family: Semibold;
-    font-size: 110px;
-    margin: 0 1.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   .btn {
     border-radius: 15px;

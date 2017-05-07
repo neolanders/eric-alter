@@ -1,47 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { ContactService } from '../../services/contact.service';
-// import { AngularFire, FirebaseListObservable } from 'angularfire2';
-//
-// @Component({
-//   selector: 'app-contact',
-//   templateUrl: './contact.component.html',
-//   styleUrls: ['./contact.component.scss']
-// })
-// export class ContactComponent implements OnInit {
-//
-//   boolMessageSent: boolean;
-//   messages: FirebaseListObservable<any[]>;
-//
-//   private name: string;
-//   private email: string;
-//   private message: string;
-//
-//   constructor(public af: AngularFire) {
-//     this.messages = af.database.list('messages');
-//   }
-//
-//   ngOnInit() { }
-//
-//   sendMessage () {
-//     console.log('#--Send Message--#');
-//
-//     this.messages.push({
-//         name: this.name,
-//         email: this.email,
-//         message: this.message,
-//         date: new Date().toDateString()
-//       }).then(function(res) {
-//           console.log('res', res);
-//       });
-//
-//     // this.contactService.create(this.name, this.email, this.message)
-//     //     .then(res => {
-//     //       this.boolMessageSent = true;
-//     //       // this.items = af.database.list('/items');
-//     //     });
-//   }
-// }
-
 import { Component,
          OnInit,
          ViewChild,
@@ -50,7 +6,7 @@ import { ReCaptchaComponent } from 'angular2-recaptcha';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmailValidator } from '../../validators/email.validator';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @Component({
   selector: 'app-contact',
@@ -73,8 +29,8 @@ export class ContactComponent implements OnInit {
 
   constructor(@Inject(FormBuilder) public fb: FormBuilder,
               private router: Router,
-              public af: AngularFire) {
-     this.messages = af.database.list('messages');
+              private database: AngularFireDatabase) {
+     this.messages = database.list('messages');
   }
 
   ngOnInit() {

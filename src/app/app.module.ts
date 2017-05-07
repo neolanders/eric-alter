@@ -19,6 +19,7 @@ import { NgxErrorsModule } from '@ultimate/ngxerrors';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReCaptchaModule } from 'angular2-recaptcha';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseProvider } from 'angularfire2/database';
 import { Ng2SimplePageScrollModule } from 'ng2-simple-page-scroll';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ComponentsModule } from './components';
@@ -151,7 +152,8 @@ let imports = {
     ProjectExistsGuard,
     GoogleBooksService,
     ProjectsService,
-    AppMenuService
+    AppMenuService,
+    AngularFireDatabaseProvider
   ],
   bootstrap: [
     AppComponent

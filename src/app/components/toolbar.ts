@@ -31,7 +31,7 @@ export class ToolbarComponent {
 
   @Output() openMenu = new EventEmitter();
 
-  public currentLanguage;
+  public currentLanguage: string;
   private html: any = null;
 
 

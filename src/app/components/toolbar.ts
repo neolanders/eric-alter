@@ -16,7 +16,9 @@ import { AppMenuService } from '../services/app.menu.service';
           <md-icon>menu</md-icon>
         </button> 
         <span class="hide-on-med-and-down header-menu"  layout="row" layout-align="space-around center">
-          <button *ngFor="let link of items" routerLink="{{link.routerLink}}">{{ link.label }}</button> 
+          <button *ngFor="let link of items" routerLink="{{link.routerLink}}">
+            <span class="hover">{{ link.label }}</span>
+          </button> 
         </span>
         <ul id="langs" class="dropdown-content">
           <li><a (click)="toggleLanguage()"><span class="badge">EN</span></a></li>

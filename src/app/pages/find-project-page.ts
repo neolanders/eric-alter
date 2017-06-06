@@ -9,11 +9,11 @@ import { Project } from '../models/project';
 
 
 @Component({
-  selector: 'bc-find-project-page',
+  selector: 'portfolio-find-project-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <bc-project-search [query]="searchQuery$ | async" [searching]="loading$ | async" (search)="search($event)"></bc-project-search>
-    <bc-project-preview-list [projects]="projects$ | async"></bc-project-preview-list>
+    <portfolio-project-search [query]="searchQuery$ | async" [searching]="loading$ | async" (search)="search($event)"></portfolio-project-search>
+    <portfolio-project-preview-list [projects]="projects$ | async"></portfolio-project-preview-list>
   `
 })
 export class FindProjectPageComponent {
@@ -25,6 +25,10 @@ export class FindProjectPageComponent {
     this.searchQuery$ = store.select(fromRoot.getSearchQuery).take(1);
     this.projects$ = store.select(fromRoot.getSearchResults);
     this.loading$ = store.select(fromRoot.getSearchLoading);
+
+    this.projects$.subscribe((projects) => {
+      console.log('this.projects$', projects);
+    });
   }
 
   search(query: string) {

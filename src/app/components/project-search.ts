@@ -5,7 +5,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
 
 
 @Component({
-  selector: 'bc-project-search',
+  selector: 'portfolio-project-search',
   template: `
     <md-card>
       <md-card-title>Find a Project</md-card-title>

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Project } from '../models/project';
 
 @Component({
-  selector: 'bc-project-preview',
+  selector: 'portfolio-project-preview',
   template: `
       <div class="panel">
         <md-card class="front card">

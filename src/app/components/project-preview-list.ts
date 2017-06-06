@@ -2,9 +2,10 @@ import { Component, Input } from '@angular/core';
 import { Project } from '../models/project';
 
 @Component({
-  selector: 'bc-project-preview-list',
+  selector: 'portfolio-project-preview-list',
   template: `
-    <bc-project-preview *ngFor="let project of projects" [project]="project"></bc-project-preview>
+   <pre>{{projects | json}}</pre>
+    <portfolio-project-preview *ngFor="let project of projects" [project]="project"></portfolio-project-preview>
   `,
   styles: [`
     :host {

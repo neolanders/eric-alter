@@ -85,7 +85,7 @@ let imports = {
     SlimScrollModule,
     ChartsModule,
     Ng2SimplePageScrollModule.forRoot(),
-    MaterialModule.forRoot(),
+    MaterialModule,
     ComponentsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes, { useHash: true }),

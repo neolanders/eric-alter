@@ -1,19 +1,767 @@
 {
-  "screenshots": [
+  "kind": "books#volumes",
+  "totalItems": 2822,
+  "items": [
     {
-      "img": "assets/images/space1.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "liked": "0"
+      "kind": "books#volume",
+      "id": "sOwVAAAAQAAJ",
+      "etag": "pPo9J/TZFVs",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/sOwVAAAAQAAJ",
+      "volumeInfo": {
+        "title": "\"G. G.\"",
+        "authors": [
+          "George Grossmith"
+        ],
+        "publishedDate": "1933",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OXFORD:503060917"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 288,
+        "printType": "BOOK",
+        "categories": [
+          "Actors"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=sOwVAAAAQAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=sOwVAAAAQAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.ca/books?id=sOwVAAAAQAAJ&q=gg&dq=gg&hl=&cd=1&source=gbs_api",
+        "infoLink": "http://books.google.ca/books?id=sOwVAAAAQAAJ&dq=gg&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/G_G.html?hl=&id=sOwVAAAAQAAJ"
+      },
+      "saleInfo": {
+        "country": "CA",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "CA",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=sOwVAAAAQAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      }
     },
     {
-      "img": "assets/images/space2.jpg",
-      "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      "liked": "0"
+      "kind": "books#volume",
+      "id": "m1J3AgAAQBAJ",
+      "etag": "W4eJ/1+tF80",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/m1J3AgAAQBAJ",
+      "volumeInfo": {
+        "title": "Gg",
+        "authors": [
+          "Kelly Doudna"
+        ],
+        "publisher": "ABDO Publishing Company",
+        "publishedDate": "2010-09-01",
+        "description": "Gg begins with an introduction to the letter, what it looks like, and where it fits in the alphabet. Consonants and short vowels are featured and highlighted in simple words and children's names.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781617866685"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1617866687"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 24,
+        "printType": "BOOK",
+        "categories": [
+          "Juvenile Nonfiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.0.0.preview.1",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=m1J3AgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=m1J3AgAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.ca/books?id=m1J3AgAAQBAJ&pg=PA7&dq=gg&hl=&cd=2&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=m1J3AgAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://market.android.com/details?id=book-m1J3AgAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "CA",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 40.71,
+          "currencyCode": "CAD"
+        },
+        "retailPrice": {
+          "amount": 31.75,
+          "currencyCode": "CAD"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=m1J3AgAAQBAJ&rdid=book-m1J3AgAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 4.071E7,
+              "currencyCode": "CAD"
+            },
+            "retailPrice": {
+              "amountInMicros": 3.175E7,
+              "currencyCode": "CAD"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "CA",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.ca/books/download/Gg-sample-pdf.acsm?id=m1J3AgAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=m1J3AgAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Kelly Doudna. Gay gives Grandma a hug. \u003cb\u003eGg\u003c/b\u003e Greta and Greg act goofy. \u003cb\u003eGg\u003c/b\u003e. 7."
+      }
     },
     {
-      "img": "assets/images/space3.jpg",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      "liked": "0"
+      "kind": "books#volume",
+      "id": "MFJQPQAACAAJ",
+      "etag": "4rasNBGvKH8",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/MFJQPQAACAAJ",
+      "volumeInfo": {
+        "title": "G. G.",
+        "subtitle": "The Diary Fo a Space Case",
+        "authors": [
+          "Molly Garcia"
+        ],
+        "publisher": "Infinity Publishing (PA)",
+        "publishedDate": "2007-05",
+        "description": "Gracie Garcia describes her life at home and at school in diary entries that begin with her thirteenth birthday.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_10",
+            "identifier": "0741438380"
+          },
+          {
+            "type": "ISBN_13",
+            "identifier": "9780741438386"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": false
+        },
+        "pageCount": 77,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=MFJQPQAACAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=MFJQPQAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.ca/books?id=MFJQPQAACAAJ&dq=gg&hl=&cd=3&source=gbs_api",
+        "infoLink": "http://books.google.ca/books?id=MFJQPQAACAAJ&dq=gg&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/G_G.html?hl=&id=MFJQPQAACAAJ"
+      },
+      "saleInfo": {
+        "country": "CA",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "CA",
+        "viewability": "NO_PAGES",
+        "embeddable": false,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=MFJQPQAACAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "NONE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Gracie Garcia describes her life at home and at school in diary entries that begin with her thirteenth birthday."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "KWEfDAAAQBAJ",
+      "etag": "gvPFQdxZzmE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/KWEfDAAAQBAJ",
+      "volumeInfo": {
+        "title": "The Party Wall",
+        "authors": [
+          "Catherine Leroux"
+        ],
+        "publisher": "Biblioasis",
+        "publishedDate": "2016-05-10",
+        "description": "Shortlisted for the 2016 Giller Prize Selected for Indies Introduce Summer/Fall 2016 Catherine Leroux's first novel, translated into English brilliantly by Lazer Lederhendler, ties together stories about siblings joined in surprising ways. A woman learns that she absorbed her twin sister's body in the womb and that she has two sets of DNA; a girl in the deep South pushes her sister out of the way of a speeding train, losing her legs; and a political couple learn that they are non-identical twins separated at birth. The Party Wall establishes Leroux as one of North America's most intelligent and innovative young authors. Catherine Leroux was born in 1979 in Montreal, Quebec, where she continues to live and write.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781771960779"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1771960779"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": true
+        },
+        "pageCount": 200,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "2.6.4.0.preview.3",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=KWEfDAAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=KWEfDAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.ca/books?id=KWEfDAAAQBAJ&printsec=frontcover&dq=gg&hl=&cd=4&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=KWEfDAAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://market.android.com/details?id=book-KWEfDAAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "CA",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 14.99,
+          "currencyCode": "CAD"
+        },
+        "retailPrice": {
+          "amount": 9.99,
+          "currencyCode": "CAD"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=KWEfDAAAQBAJ&rdid=book-KWEfDAAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 1.499E7,
+              "currencyCode": "CAD"
+            },
+            "retailPrice": {
+              "amountInMicros": 9990000.0,
+              "currencyCode": "CAD"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "CA",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.ca/books/download/The_Party_Wall-sample-epub.acsm?id=KWEfDAAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.ca/books/download/The_Party_Wall-sample-pdf.acsm?id=KWEfDAAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=KWEfDAAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "The Party Wall establishes Leroux as one of North America&#39;s most intelligent and innovative young authors. Catherine Leroux was born in 1979 in Montreal, Quebec, where she continues to live and write."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "iaKvBwAAQBAJ",
+      "etag": "qTjN6NfFtxQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/iaKvBwAAQBAJ",
+      "volumeInfo": {
+        "title": "A Thousand Nights",
+        "authors": [
+          "E. K. Johnston"
+        ],
+        "publisher": "Disney Electronic Content",
+        "publishedDate": "2015-10-06",
+        "description": "Lo-Melkhiin killed three hundred girls before he came to her village, looking for a wife. When she sees the dust cloud on the horizon she knows he has arrived. She knows he will want the loveliest girl: her sister. She vows she will not let her be next. And so she is taken in her sister's place, and she believes death will soon follow. But back in their village her sister is mourning. Through her pain, she calls upon the desert winds, conjuring a subtle unseen magic, and something besides death stirs the air in it's place. Lo-Melkhiin's court is a dangerous palace filled with pretty things: intricate statues with wretched eyes, exquisite threads to weave the most beautiful garments. She sees everything as if for the last time. But the first sun sets and rises, and she is not dead. Night after night Lo-Melkhiin comes to her, and listens to the stories she tells and day after day she is awoken by the sunrise. Exploring the palace, she begins to unlock years of fear that have tormented and silenced a kingdom. Lo-Melkhiin was not always a cruel ruler. Something went wrong. The words she speaks to him every night are given strange life of their own. She makes things appear. Little things, at first: a dress from home, a vision of her sister. With each tale she spins, her power grows. Soon she dreams of bigger, more terrible magic: power enough to save a king, if she can put an end to rule of a monster.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781484728994"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1484728998"
+          }
+        ],
+        "readingModes": {
+          "text": true,
+          "image": false
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Juvenile Fiction"
+        ],
+        "averageRating": 4.0,
+        "ratingsCount": 5,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "1.10.8.0.preview.2",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=iaKvBwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=iaKvBwAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.ca/books?id=iaKvBwAAQBAJ&printsec=frontcover&dq=gg&hl=&cd=5&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=iaKvBwAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://market.android.com/details?id=book-iaKvBwAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "CA",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 8.99,
+          "currencyCode": "CAD"
+        },
+        "retailPrice": {
+          "amount": 8.99,
+          "currencyCode": "CAD"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=iaKvBwAAQBAJ&rdid=book-iaKvBwAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 8990000.0,
+              "currencyCode": "CAD"
+            },
+            "retailPrice": {
+              "amountInMicros": 8990000.0,
+              "currencyCode": "CAD"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "CA",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.ca/books/download/A_Thousand_Nights-sample-epub.acsm?id=iaKvBwAAQBAJ&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=iaKvBwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "She sees everything as if for the last time. But the first sun sets and rises, and she is not dead. Night after night Lo-Melkhiin comes to her, and listens to the stories she tells and day after day she is awoken by the sunrise."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "lIQ-AAAAYAAJ",
+      "etag": "9+MNA0HYqzE",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/lIQ-AAAAYAAJ",
+      "volumeInfo": {
+        "title": "Teletypewriter Test Set TS-1060/GG Operator's Manual",
+        "publishedDate": "1990",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "UVA:X004882398"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "printType": "BOOK",
+        "categories": [
+          "Teletype"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "full-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=lIQ-AAAAYAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=lIQ-AAAAYAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.ca/books?id=lIQ-AAAAYAAJ&pg=PA7&dq=gg&hl=&cd=6&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=lIQ-AAAAYAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://market.android.com/details?id=book-lIQ-AAAAYAAJ"
+      },
+      "saleInfo": {
+        "country": "CA",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=lIQ-AAAAYAAJ&rdid=book-lIQ-AAAAYAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "CA",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.ca/books/download/Teletypewriter_Test_Set_TS_1060_GG_Opera.pdf?id=lIQ-AAAAYAAJ&hl=&output=pdf&sig=ACfU3U0o_KXDSq-ol9zRIt2MS7w_81K6zg&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=lIQ-AAAAYAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "OmMCAAAAQAAJ",
+      "etag": "aEY40kOCFAg",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/OmMCAAAAQAAJ",
+      "volumeInfo": {
+        "title": "Faust, with notes by G.G. Zerffi",
+        "authors": [
+          "Johann Wolfgang von Goethe"
+        ],
+        "publishedDate": "1859",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OXFORD:600083551"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "full-1.0.0",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=OmMCAAAAQAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=OmMCAAAAQAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.ca/books?id=OmMCAAAAQAAJ&printsec=frontcover&dq=gg&hl=&cd=7&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=OmMCAAAAQAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://market.android.com/details?id=book-OmMCAAAAQAAJ"
+      },
+      "saleInfo": {
+        "country": "CA",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=OmMCAAAAQAAJ&rdid=book-OmMCAAAAQAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "CA",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.ca/books/download/Faust_with_notes_by_G_G_Zerffi.pdf?id=OmMCAAAAQAAJ&hl=&output=pdf&sig=ACfU3U2BgbQrHqMaCXskFMh9xu8jRUeiew&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=OmMCAAAAQAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "cysAAAAAQAAJ",
+      "etag": "Qpk/db8YJSo",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/cysAAAAAQAAJ",
+      "volumeInfo": {
+        "title": "Lives of eminent and illustrious Englishmen, ed. by G. G. Cunningham",
+        "authors": [
+          "Englishmen"
+        ],
+        "publishedDate": "1835",
+        "industryIdentifiers": [
+          {
+            "type": "OTHER",
+            "identifier": "OXFORD:600014691"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.full.1",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=cysAAAAAQAAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=cysAAAAAQAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.ca/books?id=cysAAAAAQAAJ&pg=PA276&dq=gg&hl=&cd=8&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=cysAAAAAQAAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://market.android.com/details?id=book-cysAAAAAQAAJ"
+      },
+      "saleInfo": {
+        "country": "CA",
+        "saleability": "FREE",
+        "isEbook": true,
+        "buyLink": "https://play.google.com/store/books/details?id=cysAAAAAQAAJ&rdid=book-cysAAAAAQAAJ&rdot=1&source=gbs_api"
+      },
+      "accessInfo": {
+        "country": "CA",
+        "viewability": "ALL_PAGES",
+        "embeddable": true,
+        "publicDomain": true,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false,
+          "downloadLink": "http://books.google.ca/books/download/Lives_of_eminent_and_illustrious_English.epub?id=cysAAAAAQAAJ&hl=&output=epub&source=gbs_api"
+        },
+        "pdf": {
+          "isAvailable": true,
+          "downloadLink": "http://books.google.ca/books/download/Lives_of_eminent_and_illustrious_English.pdf?id=cysAAAAAQAAJ&hl=&output=pdf&sig=ACfU3U3BIE9xChRtqiIjp5E14aWVJuP1jQ&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=cysAAAAAQAAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "FULL_PUBLIC_DOMAIN",
+        "quoteSharingAllowed": false
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "-vL4Ndh6P1QC",
+      "etag": "TmmUnk2eeTQ",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/-vL4Ndh6P1QC",
+      "volumeInfo": {
+        "title": "GG's Adventure",
+        "authors": [
+          "Frank Gonzalez"
+        ],
+        "publisher": "Tate Publishing",
+        "publishedDate": "2007-12",
+        "description": "Have you ever wished for your very own genie in a bottle? Join Jimmy Stone as he has several thrilling adventures with his very own genie in GG's Adventure by first time author Frank Gonzalez. When Jimmy and his dad go exploring in a relatives tree house, Jimmy discovers more than just a few family keepsakes. He discovers a friend to zip him around the world. Come along for all of Jimmy's adventures with his genie Geronimo in GG's Adventure.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781602475588"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "160247558X"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "pageCount": 199,
+        "printType": "BOOK",
+        "categories": [
+          "Fiction"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.1.0.0.preview.1",
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=-vL4Ndh6P1QC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=-vL4Ndh6P1QC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.ca/books?id=-vL4Ndh6P1QC&pg=PT25&dq=gg&hl=&cd=9&source=gbs_api",
+        "infoLink": "http://books.google.ca/books?id=-vL4Ndh6P1QC&dq=gg&hl=&source=gbs_api",
+        "canonicalVolumeLink": "https://books.google.com/books/about/GG_s_Adventure.html?hl=&id=-vL4Ndh6P1QC"
+      },
+      "saleInfo": {
+        "country": "CA",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+      },
+      "accessInfo": {
+        "country": "CA",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": false
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=-vL4Ndh6P1QC&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "\u003cb\u003eGG\u003c/b\u003e and Teefes got in the car. Teefes sat in the back seat and \u003cb\u003eGG\u003c/b\u003e in the front one. \u003cbr\u003e\n“\u003cb\u003eGG\u003c/b\u003e, how do I work this car? I mean, it has all of these buttons. I don&#39;t know which \u003cbr\u003e\nis which,” Jimmy said astounded. He couldn&#39;t believe his vocabulary."
+      }
+    },
+    {
+      "kind": "books#volume",
+      "id": "uHmqDQAAQBAJ",
+      "etag": "CP5JhyLRhmw",
+      "selfLink": "https://www.googleapis.com/books/v1/volumes/uHmqDQAAQBAJ",
+      "volumeInfo": {
+        "title": "Gg",
+        "authors": [
+          "Bela Davis"
+        ],
+        "publisher": "ABDO",
+        "publishedDate": "2016-12-15",
+        "description": "From grapes to giraffes, this title has got G words covered! Each instance of \"G\" or \"g\" is bolded so that readers begin to recognize it in words and the sounds it makes. Complete with big colorful photographs, a More Gg Words page, bolded glossary terms, and a picture glossary. Aligned to Common Core Standards and correlated to state standards. Abdo Kids Junior is an imprint of Abdo Kids, a division of ABDO.",
+        "industryIdentifiers": [
+          {
+            "type": "ISBN_13",
+            "identifier": "9781680795936"
+          },
+          {
+            "type": "ISBN_10",
+            "identifier": "1680795937"
+          }
+        ],
+        "readingModes": {
+          "text": false,
+          "image": true
+        },
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "panelizationSummary": {
+          "containsEpubBubbles": false,
+          "containsImageBubbles": false
+        },
+        "imageLinks": {
+          "smallThumbnail": "http://books.google.com/books/content?id=uHmqDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+          "thumbnail": "http://books.google.com/books/content?id=uHmqDQAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.ca/books?id=uHmqDQAAQBAJ&pg=PA2&dq=gg&hl=&cd=10&source=gbs_api",
+        "infoLink": "https://play.google.com/store/books/details?id=uHmqDQAAQBAJ&source=gbs_api",
+        "canonicalVolumeLink": "https://market.android.com/details?id=book-uHmqDQAAQBAJ"
+      },
+      "saleInfo": {
+        "country": "CA",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+          "amount": 28.16,
+          "currencyCode": "CAD"
+        },
+        "retailPrice": {
+          "amount": 15.21,
+          "currencyCode": "CAD"
+        },
+        "buyLink": "https://play.google.com/store/books/details?id=uHmqDQAAQBAJ&rdid=book-uHmqDQAAQBAJ&rdot=1&source=gbs_api",
+        "offers": [
+          {
+            "finskyOfferType": 1,
+            "listPrice": {
+              "amountInMicros": 2.816E7,
+              "currencyCode": "CAD"
+            },
+            "retailPrice": {
+              "amountInMicros": 1.521E7,
+              "currencyCode": "CAD"
+            },
+            "giftable": true
+          }
+        ]
+      },
+      "accessInfo": {
+        "country": "CA",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+          "isAvailable": false
+        },
+        "pdf": {
+          "isAvailable": true,
+          "acsTokenLink": "http://books.google.ca/books/download/Gg-sample-pdf.acsm?id=uHmqDQAAQBAJ&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://play.google.com/books/reader?id=uHmqDQAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+      },
+      "searchInfo": {
+        "textSnippet": "Title: \u003cb\u003eGg\u003c/b\u003e / by Bela Davis. Description:Minneapolis,Minnesota : Abdo Kids, 2017 | \u003cbr\u003e\nSeries: The alphabet | Includes bibliographical references and index. Identifiers: \u003cbr\u003e\nLCCN 2016943887 | ISBN 9781680808834 (lib. bdg.) | ISBN 9781680795936&nbsp;..."
+      }
     }
   ]
 }

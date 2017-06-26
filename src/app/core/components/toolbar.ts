@@ -1,5 +1,4 @@
-import { Component, Output, EventEmitter, Inject, ChangeDetectionStrategy } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Component, Output, EventEmitter, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { AppMenuService } from '../services/app.menu.service';
@@ -7,13 +6,13 @@ import { AppMenuService } from '../services/app.menu.service';
 @Component({
   selector: 'portfolio-toolbar',
   styleUrls: ['./toolbar.scss'],
-    template: `
-      <md-toolbar color="primary" class="toolbar">
+  template: `
+      <mat-toolbar color="primary" class="toolbar">
         <div class="al-user-profile">
           <a routerLink="/"><img src="https://avatars1.githubusercontent.com/u/1858504?v=3&s=460"></a>
         </div>
-        <button md-icon-button (click)="openMenu.emit()">
-          <md-icon>menu</md-icon>
+        <button mat-icon-button (click)="openMenu.emit()">
+          <mat-icon>menu</mat-icon>
         </button> 
         <span class="hide-on-med-and-down header-menu"  layout="row" layout-align="space-around center">
           <button *ngFor="let link of items" routerLink="{{link.routerLink}}">
@@ -25,7 +24,7 @@ import { AppMenuService } from '../services/app.menu.service';
           <li><a (click)="toggleLanguage()"><span class="badge">FR</span></a></li>
         </ul>
         <a class="btn dropdown-button lang" href="#!" data-activates="langs">{{currentLanguage}}</a>
-      </md-toolbar>
+      </mat-toolbar>
     `
 })
 export class ToolbarComponent {
@@ -38,10 +37,10 @@ export class ToolbarComponent {
 
 
   constructor(@Inject(DOCUMENT) private document: any,
-              private translate: TranslateService,
-              private as: AppMenuService){
+              private appMenuService: AppMenuService,
+              private translate: TranslateService){
 
-    this.items = this.as.getMenu()
+    this.items = this.appMenuService.getMenu()
 
     // Language
     this.translate.addLangs(['en', 'fr']);

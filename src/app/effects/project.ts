@@ -10,8 +10,8 @@ import { Action } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { empty } from 'rxjs/observable/empty';
 import { of } from 'rxjs/observable/of';
-
-import { GoogleBooksService } from '../services/google-books';
+import { ProjectsService } from '../services/projects.service';
+// import { GoogleBooksService } from '../services/google-books';
 import * as project from '../actions/project';
 
 
@@ -32,7 +32,7 @@ import * as project from '../actions/project';
 @Injectable()
 export class ProjectEffects {
   constructor(private actions$: Actions,
-              private googleProjects: GoogleBooksService) { }
+              private projectsService: ProjectsService) { }
 
   @Effect()
   search$: Observable<Action> = this.actions$
@@ -46,7 +46,7 @@ export class ProjectEffects {
 
       const nextSearch$ = this.actions$.ofType(project.ActionTypes.SEARCH).skip(1);
 
-      return this.googleProjects.searchProjects(query)
+      return this.projectsService.searchProjects(query)
         .takeUntil(nextSearch$)
         .map(projects => new project.SearchCompleteAction(projects))
         .catch(() => of(new project.SearchCompleteAction([])));

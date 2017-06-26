@@ -39,8 +39,8 @@ import { WorkComponent } from './pages/work/work.component';
 // import { HomePageComponent } from './pages/home-page';
 import { NotFoundPageComponent } from './pages/not-found-page';
 
-import { GoogleBooksService } from './services/google-books';
-import { ProjectsService } from './services/projects';
+// import { GoogleBooksService } from './services/google-books';
+import { ProjectsService } from './services/projects.service';
 import { AppMenuService }from './services/app.menu.service';
 
 import { routes } from './routes';
@@ -150,7 +150,7 @@ let imports = {
   ],
   providers: [
     ProjectExistsGuard,
-    GoogleBooksService,
+    // GoogleBooksService,
     ProjectsService,
     AppMenuService,
     AngularFireDatabaseProvider

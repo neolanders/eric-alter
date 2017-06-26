@@ -10,7 +10,7 @@ import { Component, Output, Input, EventEmitter } from '@angular/core';
     <md-card>
       <md-card-title>Find a Project</md-card-title>
       <md-card-content>
-        <!--<md-input placeholder="Search for a project" [value]="query" (keyup)="search.emit($event.target.value)"></md-input>-->
+        <input mdInput placeholder="Search for a book" [value]="query" (keyup)="search.emit($event.target.value)">
         <md-spinner [class.show]="searching"></md-spinner>
       </md-card-content>
     </md-card>

@@ -10,8 +10,8 @@ import { Store } from '@ngrx/store';
 import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-
-import { GoogleBooksService } from '../services/google-books';
+import { ProjectsService } from '../services/projects.service';
+// import { GoogleBooksService } from '../services/google-books';
 import * as fromRoot from '../reducers';
 import * as project from '../actions/project';
 
@@ -25,7 +25,8 @@ import * as project from '../actions/project';
 export class ProjectExistsGuard implements CanActivate {
   constructor(
     private store: Store<fromRoot.State>,
-    private googleProjects: GoogleBooksService,
+    // private googleProjects: GoogleBooksService,
+    private projectsService: ProjectsService,
     private router: Router
   ) { }
 
@@ -55,7 +56,7 @@ export class ProjectExistsGuard implements CanActivate {
    * it in the store, returning `true` or `false` if it was found.
    */
   hasProjectInApi(id: string): Observable<boolean> {
-    return this.googleProjects.retrieveProject(id)
+    return this.projectsService.retrieveProject(id)
       .map(projectEntity => new project.LoadAction(projectEntity))
       .do((action: project.LoadAction) => this.store.dispatch(action))
       .map(project => !!project)

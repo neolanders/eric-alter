@@ -70,5 +70,7 @@
     "typescript": "~2.2.0",
     "zone.js": "^0.8.4"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/jasmine": "^2.5.38"
+  }
 }

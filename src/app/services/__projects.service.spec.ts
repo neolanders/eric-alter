@@ -1,10 +1,10 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
-import { GoogleBooksService } from './google-books';
+import { ProjectsService } from './__projects.service';
 
-describe('Service: GoogleBooks', () => {
-  let service: GoogleBooksService = null;
+describe('Service: ProjectsService', () => {
+  let service: ProjectsService = null;
   let backend: MockBackend = null;
 
   beforeEach(() => {
@@ -19,12 +19,12 @@ describe('Service: GoogleBooks', () => {
           },
           deps: [ MockBackend, BaseRequestOptions ]
         },
-        GoogleBooksService
+        ProjectsService
       ]
     });
   });
 
-  beforeEach(inject([GoogleBooksService, MockBackend], (googleBooksService: GoogleBooksService, mockBackend: MockBackend) => {
+  beforeEach(inject([ProjectsService, MockBackend], (googleBooksService: ProjectsService, mockBackend: MockBackend) => {
     service = googleBooksService;
     backend = mockBackend;
   }));
@@ -42,7 +42,7 @@ describe('Service: GoogleBooks', () => {
     ]
   };
 
-  let queryTitle = 'Book Title';
+  let queryTitle = 'Project Title';
 
   it('should call the search api and return the search results', (done) => {
     backend.connections.subscribe((connection: MockConnection) => {
@@ -51,11 +51,11 @@ describe('Service: GoogleBooks', () => {
       });
       connection.mockRespond(new Response(options));
       expect(connection.request.method).toEqual(RequestMethod.Get);
-      expect(connection.request.url).toEqual(`https://www.googleapis.com/books/v1/volumes?q=${queryTitle}`);
+      expect(connection.request.url).toEqual(`./assets/data/projects.json?q=${queryTitle}`);
     });
 
     service
-      .searchBooks(queryTitle)
+      .searchProjects(queryTitle)
       .subscribe((res) => {
         expect(res).toEqual(books.items);
         done();
@@ -69,10 +69,10 @@ describe('Service: GoogleBooks', () => {
       });
       connection.mockRespond(new Response(options));
       expect(connection.request.method).toEqual(RequestMethod.Get);
-      expect(connection.request.url).toEqual(`https://www.googleapis.com/books/v1/volumes/${queryTitle}`);
+      expect(connection.request.url).toEqual(`./assets/data/projects.json?q=${queryTitle}`);
     });
     service
-      .retrieveBook(queryTitle)
+      .retrieveProject(queryTitle)
       .subscribe((response) => {
         expect(response).toEqual(data);
         done();

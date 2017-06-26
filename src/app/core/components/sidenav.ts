@@ -1,11 +1,12 @@
-import { Component,
-         EventEmitter,
-         Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output } from '@angular/core';
 
 @Component({
   selector: 'portfolio-sidenav',
   template: `
-    <md-nav-list>
+    <mat-nav-list>
       <portfolio-nav-item (activate)="openMenu.emit()" routerLink="/about" icon="create" hint="About">
         About
       </portfolio-nav-item>
@@ -27,14 +28,14 @@ import { Component,
       <portfolio-nav-item (activate)="openMenu.emit()" routerLink="/resume" icon="book" hint="My Resume">
         Resume
       </portfolio-nav-item>
-    </md-nav-list>
+    </mat-nav-list>
   `,
   styles: [`
-    md-sidenav {
+    mat-sidenav {
       width: 300px;
     }
   `]
 })
 export class SidenavComponent {
-    @Output() openMenu = new EventEmitter();
+  @Output() openMenu = new EventEmitter();
 }

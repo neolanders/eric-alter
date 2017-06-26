@@ -5,27 +5,27 @@ import { Project } from '../models/project';
 @Component({
   selector: 'bc-project-detail',
   template: `
-    <md-card *ngIf="project">
-      <md-card-title-group>
-        <md-card-title>{{ title }}</md-card-title>
-        <md-card-subtitle *ngIf="subtitle">{{ subtitle }}</md-card-subtitle>
-        <img md-card-sm-image *ngIf="thumbnail" [src]="thumbnail"/>
-      </md-card-title-group>
-      <md-card-content>
+    <mat-card *ngIf="project">
+      <mat-card-title-group>
+        <mat-card-title>{{ title }}</mat-card-title>
+        <mat-card-subtitle *ngIf="subtitle">{{ subtitle }}</mat-card-subtitle>
+        <img mat-card-sm-image *ngIf="thumbnail" [src]="thumbnail"/>
+      </mat-card-title-group>
+      <mat-card-content>
         <p [innerHtml]="description"></p>
-      </md-card-content>
-      <md-card-footer class="footer">
+      </mat-card-content>
+      <mat-card-footer class="footer">
         <bc-project-authors [project]="project"></bc-project-authors>
-      </md-card-footer>
-      <md-card-actions align="end">
+      </mat-card-footer>
+      <mat-card-actions align="end">
         <button md-raised-button color="warn" *ngIf="inCollection" (click)="remove.emit(project)">
         Remove Project from Collection
         </button>
         <button md-raised-button color="primary" *ngIf="!inCollection" (click)="add.emit(project)">
         Add Project to Collection
         </button>
-      </md-card-actions>
-    </md-card>
+      </mat-card-actions>
+    </mat-card>
 
   `,
   styles: [`
@@ -34,10 +34,10 @@ import { Project } from '../models/project';
       justify-content: center;
       margin: 75px 0;
     }
-    md-card {
+    mat-card {
       max-width: 600px;
     }
-    md-card-title {
+    mat-card-title {
       margin-left: 10px;
     }
     img {
@@ -45,15 +45,15 @@ import { Project } from '../models/project';
       min-width: 60px;
       margin-left: 5px;
     }
-    md-card-content {
+    mat-card-content {
       margin-top: 15px;
       margin-bottom: 125px;
     }
-    md-card-actions {
+    mat-card-actions {
       margin-bottom: 0 !important;
       margin-right: 0;
     }
-    md-card-footer {
+    mat-card-footer {
       padding: 0 25px 25px;
     }
   `]

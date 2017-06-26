@@ -1,11 +1,11 @@
-<md-card *ngFor="let spaceScreen of spaceScreens; let i = index">
-  <img md-card-image src="{{ spaceScreen.img }}">
-  <md-card-content>
+<mat-card *ngFor="let spaceScreen of spaceScreens; let i = index">
+  <img mat-card-image src="{{ spaceScreen.img }}">
+  <mat-card-content>
     <p>{{ spaceScreen.description }}</p>
-  </md-card-content>
-  <md-card-actions>
+  </mat-card-content>
+  <mat-card-actions>
     <button md-button (click)="likeMe(i)">
       <i class="material-icons md-18" [class.red-color]="spaceScreen.liked == '1'">favorite</i> LIKE
     </button>
-  </md-card-actions>
-</md-card>
+  </mat-card-actions>
+</mat-card>

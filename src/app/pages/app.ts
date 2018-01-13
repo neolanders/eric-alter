@@ -11,13 +11,13 @@ import * as layout from '../actions/layout';
     selector: 'porfolio',
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `    
-    <md-sidenav-container fullscreen>
-      <md-sidenav #sidenav><!--slimScroll [options]="opts"-->
+    <mat-drawer-container fullscreen>
+      <mat-drawer #sidenav><!--slimScroll [options]="opts"-->
         <portfolio-sidenav (openMenu)="sidenav.toggle()"></portfolio-sidenav>
-      </md-sidenav> 
+      </mat-drawer> 
       <portfolio-toolbar (openMenu)="sidenav.toggle()"></portfolio-toolbar>
       <router-outlet></router-outlet>           
-    </md-sidenav-container>
+    </mat-drawer-container>
   `
 })
 export class AppComponent {

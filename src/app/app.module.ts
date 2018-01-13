@@ -10,9 +10,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { DBModule } from '@ngrx/db';
-import { RouterStoreModule } from '@ngrx/router-store';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { MaterialModule } from '@angular/material';
 import { SlimScrollModule } from 'ng2-slimscroll';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { NgxErrorsModule } from '@ultimate/ngxerrors';
@@ -26,7 +25,6 @@ import { ComponentsModule } from './components';
 import { ProjectEffects } from './effects/project';
 import { CollectionEffects } from './effects/collection';
 import { ProjectExistsGuard } from './guards/project-exists';
-
 import { AppComponent } from './pages/app';
 import { FindProjectPageComponent } from './pages/find-project-page';
 import { ViewProjectPageComponent } from './pages/view-project-page';
@@ -36,6 +34,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { SelectedProjectPageComponent } from './pages/selected-project-page';
 import { HomeComponent } from './pages/home/home.component';
 import { WorkComponent } from './pages/work/work.component';
+import { CustomMaterialModule } from './material.module';
 // import { HomePageComponent } from './pages/home-page';
 import { NotFoundPageComponent } from './pages/not-found-page';
 
@@ -85,8 +84,8 @@ let imports = {
     SlimScrollModule,
     ChartsModule,
     Ng2SimplePageScrollModule.forRoot(),
-    MaterialModule,
     ComponentsModule,
+    CustomMaterialModule,
     AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(routes, { useHash: true }),
     TranslateModule.forRoot(imports),
@@ -98,13 +97,13 @@ let imports = {
      * meta-reducer. This returns all providers for an @ngrx/store
      * based application.
      */
-    StoreModule.provideStore(reducer),
+    StoreModule.forRoot(reducer),
 
     /**
      * @ngrx/router-store keeps router state up-to-date in the store and uses
      * the store as the single source of truth for the router's state.
      */
-    RouterStoreModule.connectRouter(),
+    StoreRouterConnectingModule,
 
     /**
      * Store devtools instrument the store retaining past versions of state
@@ -116,7 +115,7 @@ let imports = {
      *
      * See: https://github.com/zalmoxisus/redux-devtools-extension
      */
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
+    StoreDevtoolsModule.instrument(),
 
     /**
      * EffectsModule.run() sets up the effects class to be initialized
@@ -124,8 +123,7 @@ let imports = {
      *
      * See: https://github.com/ngrx/effects/blob/master/docs/api.md#run
      */
-    EffectsModule.run(ProjectEffects),
-    EffectsModule.run(CollectionEffects),
+    EffectsModule.forRoot([ProjectEffects, CollectionEffects]),
 
     /**
      * `provideDB` sets up @ngrx/db with the provided schema and makes the Database

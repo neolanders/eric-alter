@@ -1,4 +1,4 @@
-md-card {
+mat-card {
   width: 400px;
   height: 300px;
   margin: 15px;
@@ -20,7 +20,7 @@ md-card {
     //left: 0px;
   }
 }
-md-card-title {
+mat-card-title {
   margin-right: 10px;
 }
 a {
@@ -32,14 +32,14 @@ img {
   min-width: 60px;
   margin-left: 5px;
 }
-md-card-content {
+mat-card-content {
   margin-top: 15px;
 }
 span {
   display: inline-block;
   font-size: 13px;
 }
-md-card-footer {
+mat-card-footer {
   padding: 0 25px 25px;
 }
 

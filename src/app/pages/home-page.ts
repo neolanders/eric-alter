@@ -10,9 +10,9 @@ import { Project } from '../models/project';
   selector: 'bc-collection-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <md-card>
-      <md-card-title>My Portfolio</md-card-title>
-    </md-card>    
+    <mat-card>
+      <mat-card-title>My Portfolio</mat-card-title>
+    </mat-card>    
     <bc-project-preview-list [projects]="projects$ | async"></bc-project-preview-list>
   `,
   /**

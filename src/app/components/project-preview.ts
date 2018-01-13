@@ -5,24 +5,24 @@ import { Project } from '../models/project';
   selector: 'portfolio-project-preview',
   template: `
       <div class="panel">
-        <md-card class="front card">
-          <md-card-title-group>
-            <img md-card-sm-image *ngIf="thumbnail" [src]="thumbnail"/>
-            <md-card-title>{{ title }}</md-card-title>
-            <md-card-subtitle *ngIf="subtitle">{{ subtitle }}</md-card-subtitle>
-          </md-card-title-group>
-          <md-card-content>
+        <mat-card class="front card">
+          <mat-card-title-group>
+            <img mat-card-sm-image *ngIf="thumbnail" [src]="thumbnail"/>
+            <mat-card-title>{{ title }}</mat-card-title>
+            <mat-card-subtitle *ngIf="subtitle">{{ subtitle }}</mat-card-subtitle>
+          </mat-card-title-group>
+          <mat-card-content>
             <p *ngIf="description">{{ description | bcEllipsis }}</p>
-          </md-card-content>
-          <md-card-footer>
+          </mat-card-content>
+          <mat-card-footer>
             <bc-project-authors [project]="project"></bc-project-authors>
-          </md-card-footer>
-        </md-card>
-        <md-card class="back card">
-          <md-card-title-group>
+          </mat-card-footer>
+        </mat-card>
+        <mat-card class="back card">
+          <mat-card-title-group>
             ddddd BACK
-          </md-card-title-group>
-          <md-card-content>
+          </mat-card-title-group>
+          <mat-card-content>
             <div id="cboxLoadedContent">
                 <div class="row">
                     <div class="col s6 m6">
@@ -54,11 +54,11 @@ import { Project } from '../models/project';
                     </div>
                 </div>
             </div>
-          </md-card-content>
-          <md-card-footer>
+          </mat-card-content>
+          <mat-card-footer>
             6666666
-          </md-card-footer>
-        </md-card>
+          </mat-card-footer>
+        </mat-card>
       </div>
   `,
   styleUrls: ['./project-preview.scss']

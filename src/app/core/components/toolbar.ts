@@ -6,11 +6,7 @@ import { AppMenuService } from '../services/app.menu.service';
 @Component({
   selector: 'portfolio-toolbar',
   styleUrls: ['./toolbar.scss'],
-<<<<<<< HEAD:src/app/components/toolbar.ts
-    template: `
-=======
   template: `
->>>>>>> 2f0764b43cd92273f172109a6b2163513a582d25:src/app/core/components/toolbar.ts
       <mat-toolbar color="primary" class="toolbar">
         <div class="al-user-profile">
           <a routerLink="/"><img src="https://avatars1.githubusercontent.com/u/1858504?v=3&s=460"></a>

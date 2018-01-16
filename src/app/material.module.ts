@@ -42,8 +42,4 @@ import {
     // PlatformModule
   ]
 })
-<<<<<<< HEAD
-export class CustomMaterialModule {}
-=======
 export class MaterialModule {}
->>>>>>> 2f0764b43cd92273f172109a6b2163513a582d25

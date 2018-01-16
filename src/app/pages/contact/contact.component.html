@@ -2,55 +2,6 @@
   <h5>Message Sent</h5>
 </div>
 <div class="page-content" *ngIf="!boolMessageSent">
-<<<<<<< HEAD
-  <h5>Contact Me</h5>
-  <span>If you have any questions relative to my expertise or projects I did, do not hesitate to contact me...</span>
-  <br/><br/>
-  <form novalidate [formGroup]="form" (submit)="onSubmit(form.value)">
-      <i class="material-icons prefix">account_circle</i>
-      <mat-form-field>
-          <input matInput
-                 type="text"
-                 formControlName="name"
-                 id="name"
-                 placeholder="Full Name">
-      </mat-form-field>
-      <div ngxErrors="name" #email="ngxErrors">
-        <div class="form-control-feedback"
-             ngxError="required" [when]="['touched']">
-          Please enter your name.
-        </div>
-      </div>
-      <i class="material-icons prefix">email</i>
-      <mat-form-field>
-          <input matInput
-                 type="email"
-                 formControlName="email"
-                 id="email"
-                 placeholder="Email">
-      </mat-form-field>
-      <div ngxErrors="email" #email="ngxErrors">
-        <div class="form-control-feedback" ngxError="required" [when]="['touched']">
-          Please enter your email.
-        </div>
-      </div>
-      <i class="material-icons prefix">send</i>
-      <mat-form-field>
-          <textarea matInput
-                    formControlName="message"
-                    id="message"
-                    placeholder="Message"></textarea>
-      </mat-form-field>
-      <div ngxErrors="message" #lastname="ngxErrors">
-        <div class="form-control-feedback"
-             ngxError="required" [when]="['touched']">
-          Please enter your message.
-        </div>
-      </div>
-      <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" site_key="6LeC9RwUAAAAALj2PBMxg4cK_uoHg5wncPz4ynTa"></re-captcha>
-      <button [disabled]="!form.valid || !captchaValid" type="submit" class="btn btn-primary">Submit</button>
-  </form>
-=======
     <h5>Contact Me</h5>
     <span>If you have any questions relative to my expertise or projects I did, do not hesitate to contact me...</span>
     <br/><br/>
@@ -100,5 +51,4 @@
           <button [disabled]="!form.valid || !captchaValid" type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
->>>>>>> 2f0764b43cd92273f172109a6b2163513a582d25
 </div>

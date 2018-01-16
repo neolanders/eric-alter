@@ -1,6 +1,7 @@
-import { Component,
-         EventEmitter,
-         Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output } from '@angular/core';
 
 @Component({
   selector: 'portfolio-sidenav',
@@ -36,5 +37,5 @@ import { Component,
   `]
 })
 export class SidenavComponent {
-    @Output() openMenu = new EventEmitter();
+  @Output() openMenu = new EventEmitter();
 }

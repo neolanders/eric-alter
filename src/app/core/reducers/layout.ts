@@ -1,3 +1,4 @@
+import { Action } from '@ngrx/store';
 import { LayoutActionTypes, LayoutActions } from '../actions/layout';
 
 export interface State {
@@ -10,7 +11,7 @@ const initialState: State = {
 
 export function reducer(
   state: State = initialState,
-  action: LayoutActions
+  action: Action
 ): State {
   switch (action.type) {
     case LayoutActionTypes.CloseSidenav:

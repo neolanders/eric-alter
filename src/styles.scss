@@ -1,29 +1,18 @@
-@import '~@angular/material/theming';
-@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@include mat-core();
-
-$app-primary: mat-palette($mat-grey, 800);
-$app-accent:  mat-palette($mat-light-blue, 600, A100, A400);
-$app-warn:    mat-palette($mat-grey, 500);
-$app-theme:   mat-dark-theme($app-primary, $app-accent, $app-warn);
-
-@include angular-material-theme($app-theme);
-
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: Roboto, 'Helvetica Neue', sans-serif;
-  h1 {
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .btn {
-    border-radius: 15px;
-    background-color: #ee6e73;
-  }
-  .row {
-    margin-bottom: 0px !important;
-  }
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  overflow-x: hidden;
+}
+
+// Add smooth scroll padding to account for fixed header
+html {
+  scroll-padding-top: 64px; // Adjust based on your header height
 }

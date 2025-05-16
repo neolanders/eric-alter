@@ -6,6 +6,7 @@ import { NotFoundPageComponent } from './pages/not-found-page';
 import { HomeComponent } from './pages/home/home.component';
 import { WorkComponent } from './pages/work/work.component';
 
+
 export const routes: Routes = [
   {
     path: '',
@@ -33,7 +34,7 @@ export const routes: Routes = [
   },
   {
     path: 'playground',
-    loadChildren: './pages/playground/playground.module#PlaygroundModule' // -- for aot compilation
+    loadChildren: () => import('./pages/playground/playground.module').then(m => m.PlaygroundModule)
   },
   // {
   //   path: 'project/:id',

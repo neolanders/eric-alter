@@ -1,54 +1,44 @@
-<div class="page-content" *ngIf="boolMessageSent">
-  <h5>Message Sent</h5>
-</div>
-<div class="page-content" *ngIf="!boolMessageSent">
-    <h5>Contact Me</h5>
-    <span>If you have any questions relative to my expertise or projects I did, do not hesitate to contact me...</span>
-    <br/><br/>
-    <div fxLayout="row wrap" fxLayoutAlign="space-around center">
-      <form novalidate [formGroup]="form" (submit)="onSubmit(form.value)">
-          <i class="material-icons prefix">account_circle</i>
-          <mat-form-field>
-              <input matInput
-                     type="text"
-                     formControlName="name"
-                     id="name"
-                     placeholder="Full Name">
-          </mat-form-field>
-          <div ngxErrors="name" #email="ngxErrors">
-            <div class="form-control-feedback"
-                 ngxError="required" [when]="['touched']">
-              Please enter your name.
-            </div>
-          </div>
-          <i class="material-icons prefix">email</i>
-          <mat-form-field>
-              <input matInput
-                     type="email"
-                     formControlName="email"
-                     id="email"
-                     placeholder="Email">
-          </mat-form-field>
-          <div ngxErrors="email" #email="ngxErrors">
-            <div class="form-control-feedback" ngxError="required" [when]="['touched']">
-              Please enter your email.
-            </div>
-          </div>
-          <i class="material-icons prefix">send</i>
-          <mat-form-field>
-              <textarea matInput
-                        formControlName="message"
-                        id="message"
-                        placeholder="Message"></textarea>
-          </mat-form-field>
-          <div ngxErrors="message" #lastname="ngxErrors">
-            <div class="form-control-feedback"
-                 ngxError="required" [when]="['touched']">
-              Please enter your message.
-            </div>
-          </div>
-          <re-captcha (captchaResponse)="handleCorrectCaptcha($event)" site_key="6LeC9RwUAAAAALj2PBMxg4cK_uoHg5wncPz4ynTa"></re-captcha>
-          <button [disabled]="!form.valid || !captchaValid" type="submit" class="btn btn-primary">Submit</button>
-      </form>
+<div class="contact-container">
+  <div class="contact-content">
+    <h1>Contact Me</h1>
+    <p>Feel free to reach out to me for any questions or opportunities.</p>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="contact-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" placeholder="Your name">
+        <mat-error *ngIf="form.get('name')?.hasError('required')">
+          Name is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" placeholder="Your email">
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+          Email is required
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message" rows="4" placeholder="Your message"></textarea>
+        <mat-error *ngIf="form.get('message')?.hasError('required')">
+          Message is required
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+        Send Message
+      </button>
+    </form>
+
+    <div *ngIf="boolMessageSent" class="success-message">
+      <mat-icon>check_circle</mat-icon>
+      <p>Thank you for your message! I'll get back to you soon.</p>
     </div>
-</div>
+  </div>
+</div> 

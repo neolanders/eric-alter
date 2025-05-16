@@ -1,4 +1,9 @@
 .about {
   min-height: 100vh;
-  // background-image: url('assets/img/bg4.jpg');
+  background-image: url('/assets/img/bg4.webp');
+  background-size: cover;       /* Ensures the image covers the full screen */
+  background-position: center;  /* Center the image */
+  background-repeat: no-repeat; /* Prevent tiling */
+  width: 100vw;                 /* Full viewport width */
+  height: 100vh;                /* Full viewport height */
 }

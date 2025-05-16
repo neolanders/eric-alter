@@ -1,23 +1,23 @@
-import 'rxjs/add/operator/map';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Project } from '../models/project';
 
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProjectsService {
-    private API_PATH: string = './assets/data/projects.json'; // https://www.googleapis.com/books/v1/volumes';
+    private API_PATH = './assets/data/projects.json';
 
-    constructor(private http: Http) {}
+    constructor(private http: HttpClient) {}
 
     searchProjects(queryTitle: string): Observable<Project[]> {
-        return this.http.get(`${this.API_PATH}?q=${queryTitle}`)
-            .map(res => res.json().items || []);
+        return this.http.get<any>(`${this.API_PATH}?q=${queryTitle}`)
+            .pipe(map(res => res.items || []));
     }
 
     retrieveProject(volumeId: string): Observable<Project> {
-        return this.http.get(`${this.API_PATH}/${volumeId}`)
-            .map(res => res.json());
+        return this.http.get<Project>(`${this.API_PATH}/${volumeId}`);
     }
-}
+} 

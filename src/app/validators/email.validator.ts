@@ -1,14 +1,14 @@
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export class EmailValidator {
+  static validate: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const email = control.value;
+    if (!email) {
+      return null;
+    }
 
-  public static validate(c: AbstractControl) {
-    let EMAIL_REGEXP = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-
-    return EMAIL_REGEXP.test(c.value) ? null : {
-      validateEmail: {
-        valid: false
-      }
-    };
-  }
-}
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const valid = emailRegex.test(email);
+    return valid ? null : { email: true };
+  };
+} 

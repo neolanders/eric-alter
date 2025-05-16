@@ -1,66 +1,169 @@
-nav ul a,
-nav span {
-  color: #444;
-  font-size: 1rem;
-  text-transform: uppercase;
-  font-style: italic;
-}
-p {
-  line-height: 2rem;
-}
-.button-collapse {
-  color: #26a69a;
-}
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
-  .parallax img{
-    display: block;
-  }
-  hr {
-    border-color: #f05f40;
-    border-width: 3px;
-    max-width: 50px;
-    margin: 30px auto;
-    border: 0;
-    border-top: 1px solid #eee;
-  }
-  p {
-    font-size: 18px;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+  background-image: url('/assets/img/bg1.webp');
+  background-size: cover;       /* Ensures the image covers the full screen */
+  background-position: center;  /* Center the image */
+  background-repeat: no-repeat;               /* Full viewport width */
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+
+  &.loaded {
+    opacity: 1;
   }
 }
-.parallax-container .section {
+
+.hero-section {
+  height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFF !important;
+  z-index: 3;
   width: 100%;
+  padding: 2rem;
+
+  h1 {
+    font-size: 4rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    opacity: 0;
+    transform: translateX(-50px);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: slideInRight 0.5s ease-out forwards;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin: 0;
+    margin-bottom: 2rem;
+    color: #FFF;
+    opacity: 0;
+    transform: translateX(50px);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    animation: slideInLeft 0.5s ease-out forwards;
+  }
 }
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out 0.3s forwards;
+  justify-content: center;
+
+  a {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(255, 255, 255, 1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    mat-icon {
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+.skills-section,
+.projects-section {
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.9);
+  margin: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+
+  &::before {
+    content: '';
     position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
-}
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
     top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/assets/img/pexels-hiraeth-838869.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    margin-bottom: 2rem;
+    color: #333;
+    text-align: center;
+    position: relative;
+    z-index: 1;
   }
 }
-.icon-block {
-  padding: 0 15px;
+
+.skills-grid, .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
 }
-.icon-block .material-icons {
-  font-size: inherit;
-  color: #fff;
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-footer.page-footer {
-  margin: 0;
-  &.teal{
-    background-color: #303030 !important;
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

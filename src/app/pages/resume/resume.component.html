@@ -1,40 +1,33 @@
-<div layout="column" layout-fill="" class="ng-scope">
-  <mat-sidenav flex="20" class="md-closed ng-isolate-scope" tabindex="-1"></mat-sidenav>
-  <mat-toolbar class="md-medium-tall md-default-theme">
-    <div class="mat-toolbar-tools">
-      <span>Fixed to Top</span>
-      <span flex=""></span>
-    </div>
+<div class="resume-container">
+  <mat-toolbar color="primary">
+    <span>Resume</span>
+    <span class="toolbar-spacer"></span>
   </mat-toolbar>
-  <main class="mdl-layout__content mdl-color--grey-100">
-    <div class="mdl-grid">
-        <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-            <div class="container">
-                <div class="section" id="section-skiils">
-                    <div class="row">
-                        <mat-card class="col s12 m4"></mat-card>
-                        <mat-card class="col s12 m4">
-                            <canvas baseChart
-                                    style="width: 200px; height:200px;"
-                                    [data]="pieChartData"
-                                    [labels]="pieChartLabels"
-                                    [chartType]="pieChartType"
-                                    (chartHover)="chartHovered($event)"
-                                    (chartClick)="chartClicked($event)"></canvas>
-                        </mat-card>
-                        <mat-card class="col s12 m4"></mat-card>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+  <main class="content">
+    <div class="skills-section">
+      <mat-card class="chart-card">
+        <canvas baseChart
+                [data]="pieChartData"
+                [options]="pieChartOptions"
+                type="pie"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+        </canvas>
+      </mat-card>
     </div>
-    <mat-chip-list>
-      <mat-chip>Papadum</mat-chip>
-      <mat-chip>Naan</mat-chip>
-      <mat-chip>Dal</mat-chip>
-    </mat-chip-list>
+
+    <div class="skills-chips">
+      <mat-chip-listbox>
+        <mat-chip>Papadum</mat-chip>
+        <mat-chip>Naan</mat-chip>
+        <mat-chip>Dal</mat-chip>
+      </mat-chip-listbox>
+    </div>
+
+    <mat-card class="location-card">
+      <mat-icon>location_on</mat-icon>
+      <span>Location: Tel Aviv</span>
+    </mat-card>
   </main>
-  <mat-card class="md-default-theme">
-      <mat-icon>beenhere</mat-icon> Location: Tel Aviv
-  </mat-card>
 </div>

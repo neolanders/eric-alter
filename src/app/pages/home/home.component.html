@@ -1,133 +1,30 @@
-<div scrollSpy style="height: 500px;">
-  <nav class="white" role="navigation">
-    <div class="nav-wrapper container">
-      <span>Senior Front-End / Full Stack Developer</span>
-      <ul class="right hide-on-med-and-down">
-        <li><a simplePageScroll [routerLink]="['/']" href="#sectionSkills">My Skills {{ 'HOME.TITLE' | translate }}</a></li>
-        <!--[routerLink]="['/']" fragment="section-skills"-->
-      </ul>
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
+<div class="home-container">
+  <div class="hero-section">
+    <h1>Eric Alter</h1>
+    <p>Full Stack Developer</p>
+    <div class="cta-buttons">
+      <a mat-raised-button color="primary" routerLink="/" (click)="scrollToElement('sectionSkills')" (keydown.enter)="scrollToElement('sectionSkills')" tabindex="0">
+        <mat-icon>code</mat-icon>
+        View Skills
+      </a>
+      <a mat-raised-button color="accent" routerLink="/" (click)="scrollToElement('sectionProjects')" (keydown.enter)="scrollToElement('sectionProjects')" tabindex="0">
+        <mat-icon>work</mat-icon>
+        View Projects
+      </a>
     </div>
-  </nav>
-  <div id="index-banner" class="parallax-container" (click)="closeSidenav()">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h1 class="header center" [@textAnnimation]="show">Eric Alter</h1>
-          <hr/>
-          <p>I’m always looking for the greatest opportunity to work as
-            a web developer for a reputed company, building efficiently
-            and most upgraded technology system to makes a good contribution of my expertise.</p>
-        </div>
-        <div class="center btn-container">
-          <a [routerLink]="['/work']" class="btn waves-effect waves-light">See My Work</a>
-        </div>
-        <br><br>
-      </div>
+    <div class="center btn-container">
+      <a [routerLink]="['/work']" class="btn waves-effect waves-light" (keydown.enter)="navigateToWork()">See My Work</a>
     </div>
-    <div class="parallax">
-      <img src="assets/img/bg1.jpg" alt="Unsplashed background img 1">
-    </div>
+    <br><br>
   </div>
-  <div class="container">
-    <div class="section">
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">airplay</i></h2>
-            <h5 class="center">Web Development</h5>
-            <p class="light">I specialize in front-end development, and I mostly focus on simplicity,
-              ergonomics, responsive design, cross-browser compatibility and SEO-friendly code.</p>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">User Experience Focused</h5>
-            <p class="light">By utilizing elements and principles of frameworks
-              (Material Design / <a href="https://v4-alpha.getbootstrap.com/" target="_blank">Bootstrap</a> / Ionics) that incorporates
-              components and animations I am able to provide more feedback to users.
-              Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
-          </div>
-        </div>
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Easy to work with</h5>
-            <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="assets/img/bg2.jpg" alt="Unsplashed background img 2"></div>
-  </div>
-  <div class="container" id="sectionSkills">
-    <div class="section">
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4><a [routerLink]="['/contact']">Contact Us</a></h4>
-          <p class="left-align light"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="parallax-container valign-wrapper">
-    <div class="section no-pad-bot">
-      <div class="container">
-        <div class="row center">
-          <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
-        </div>
-      </div>
-    </div>
-    <div class="parallax"><img src="assets/img/bg3.jpg" alt="Unsplashed background img 3"></div>
-  </div>
-  <footer class="page-footer teal">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">
-            We are a team of college students working on this project like it's our full time job.
-            Any amount would help support and continue development on this project and is greatly appreciated.</p>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Settings</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="#!">Link 2</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">
-            <a class="navbar-brand page-scroll" href="#page-top">Connect</a>
-          </h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-            <li><a class="white-text" href="assets/pdf/resume.pdf">VIEW RESUME</a></li>
-            <li><a class="white-text" href="#!">Link 3</a></li>
-            <li><a class="white-text" href="#!">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">
-        Made by <a class="brown-text text-lighten-3" href="https://eric-alter.herokuapp.com/">Eric Alter</a>
-      </div>
-    </div>
-  </footer>
-</div>
+
+  <section id="sectionSkills" class="skills-section">
+    <h2>Skills</h2>
+    <!-- Skills content -->
+  </section>
+
+  <section id="sectionProjects" class="projects-section">
+    <h2>Projects</h2>
+    <!-- Projects content -->
+  </section>
+</div> 

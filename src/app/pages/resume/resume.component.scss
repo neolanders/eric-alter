@@ -1,0 +1,52 @@
+.resume-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.content {
+  padding: 24px;
+  background-color: #f5f5f5;
+  flex: 1;
+}
+
+.skills-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.chart-card {
+  width: 400px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  canvas {
+    width: 300px !important;
+    height: 300px !important;
+  }
+}
+
+.skills-chips {
+  margin: 24px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.location-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  margin-top: 24px;
+
+  mat-icon {
+    color: #666;
+  }
+} 

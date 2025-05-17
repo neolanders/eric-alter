@@ -20,11 +20,18 @@
   height: 100vh;
   position: relative;
   z-index: 2;
-  .hero-section-header {
-    bottom: 12rem;
-    position: relative;
+}
 
-  }
+.hero-section-header {
+  position: absolute;
+  bottom: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #FFF !important;
+  z-index: 3;
+  width: 100%;
+  padding: 2rem;
 }
 
 .hero-content {

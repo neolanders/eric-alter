@@ -1,45 +1,62 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 // import { MatSidenavModule } from '@angular/material/sidenav';
-import { NavItemComponent } from './nav-item.component';
+// import { NavItemComponent } from './nav-item.component';
 
 @Component({
-  selector: 'portfolio-sidenav',
+  selector: 'app-sidenav',
   standalone: true,
-  imports: [
-    RouterModule,
-    MatListModule,
-    NavItemComponent
-  ],
+  imports: [CommonModule, RouterModule, MatListModule, MatIconModule],
   template: `
     <mat-nav-list>
-      <portfolio-nav-item (activate)="openMenu.emit()" routerLink="/about" icon="create" hint="About">
-        About
-      </portfolio-nav-item>
-      <portfolio-nav-item (activate)="openMenu.emit()" routerLink="/work" icon="book" hint="View my works">
-        My Work
-      </portfolio-nav-item>
-      <portfolio-nav-item (activate)="openMenu.emit()" routerLink="/project/find" icon="search" hint="Find my projects">
-        Browse Projects
-      </portfolio-nav-item>
-      <portfolio-nav-item (activate)="openMenu.emit()" routerLink="/contact" icon="mail" hint="Contact me">
-        Contact
-      </portfolio-nav-item>
-      <portfolio-nav-item (activate)="openMenu.emit()" routerLink="/playground" icon="mode" hint="Playground">
-        Playground
-      </portfolio-nav-item>
-      <portfolio-nav-item (activate)="openMenu.emit()" routerLink="/resume" icon="book" hint="My Resume">
-        Resume
-      </portfolio-nav-item>
+      <a mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+      <a mat-list-item routerLink="/skills" routerLinkActive="active">
+        <mat-icon>code</mat-icon>
+        <span>Skills</span>
+      </a>
+      <a mat-list-item routerLink="/projects" routerLinkActive="active">
+        <mat-icon>work</mat-icon>
+        <span>Projects</span>
+      </a>
+      <a mat-list-item routerLink="/contact" routerLinkActive="active">
+        <mat-icon>mail</mat-icon>
+        <span>Contact</span>
+      </a>
     </mat-nav-list>
   `,
   styles: [`
-    mat-sidenav {
-      width: 300px;
+    mat-nav-list {
+      padding-top: 1rem;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &.active {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      mat-icon {
+        margin-right: 1rem;
+      }
     }
   `]
 })
 export class SidenavComponent {
-  @Output() openMenu = new EventEmitter();
+  @Output() openMenu = new EventEmitter<void>();
 } 

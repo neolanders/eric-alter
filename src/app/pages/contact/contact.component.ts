@@ -1,127 +1,117 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { EmailValidator } from '../../validators/email.validator';
-import { Database, ref, push, list, get } from '@angular/fire/database';
-import { Observable, from } from 'rxjs';
-import { map } from 'rxjs/operators';
-
-interface Message {
-  name: string;
-  email: string;
-  message: string;
-  date: string;
-}
-
-// declare global {
-//   interface Window {
-//     grecaptcha: {
-//       ready: (callback: () => void) => void;
-//       execute: (siteKey: string, options: { action: string }) => Promise<string>;
-//     };
-//   }
-// }
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule,
-    ReactiveFormsModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    ReactiveFormsModule
   ],
-  templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  template: `
+    <div class="contact-container">
+      <h1>Contact Me</h1>
+      <mat-card>
+        <mat-card-content>
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" placeholder="Your name">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" placeholder="Your email" type="email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Message</mat-label>
+              <textarea matInput formControlName="message" placeholder="Your message" rows="5"></textarea>
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid">
+              Send Message
+            </button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  `,
+  styles: [`
+    .contact-container {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 2rem;
+    }
+
+    mat-card {
+      background-color: #1a1a1a;
+      color: white;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    ::ng-deep {
+      .mat-mdc-form-field {
+        .mat-mdc-text-field-wrapper {
+          background-color: #2a2a2a;
+        }
+      }
+
+      .mat-mdc-form-field-label {
+        color: #e0e0e0;
+      }
+
+      .mat-mdc-input-element {
+        color: white;
+      }
+    }
+
+    button {
+      align-self: flex-end;
+      min-width: 150px;
+    }
+  `]
 })
-export class ContactComponent implements OnInit {
-  public errors = [
-    { name: 'required', text: 'This field is required', rules: ['touched', 'dirty'] },
-    { name: 'minlength', text: 'Min length is 5', rules: ['dirty'] }
-  ];
-  public form!: FormGroup;
-  public captchaValid = false;
-  public boolMessageSent = false;
-  public messages: Observable<Message[]>;
-  private readonly SITE_KEY = '6LeC9RwUAAAAALj2PBMxg4cK_uoHg5wncPz4ynTa';
+export class ContactComponent {
+  contactForm: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private database: Database
-  ) {
-    const messagesRef = ref(this.database, 'messages');
-    this.messages = from(get(messagesRef)).pipe(
-      map(snapshot => {
-        const messages: Message[] = [];
-        snapshot.forEach(child => {
-          messages.push(child.val() as Message);
-        });
-        return messages;
-      })
-    );
-  }
-
-  ngOnInit() {
-    this.initForm();
-    // this.loadRecaptcha();
-  }
-
-  // private loadRecaptcha() {
-  //   const script = document.createElement('script');
-  //   script.src = `https://www.google.com/recaptcha/api.js?render=${this.SITE_KEY}`;
-  //   script.async = true;
-  //   script.defer = true;
-  //   document.head.appendChild(script);
-  // }
-
-  // private async verifyCaptcha(): Promise<boolean> {
-  //   try {
-  //     const token = await window.grecaptcha.execute(this.SITE_KEY, { action: 'submit' });
-  //     // Here you would typically verify the token with your backend
-  //     // For now, we'll just consider it valid if we get a token
-  //     return !!token;
-  //   } catch (error) {
-  //     console.error('reCAPTCHA error:', error);
-  //     return false;
-  //   }
-  // }
-
-  initForm(): void {
-    this.form = this.fb.group({
-      'name': ['', [Validators.required]],
-      'email': ['', [Validators.required, EmailValidator.validate]],
-      'message': ['', [Validators.required]]
+  constructor(private fb: FormBuilder) {
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required]
     });
   }
 
-  async onSubmit(): Promise<void> {
-    // if (this.form.valid) {
-    //   const isCaptchaValid = await this.verifyCaptcha();
-    //   if (isCaptchaValid) {
-    //     this.boolMessageSent = true;
-    //     const messagesRef = ref(this.database, 'messages');
-    //     try {
-    //       await push(messagesRef, {
-    //         name: this.form.value.name,
-    //         email: this.form.value.email,
-    //         message: this.form.value.message,
-    //         date: new Date().toDateString()
-    //       });
-    //       console.log('Message saved successfully');
-    //     } catch (error) {
-    //       console.error('Error saving message:', error);
-    //     }
-    //   }
-    // }
+  onSubmit() {
+    if (this.contactForm.valid) {
+      console.log(this.contactForm.value);
+      // Here you would typically send the form data to your backend
+      this.contactForm.reset();
+    }
   }
 } 

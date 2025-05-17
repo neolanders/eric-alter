@@ -1,18 +1,57 @@
-<app-loader *ngIf="isLoading"></app-loader>
-
-<mat-drawer-container class="sidenav-container" fullscreen *ngIf="showContent">
-  <mat-drawer #sidenav [mode]="(isMobile$ | async) ? 'over' : 'side'" class="sidenav">
-    <portfolio-sidenav (openMenu)="sidenav.toggle()"></portfolio-sidenav>
-  </mat-drawer>
-  <mat-drawer-content class="main-content">
-    <mat-toolbar color="primary" class="toolbar">
-      <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav class="sidenav" fixedInViewport
+      [mode]="(isMobile$ | async) ? 'over' : 'side'"
+      [opened]="(isMobile$ | async) === false">
+    <mat-toolbar class="sidenav-toolbar">
+      <span>{{ 'menu.title' | translate }}</span>
+      <button
+        type="button"
+        aria-label="Close sidenav"
+        mat-icon-button
+        (click)="sidenav.toggle()"
+        *ngIf="isMobile$ | async">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-toolbar>
+    <app-sidenav (openMenu)="sidenav.toggle()"></app-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="toolbar">
+      <div class="al-user-profile">
+        <a routerLink="/"><img src="https://avatars1.githubusercontent.com/u/1858504?v=3&s=460" alt="Profile"></a>
+      </div>
+      <button mat-icon-button (click)="sidenav.toggle()" *ngIf="isMobile$ | async">
         <mat-icon>menu</mat-icon>
       </button>
-      <a routerLink="/" class="toolbar-title">Portfolio</a>
+      <span class="hide-on-mobile header-menu">
+        <a *ngFor="let link of items" [routerLink]="link.routerLink" mat-button>
+          <span class="hover">{{ link.label | translate }}</span>
+        </a>
+      </span>
+      <div class="lang-selector">
+        <ul id="langs" class="dropdown-content" [class.active]="isLanguageDropdownOpen">
+          <li>
+            <button class="lang-btn" (click)="toggleLanguage()" (keydown.enter)="toggleLanguage()">
+              <span class="badge">{{ 'language.en' | translate }}</span>
+            </button>
+          </li>
+          <li>
+            <button class="lang-btn" (click)="toggleLanguage()" (keydown.enter)="toggleLanguage()">
+              <span class="badge">{{ 'language.fr' | translate }}</span>
+            </button>
+          </li>
+        </ul>
+        <button class="dropdown-button lang" (click)="toggleLanguageDropdown()" (keydown.enter)="toggleLanguageDropdown()">
+          {{currentLanguage}}
+        </button>
+      </div>
     </mat-toolbar>
-    <main class="content">
-      <router-outlet></router-outlet>
-    </main>
-  </mat-drawer-content>
-</mat-drawer-container>
+    <div class="content">
+      <app-loader *ngIf="isLoading"></app-loader>
+      <div *ngIf="showContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

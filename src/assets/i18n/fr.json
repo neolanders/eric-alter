@@ -1,5 +1,15 @@
 {
-    "HOME": {
-        "TITLE": "My Account"
+    "menu": {
+        "home": "Accueil",
+        "skills": "Compétences",
+        "projects": "Projets",
+        "contact": "Contact"
+    },
+    "footer": {
+        "madeWith": "Fait avec ❤️ par Eric Alter"
+    },
+    "language": {
+        "en": "Anglais",
+        "fr": "Français"
     }
 }

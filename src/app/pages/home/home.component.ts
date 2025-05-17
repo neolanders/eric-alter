@@ -20,23 +20,19 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ],
   template: `
     <div class="home-container" [class.loaded]="isLoaded">
-      <div class="hero-section" [@fadeIn]>
+      <section class="hero-section">
         <app-carousel></app-carousel>
         <div class="hero-content">
-          <h1 class="title" [@slideIn]="'right'">Eric Alter</h1>
-          <p class="subtitle" [@slideIn]="'left'">Full Stack Developer</p>
-          <div class="cta-buttons" [@fadeIn]>
-            <a mat-raised-button color="primary" routerLink="/" (click)="scrollToElement('sectionSkills')" (keydown.enter)="scrollToElement('sectionSkills')" tabindex="0">
-              <mat-icon>code</mat-icon>
-              View Skills
-            </a>
-            <a mat-raised-button color="accent" routerLink="/" (click)="scrollToElement('sectionProjects')" (keydown.enter)="scrollToElement('sectionProjects')" tabindex="0">
-              <mat-icon>work</mat-icon>
-              View Projects
-            </a>
+          <div class="hero-section-header">
+            <h1 class="title">Eric Alter</h1>
+            <p class="subtitle">Senior Front-End | Full-Stack Engineer | 15+ Years in Software Engineering</p>
+          </div>
+          <div class="cta-buttons">
+            <a mat-raised-button color="primary" routerLink="/skills">View Skills</a>
+            <a mat-raised-button color="accent" routerLink="/projects">View Projects</a>
           </div>
         </div>
-      </div>
+      </section>
 
       <section id="sectionSkills" class="skills-section" [@fadeIn]>
         <h2>Skills</h2>

@@ -1,106 +1,82 @@
-import { Observable } from 'rxjs';
-import { RouterOutlet, Router } from '@angular/router';
-import { Component, ChangeDetectionStrategy, OnInit, ViewChild, ChangeDetectorRef } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { MatSidenavModule } from '@angular/material/sidenav';
+import { Component, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet, RouterModule } from '@angular/router';
+import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { BehaviorSubject } from 'rxjs';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SidenavComponent } from './core/components/sidenav.component';
-import { createSelector } from '@ngrx/store';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { MatSidenav } from '@angular/material/sidenav';
-import { AsyncPipe, CommonModule } from '@angular/common';
-import { map } from 'rxjs/operators';
-import { AppLoaderComponent } from './shared/components/app-loader.component';
-
-import * as fromRoot from './reducers';
-import * as fromLayout from './core/reducers/layout';
-import * as layout from './core/actions/layout';
-
-const getLayoutState = (state: fromRoot.State) => state.layout;
-const getShowSidenav = createSelector(getLayoutState, fromLayout.getShowSidenav);
+import { FooterComponent } from './core/components/footer.component';
+import { LoaderComponent } from './core/components/loader.component';
 
 @Component({
-  selector: 'app-portfolio',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
   standalone: true,
   imports: [
+    CommonModule,
     RouterOutlet,
-    MatSlideToggleModule,
+    RouterModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatButtonModule,
     MatIconModule,
+    MatButtonModule,
+    MatListModule,
+    TranslateModule,
     SidenavComponent,
-    AsyncPipe,
-    AppLoaderComponent,
-    CommonModule
-  ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    FooterComponent,
+    LoaderComponent
+  ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   @ViewChild('sidenav') sidenav!: MatSidenav;
-  opts!: {
-    position: string;
-    barBackground: string;
-  };
-  showSidenav$: Observable<boolean>;
-  isMobile$: Observable<boolean>;
-  isLoading = true;
-  showContent = false;
+  
+  isLoading = false;
+  showContent = true;
+  isMobile$ = new BehaviorSubject<boolean>(window.innerWidth < 600);
+  currentLanguage = 'EN';
+  isLanguageDropdownOpen = false;
 
-  constructor(
-    private store: Store<fromRoot.State>,
-    public breakpointObserver: BreakpointObserver,
-    private cdr: ChangeDetectorRef,
-    private router: Router
-  ) {
-    this.showSidenav$ = this.store.select(getShowSidenav);
-    this.isMobile$ = this.breakpointObserver.observe([
-      Breakpoints.HandsetPortrait,
-      Breakpoints.TabletPortrait,
-      Breakpoints.Small
-    ]).pipe(
-      map(result => result.matches)
-    );
+  items = [
+    { label: 'menu.home', routerLink: '/' },
+    { label: 'menu.skills', routerLink: '/skills' },
+    { label: 'menu.projects', routerLink: '/projects' },
+    { label: 'menu.contact', routerLink: '/contact' }
+  ];
+
+  constructor(private translate: TranslateService) {
+    // Initialize mobile detection
+    this.checkMobile();
     
-    // Subscribe to breakpoint changes
-    this.isMobile$.subscribe(isMobile => {
-      if (isMobile && this.sidenav?.opened) {
-        this.sidenav.close();
-      }
-    });
+    // Add resize listener
+    window.addEventListener('resize', () => this.checkMobile());
+
+    // Initialize translations
+    translate.addLangs(['en', 'fr']);
+    
+    // Get browser language or use default
+    const browserLang = translate.getBrowserLang();
+    const lang = browserLang?.match(/en|fr/) ? browserLang : 'en';
+    translate.use(lang);
+    this.currentLanguage = lang.toUpperCase();
   }
 
-  closeSidenav() {
-    /**
-     * All state updates are handled through dispatched actions in 'container'
-     * components. This provides a clear, reproducible history of state
-     * updates and user interaction through the life of our
-     * application.
-     */
-    this.store.dispatch(new layout.CloseSidenav());
+  private checkMobile() {
+    this.isMobile$.next(window.innerWidth < 600);
   }
 
-  openSidenav() {
-    this.store.dispatch(new layout.OpenSidenav());
+  toggleLanguage() {
+    const newLang = this.currentLanguage === 'EN' ? 'fr' : 'en';
+    this.translate.use(newLang);
+    this.currentLanguage = newLang.toUpperCase();
+    this.isLanguageDropdownOpen = false;
   }
 
-  ngOnInit() {
-    this.opts = {
-      position: 'right',
-      barBackground: '#000000'
-    };
-
-    // Simulate initial loading
-    setTimeout(() => {
-      this.isLoading = false;
-      this.showContent = true;
-      this.cdr.detectChanges();
-      this.router.navigate(['/']);
-    }, 1500);
+  toggleLanguageDropdown() {
+    this.isLanguageDropdownOpen = !this.isLanguageDropdownOpen;
   }
 }

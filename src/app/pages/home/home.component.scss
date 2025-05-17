@@ -20,6 +20,11 @@
   height: 100vh;
   position: relative;
   z-index: 2;
+  .hero-section-header {
+    bottom: 12rem;
+    position: relative;
+
+  }
 }
 
 .hero-content {

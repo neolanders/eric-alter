@@ -15,27 +15,27 @@ mat-drawer {
 
 .sidenav {
   width: 250px;
-  background-color: #1a1a1a;
-  border-right: 1px solid #333;
+  background-color: #f5f5f5;
+  border-right: 1px solid #e0e0e0;
 
   ::ng-deep {
     .mat-nav-list {
       a {
-        color: #fff;
+        color: #333;
         font-size: 1rem;
         padding: 12px 16px;
         transition: background-color 0.3s ease;
 
         &:hover {
-          background-color: rgba(255, 255, 255, 0.1);
+          background-color: rgba(0, 0, 0, 0.05);
         }
 
         &.active {
-          background-color: rgba(255, 255, 255, 0.15);
+          background-color: rgba(0, 0, 0, 0.1);
         }
 
         mat-icon {
-          color: #fff;
+          color: #333;
           margin-right: 16px;
         }
       }
@@ -44,23 +44,23 @@ mat-drawer {
 }
 
 .sidenav-toolbar {
-  background-color: #2a2a2a;
-  border-bottom: 1px solid #333;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #e0e0e0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 16px;
   height: 80px;
-  color: #fff;
+  color: #333;
 }
 
 .toolbar {
   position: sticky;
   top: 0;
   z-index: 2;
-  background-color: #2a2a2a;
+  background-color: #f5f5f5;
   height: 80px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #e0e0e0;
   display: flex;
   align-items: center;
   padding: 0 16px;
@@ -70,8 +70,8 @@ mat-drawer {
 .content {
   flex: 1;
   padding: 20px;
-  background-color: #121212;
-  min-height: calc(100vh - 128px); // Account for toolbar and footer
+  background-color: #ffffff;
+  min-height: calc(100vh - 128px);
   display: flex;
   flex-direction: column;
 }
@@ -80,6 +80,7 @@ mat-sidenav-content {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #ffffff;
 }
 
 .menu-button {
@@ -121,11 +122,11 @@ app-footer {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #444;
+    border: 2px solid #e0e0e0;
     transition: border-color 0.3s ease;
 
     &:hover {
-      border-color: #666;
+      border-color: #bdbdbd;
     }
   }
 }
@@ -136,7 +137,7 @@ app-footer {
   margin-left: auto;
 
   a {
-    color: #fff;
+    color: #333;
     text-decoration: none;
     font-size: 1rem;
     padding: 0 16px;
@@ -146,15 +147,15 @@ app-footer {
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(0, 0, 0, 0.05);
     }
 
     &.active {
-      background-color: rgba(255, 255, 255, 0.15);
+      background-color: rgba(0, 0, 0, 0.1);
     }
 
     .hover {
-      color: #fff;
+      color: #333;
     }
   }
 }
@@ -164,7 +165,7 @@ app-footer {
   margin-left: 16px;
 
   .dropdown-button {
-    color: #fff;
+    color: #333;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
@@ -174,7 +175,7 @@ app-footer {
     font-size: 1rem;
 
     &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(0, 0, 0, 0.05);
     }
   }
 
@@ -182,11 +183,11 @@ app-footer {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #2a2a2a;
-    border: 1px solid #333;
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
     border-radius: 4px;
     min-width: 100px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: none;
     z-index: 1000;
     padding: 8px 0;
@@ -200,7 +201,7 @@ app-footer {
     li {
       .lang-btn {
         width: 100%;
-        color: #fff;
+        color: #333;
         padding: 8px 16px;
         display: block;
         transition: background-color 0.3s ease;
@@ -211,11 +212,11 @@ app-footer {
         font-size: 1rem;
 
         &:hover {
-          background-color: rgba(255, 255, 255, 0.1);
+          background-color: rgba(0, 0, 0, 0.05);
         }
 
         .badge {
-          background-color: #444;
+          background-color: #e0e0e0;
           padding: 2px 8px;
           border-radius: 12px;
           font-size: 0.8rem;
@@ -228,5 +229,15 @@ app-footer {
 .hide-on-mobile {
   @media (max-width: 599px) {
     display: none;
+  }
+}
+
+@media (max-width: 599px) {
+  .sidenav {
+    width: 100%;
+  }
+  
+  .content {
+    padding: 16px;
   }
 }

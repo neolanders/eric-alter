@@ -6,41 +6,82 @@ mat-drawer {
     width: 25%;
     background: yellow;
 }
+.content-container {
+  background-color: #e0e0e0;
+  min-height: calc(100vh - 64px);
+  padding-top: 64px;
+}
 
 .sidenav-container {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .sidenav {
   width: 250px;
   background-color: #f5f5f5;
-  border-right: 1px solid #e0e0e0;
+}
 
-  ::ng-deep {
-    .mat-nav-list {
-      a {
-        color: #333;
-        font-size: 1rem;
-        padding: 12px 16px;
-        transition: background-color 0.3s ease;
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 64px;
+}
 
-        &:hover {
-          background-color: rgba(0, 0, 0, 0.05);
-        }
+.toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 
-        &.active {
-          background-color: rgba(0, 0, 0, 0.1);
-        }
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-        mat-icon {
-          color: #333;
-          margin-right: 16px;
-        }
-      }
-    }
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toolbar-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #e0e0e0;
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: #bdbdbd;
   }
+}
+
+mat-sidenav-content {
+  padding-top: 64px; // Height of the toolbar
+}
+
+.hidden {
+  display: none;
 }
 
 .sidenav-toolbar {
@@ -54,67 +95,28 @@ mat-drawer {
   color: #333;
 }
 
-.toolbar {
-  position: sticky;
-  top: 0;
-  z-index: 2;
-  background-color: #f5f5f5;
-  height: 80px;
-  border-bottom: 1px solid #e0e0e0;
-  display: flex;
-  align-items: center;
-  padding: 0 16px;
-  gap: 16px;
-}
-
 .content {
-  flex: 1;
+  flex: 1 0 auto;
   padding: 20px;
   background-color: #ffffff;
-  min-height: calc(100vh - 128px);
   display: flex;
   flex-direction: column;
-}
-
-mat-sidenav-content {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #ffffff;
-}
-
-.menu-button {
-  margin-right: 16px;
-}
-
-.toolbar-title {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-
-  &:hover {
-    opacity: 0.8;
-  }
 }
 
 mat-nav-list {
   a {
-    color: white;
+    color: #333;
     &.active {
-      background-color: rgba(255, 255, 255, 0.1);
+      background-color: rgba(0, 0, 0, 0.05);
     }
     &:hover {
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(0, 0, 0, 0.1);
     }
   }
 }
 
-// Ensure the footer stays at the bottom
 app-footer {
-  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .al-user-profile {
@@ -239,5 +241,22 @@ app-footer {
   
   .content {
     padding: 16px;
+  }
+
+  mat-sidenav-content {
+    padding-top: 56px; // Smaller toolbar height on mobile
+  }
+
+  .hide-on-mobile {
+    display: none;
+  }
+
+  .toolbar {
+    height: 56px;
+  }
+
+  .content-container {
+    padding-top: 56px;
+    min-height: calc(100vh - 56px);
   }
 }

@@ -10,6 +10,7 @@ import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { IconRegistryService } from './core/services/icon-registry.service';
 
 import { routes } from './app.routes';
 import * as fromRoot from './reducers';
@@ -58,6 +59,13 @@ export const appConfig: ApplicationConfig = {
           deps: [HttpClient]
         }
       })
-    )
+    ),
+    {
+      provide: IconRegistryService,
+      useFactory: (iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) => {
+        return new IconRegistryService(iconRegistry, sanitizer);
+      },
+      deps: [MatIconRegistry, DomSanitizer]
+    }
   ]
 };

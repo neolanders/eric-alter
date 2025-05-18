@@ -1,0 +1,55 @@
+<div class="skills-bubbles-container" [style.width.px]="getContainerSize()" [style.height.px]="getContainerSize()">
+  <!-- SVG connectors -->
+  <svg class="connectors" [attr.width]="getContainerSize()" [attr.height]="getContainerSize()">
+    <ng-container *ngFor="let skill of skills; let i = index">
+      <line
+        [attr.x1]="getLineCoordinates(i).x1"
+        [attr.y1]="getLineCoordinates(i).y1"
+        [attr.x2]="getLineCoordinates(i).x2"
+        [attr.y2]="getLineCoordinates(i).y2"
+        stroke="#e5e7eb"
+        stroke-width="2"
+      />
+    </ng-container>
+  </svg>
+
+  <!-- Bubbles -->
+  <div
+    *ngFor="let skill of skills; let i = index"
+    class="bubble"
+    [style.left.px]="getBubblePosition(i).x"
+    [style.top.px]="getBubblePosition(i).y"
+    (mouseenter)="hovered = i"
+    (mouseleave)="hovered = null"
+    (mousedown)="handleMouseDown(i)"
+    (mouseup)="handleMouseUp()"
+    (touchstart)="handleMouseDown(i)"
+    (touchend)="handleMouseUp()"
+  >
+    <div
+      class="bubble-content"
+      [class.hovered]="hovered === i && !(isHolding && clicked === i)"
+      [class.clicked]="isHolding && clicked === i"
+    >
+      <mat-icon [class]="iconSizeClass">{{ skill.icon }}</mat-icon>
+    </div>
+  </div>
+
+  <!-- Hover label -->
+  <div
+    *ngIf="hovered !== null && !isHolding"
+    class="hover-label"
+  >
+    <p>{{ skills[hovered].label }}</p>
+  </div>
+
+  <!-- Click-hold popup -->
+  <div
+    *ngIf="isHolding && clicked !== null"
+    class="popup"
+    [class.mobile]="isMobile"
+  >
+    <h3>{{ skills[clicked].label }}</h3>
+    <p>{{ skills[clicked].popup }}</p>
+  </div>
+</div> 

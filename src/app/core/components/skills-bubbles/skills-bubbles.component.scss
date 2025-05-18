@@ -1,0 +1,124 @@
+.skills-bubbles-container {
+  position: relative;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+
+  .connectors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .bubble {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .bubble-content {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+
+      &.hovered {
+        background: #f3f4f6;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      &.clicked {
+        background: #e5e7eb;
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      mat-icon {
+        color: #4b5563;
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+
+  .hover-label {
+    position: absolute;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+    pointer-events: none;
+    transform: translateY(-100%);
+    margin-top: -8px;
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: #4b5563;
+    }
+  }
+
+  .popup {
+    position: absolute;
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+    max-width: 300px;
+    transform: translateY(-100%);
+    margin-top: -16px;
+
+    &.mobile {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 0;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h3 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      color: #1f2937;
+    }
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: #4b5563;
+      line-height: 1.5;
+    }
+  }
+}
+
+// Mobile styles
+@media (max-width: 768px) {
+  .skills-bubbles-container {
+    .bubble {
+      .bubble-content {
+        width: 50px;
+        height: 50px;
+
+        mat-icon {
+          font-size: 20px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+} 

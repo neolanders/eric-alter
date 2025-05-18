@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
           </a>
         </div>
         <div class="attribution">
-          Made with ❤️ by Eric Alter
+          Made with by Eric Alter
         </div>
       </div>
     </footer>

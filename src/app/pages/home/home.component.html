@@ -9,6 +9,10 @@
         <mat-icon>work</mat-icon>
         View Projects
       </a>
+      <a mat-raised-button color="accent" routerLink="/" (click)="scrollToElement('sectionCoreCompetencies')" (keydown.enter)="scrollToElement('sectionCoreCompetencies')" tabindex="0">
+        <mat-icon>adjust</mat-icon>
+        Core Competencies
+      </a>
     </div>
     <div class="center btn-container">
       <a [routerLink]="['/work']" class="btn waves-effect waves-light" (keydown.enter)="navigateToWork()">See My Work</a>
@@ -18,11 +22,15 @@
 
   <section id="sectionSkills" class="skills-section">
     <h2>Skills</h2>
-    <!-- Skills content -->
   </section>
 
   <section id="sectionProjects" class="projects-section">
     <h2>Projects</h2>
     <!-- Projects content -->
+  </section>
+
+  <section id="sectionCoreCompetencies" class="core-competencies-section">
+    <h2>Core Competencies</h2>
+
   </section>
 </div> 

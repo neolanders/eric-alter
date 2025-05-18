@@ -7,7 +7,9 @@ import { MatCardModule } from '@angular/material/card';
 import { SkeletonLoaderComponent } from '../../shared/components/skeleton-loader.component';
 import { CarouselComponent } from '../../shared/components/carousel.component';
 import { SkillsBubblesComponent } from '../../core/components/skills-bubbles/skills-bubbles.component';
+import { WorkComponent } from '../work/work.component';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -20,8 +22,10 @@ import { trigger, transition, style, animate } from '@angular/animations';
     MatCardModule,
     SkeletonLoaderComponent,
     CarouselComponent,
-    SkillsBubblesComponent
+    SkillsBubblesComponent,
+    WorkComponent
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
     <div class="home-container" [class.loaded]="isLoaded">
       <section class="hero-section">
@@ -120,7 +124,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
             <app-skeleton-loader *ngFor="let i of [1,2,3]" width="300px" height="200px" [rounded]="true"></app-skeleton-loader>
           </ng-container>
           <ng-template #projectsContent>
-            <!-- Your projects content here -->
+            <app-work></app-work>
           </ng-template>
         </div>
       </section>

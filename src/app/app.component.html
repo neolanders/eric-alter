@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="side" class="sidenav">
+  <mat-sidenav #sidenav [mode]="(isMobile$ | async) ? 'over' : 'side'" [fixedInViewport]="true" [fixedTopGap]="0" class="sidenav" [disableClose]="(isMobile$ | async) === false">
     <app-sidenav (click)="closeSidenav()"></app-sidenav>
   </mat-sidenav>
 

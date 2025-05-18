@@ -40,19 +40,37 @@ export class AppComponent implements OnInit, AfterViewInit {
   isMobile$ = new BehaviorSubject<boolean>(window.innerWidth < 600);
   currentLanguage = 'EN';
   isLanguageDropdownOpen = false;
+  private previousWidth = window.innerWidth;
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.updateMobileState();
+    const currentWidth = window.innerWidth;
+    const wasMobile = this.previousWidth < 600;
+    const isMobile = currentWidth < 600;
+    
+    // Only update if crossing the mobile breakpoint
+    if (wasMobile !== isMobile) {
+      this.updateMobileState();
+    }
+    
+    this.previousWidth = currentWidth;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (this.isMobile$.value && this.sidenav && this.sidenav.opened) {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.sidenav') && !target.closest('.menu-button')) {
+        this.sidenav.close();
+      }
+    }
   }
 
   ngOnInit() {
-    // Initial check for mobile
     this.updateMobileState();
   }
 
   ngAfterViewInit() {
-    // Ensure sidenav state is correct after view initialization
     setTimeout(() => {
       this.updateMobileState();
     });
@@ -65,9 +83,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (this.sidenav) {
       if (isMobile) {
         this.sidenav.mode = 'over';
+        this.sidenav.disableClose = false;
         this.sidenav.close();
       } else {
         this.sidenav.mode = 'side';
+        this.sidenav.disableClose = true;
         this.sidenav.open();
       }
     }
@@ -98,10 +118,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   ];
 
   constructor(private translate: TranslateService) {
-    // Initialize translations
     translate.addLangs(['en', 'fr']);
-    
-    // Get browser language or use default
     const browserLang = translate.getBrowserLang();
     const lang = browserLang?.match(/en|fr/) ? browserLang : 'en';
     translate.use(lang);

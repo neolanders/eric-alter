@@ -61,8 +61,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   private updateMobileState() {
     const isMobile = window.innerWidth < 600;
     this.isMobile$.next(isMobile);
-
-    console.log('__isMobile', isMobile);
     
     if (this.sidenav) {
       if (isMobile) {

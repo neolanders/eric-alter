@@ -4,12 +4,33 @@ import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
 import { SkeletonLoaderComponent } from '../../shared/components/skeleton-loader.component';
 import { CarouselComponent } from '../../shared/components/carousel.component';
 import { SkillsBubblesComponent } from '../../core/components/skills-bubbles/skills-bubbles.component';
-import { WorkComponent } from '../work/work.component';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { ProjectDetailsDialogComponent } from '../../shared/components/project-details-dialog/project-details-dialog.component';
+import { trigger, transition, style, animate, query, stagger } from '@angular/animations';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import workData from '../../../assets/data/work.json';
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  shortDescription: string;
+  image: string;
+  link: string;
+  technologies: {
+    name: string;
+    icon: string;
+  }[];
+  features: string[];
+  challenges: string[];
+  role: string;
+  duration: string;
+  isCareer: boolean;
+}
 
 @Component({
   selector: 'app-home',
@@ -20,10 +41,11 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     MatButtonModule,
     MatIconModule,
     MatCardModule,
+    MatDialogModule,
+    MatTabsModule,
     SkeletonLoaderComponent,
     CarouselComponent,
-    SkillsBubblesComponent,
-    WorkComponent
+    SkillsBubblesComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   template: `
@@ -60,73 +82,92 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
       <section id="sectionSkills" class="skills-section" [@fadeIn]>
         <h2>Technical Skills</h2>
         <div class="skills-grid">
-          <!-- Front-End -->
-          <mat-card class="skill-category">
-            <mat-card-header>
-              <mat-icon mat-card-avatar>code</mat-icon>
-              <mat-card-title>Front-End</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <ul class="skills-list">
-                <li><mat-icon>javascript</mat-icon>JavaScript</li>
-                <li><mat-icon>typescript</mat-icon>TypeScript</li>
-                <li><mat-icon>react</mat-icon>React</li>
-                <li><mat-icon>angular</mat-icon>Angular</li>
-                <li><mat-icon>html5</mat-icon>HTML5</li>
-                <li><mat-icon>css3</mat-icon>CSS3</li>
-                <li><mat-icon>sass</mat-icon>Sass</li>
-              </ul>
-            </mat-card-content>
-          </mat-card>
-
-          <!-- Back-End -->
-          <mat-card class="skill-category">
-            <mat-card-header>
-              <mat-icon mat-card-avatar>storage</mat-icon>
-              <mat-card-title>Back-End</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <ul class="skills-list">
-                <li><mat-icon>node_js</mat-icon>Node.js</li>
-                <li><mat-icon>python</mat-icon>Python</li>
-                <li><mat-icon>java</mat-icon>Java</li>
-                <li><mat-icon>database</mat-icon>SQL</li>
-                <li><mat-icon>mongodb</mat-icon>MongoDB</li>
-                <li><mat-icon>firebase</mat-icon>Firebase</li>
-              </ul>
-            </mat-card-content>
-          </mat-card>
-
-          <!-- DevOps & Tools -->
-          <mat-card class="skill-category">
-            <mat-card-header>
-              <mat-icon mat-card-avatar>settings</mat-icon>
-              <mat-card-title>DevOps & Tools</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <ul class="skills-list">
-                <li><mat-icon>git</mat-icon>Git</li>
-                <li><mat-icon>docker</mat-icon>Docker</li>
-                <li><mat-icon>aws</mat-icon>AWS</li>
-                <li><mat-icon>kubernetes</mat-icon>Kubernetes</li>
-                <li><mat-icon>jenkins</mat-icon>Jenkins</li>
-                <li><mat-icon>jira</mat-icon>Jira</li>
-              </ul>
-            </mat-card-content>
-          </mat-card>
+          <div class="skill-card" *ngFor="let skill of skills">
+            <img [src]="skill.icon" [alt]="skill.name" class="skill-icon">
+            <h3>{{skill.name}}</h3>
+            <p>{{skill.description}}</p>
+          </div>
         </div>
       </section>
 
       <section id="sectionProjects" class="projects-section" [@fadeIn]>
-        <h2>Projects</h2>
-        <div class="projects-grid">
-          <ng-container *ngIf="!isLoaded; else projectsContent">
-            <app-skeleton-loader *ngFor="let i of [1,2,3]" width="300px" height="200px" [rounded]="true"></app-skeleton-loader>
-          </ng-container>
-          <ng-template #projectsContent>
-            <app-work></app-work>
-          </ng-template>
-        </div>
+        <h2>Projects & Career</h2>
+        <mat-tab-group animationDuration="300ms" class="projects-tabs">
+          <mat-tab label="Personal Projects">
+            <div class="projects-grid" [@staggerAnimation]>
+              <ng-container *ngIf="!isLoaded; else projectsContent">
+                <app-skeleton-loader *ngFor="let i of [1,2,3]" width="300px" height="200px" [rounded]="true"></app-skeleton-loader>
+              </ng-container>
+              <ng-template #projectsContent>
+                <div class="project-card" 
+                     *ngFor="let project of personalProjects; let i = index" 
+                     (click)="openProjectDetails(project)"
+                     (keydown.enter)="openProjectDetails(project)"
+                     tabindex="0"
+                     role="button"
+                     [attr.aria-label]="'View details for ' + project.title"
+                     [@cardAnimation]
+                     [style.animation-delay]="i * 100 + 'ms'">
+                  <div class="project-image">
+                    <img [src]="project.image" [alt]="project.title">
+                    <div class="project-overlay">
+                      <div class="tech-stack">
+                        <img *ngFor="let tech of project.technologies" 
+                             [src]="tech.icon" 
+                             [alt]="tech.name" 
+                             class="tech-icon">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="project-info">
+                    <h3>{{project.title}}</h3>
+                    <p>{{project.shortDescription}}</p>
+                    <button mat-raised-button color="primary" class="view-project-btn">
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+          </mat-tab>
+          <mat-tab label="Career Work">
+            <div class="projects-grid" [@staggerAnimation]>
+              <ng-container *ngIf="!isLoaded; else careerContent">
+                <app-skeleton-loader *ngFor="let i of [1,2,3]" width="300px" height="200px" [rounded]="true"></app-skeleton-loader>
+              </ng-container>
+              <ng-template #careerContent>
+                <div class="project-card" 
+                     *ngFor="let project of careerProjects; let i = index" 
+                     (click)="openProjectDetails(project)"
+                     (keydown.enter)="openProjectDetails(project)"
+                     tabindex="0"
+                     role="button"
+                     [attr.aria-label]="'View details for ' + project.title"
+                     [@cardAnimation]
+                     [style.animation-delay]="i * 100 + 'ms'">
+                  <div class="project-image">
+                    <img [src]="project.image" [alt]="project.title">
+                    <div class="project-overlay">
+                      <div class="tech-stack">
+                        <img *ngFor="let tech of project.technologies" 
+                             [src]="tech.icon" 
+                             [alt]="tech.name" 
+                             class="tech-icon">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="project-info">
+                    <h3>{{project.title}}</h3>
+                    <p>{{project.shortDescription}}</p>
+                    <button mat-raised-button color="primary" class="view-project-btn">
+                      View Details
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
       </section>
     </div>
   `,
@@ -137,14 +178,92 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
         style({ opacity: 0 }),
         animate('0.5s ease-out', style({ opacity: 1 }))
       ])
+    ]),
+    trigger('cardAnimation', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(20px)' }),
+        animate('0.3s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+      ]),
+      transition(':leave', [
+        animate('0.2s ease-in', style({ opacity: 0, transform: 'translateY(-20px)' }))
+      ])
+    ]),
+    trigger('staggerAnimation', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(20px)' }),
+          stagger(100, [
+            animate('0.3s ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true })
+      ])
     ])
   ]
 })
 export class HomeComponent implements OnInit {
   isLoaded = false;
+  projects: Project[] = workData.projects;
+  personalProjects: Project[] = [];
+  careerProjects: Project[] = [];
+
+  slides = [
+    {
+      image: 'assets/images/slide1.jpg',
+      title: 'Welcome to My Portfolio',
+      description: 'Full-stack developer passionate about creating elegant solutions'
+    },
+    {
+      image: 'assets/images/slide2.jpg',
+      title: 'Expert in Modern Technologies',
+      description: 'Specializing in Angular, React, and Node.js development'
+    },
+    {
+      image: 'assets/images/slide3.jpg',
+      title: 'Let\'s Build Something Amazing',
+      description: 'Ready to take on new challenges and create innovative solutions'
+    }
+  ];
+
+  skills = [
+    {
+      name: 'TypeScript',
+      icon: 'assets/icons/typescript.svg',
+      description: 'Strong typing and modern JavaScript features'
+    },
+    {
+      name: 'React',
+      icon: 'assets/icons/react.svg',
+      description: 'Building dynamic and responsive user interfaces'
+    },
+    {
+      name: 'Angular',
+      icon: 'assets/icons/angular.svg',
+      description: 'Enterprise-grade web applications'
+    },
+    {
+      name: 'Node.js',
+      icon: 'assets/icons/nodejs.svg',
+      description: 'Scalable backend development'
+    },
+    {
+      name: 'Python',
+      icon: 'assets/icons/python.svg',
+      description: 'Data analysis and automation'
+    },
+    {
+      name: 'Databases',
+      icon: 'assets/icons/database.svg',
+      description: 'SQL and NoSQL database management'
+    }
+  ];
+
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit() {
     this.isLoaded = true;
+    // Split projects into personal and career
+    this.personalProjects = this.projects.filter(project => !project.isCareer);
+    this.careerProjects = this.projects.filter(project => project.isCareer);
   }
 
   scrollToElement(elementId: string): void {
@@ -155,5 +274,20 @@ export class HomeComponent implements OnInit {
         block: 'start'
       });
     }
+  }
+
+  openProjectDetails(project: Project): void {
+    const dialogRef = this.dialog.open(ProjectDetailsDialogComponent, {
+      data: project,
+      width: '90%',
+      maxWidth: '800px',
+      panelClass: 'project-details-dialog',
+      enterAnimationDuration: '300ms',
+      exitAnimationDuration: '200ms'
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      // Optional: Add any cleanup or state reset logic here
+    });
   }
 } 

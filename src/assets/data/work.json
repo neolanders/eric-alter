@@ -1,0 +1,115 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "E-commerce Platform",
+      "description": "A full-stack e-commerce solution with real-time inventory management",
+      "shortDescription": "Modern e-commerce platform with real-time features",
+      "image": "assets/images/project1.jpg",
+      "link": "#",
+      "technologies": [
+        {
+          "name": "Angular",
+          "icon": "assets/icons/angular.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "assets/icons/nodejs.svg"
+        },
+        {
+          "name": "MongoDB",
+          "icon": "assets/icons/database.svg"
+        }
+      ],
+      "features": [
+        "Real-time inventory tracking",
+        "Secure payment processing",
+        "User authentication",
+        "Admin dashboard",
+        "Order management system"
+      ],
+      "challenges": [
+        "Implementing real-time updates across multiple clients",
+        "Optimizing database queries for large product catalogs",
+        "Ensuring secure payment processing"
+      ],
+      "role": "Lead Developer",
+      "duration": "6 months",
+      "isCareer": true
+    },
+    {
+      "id": 2,
+      "title": "Task Management App",
+      "description": "Collaborative project management tool with real-time updates",
+      "shortDescription": "Real-time collaborative task management",
+      "image": "assets/images/project2.jpg",
+      "link": "#",
+      "technologies": [
+        {
+          "name": "React",
+          "icon": "assets/icons/react.svg"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "assets/icons/typescript.svg"
+        },
+        {
+          "name": "Python",
+          "icon": "assets/icons/python.svg"
+        }
+      ],
+      "features": [
+        "Real-time task updates",
+        "Team collaboration",
+        "Task prioritization",
+        "Progress tracking",
+        "File attachments"
+      ],
+      "challenges": [
+        "Managing concurrent updates",
+        "Implementing efficient caching",
+        "Handling large file uploads"
+      ],
+      "role": "Full Stack Developer",
+      "duration": "4 months",
+      "isCareer": true
+    },
+    {
+      "id": 3,
+      "title": "Data Analytics Dashboard",
+      "description": "Interactive dashboard for visualizing business metrics",
+      "shortDescription": "Interactive business metrics visualization",
+      "image": "assets/images/project3.jpg",
+      "link": "#",
+      "technologies": [
+        {
+          "name": "Angular",
+          "icon": "assets/icons/angular.svg"
+        },
+        {
+          "name": "Python",
+          "icon": "assets/icons/python.svg"
+        },
+        {
+          "name": "Node.js",
+          "icon": "assets/icons/nodejs.svg"
+        }
+      ],
+      "features": [
+        "Real-time data visualization",
+        "Custom report generation",
+        "Data export capabilities",
+        "User role management",
+        "Automated data processing"
+      ],
+      "challenges": [
+        "Processing large datasets efficiently",
+        "Creating responsive visualizations",
+        "Implementing complex data filters"
+      ],
+      "role": "Frontend Developer",
+      "duration": "5 months",
+      "isCareer": true
+    }
+  ]
+} 

@@ -33,4 +33,45 @@
     <h2>Core Competencies</h2>
 
   </section>
+</div>
+
+<app-carousel [slides]="slides"></app-carousel>
+
+<div class="content">
+  <section class="about-section">
+    <h2>About Me</h2>
+    <p>I'm a passionate software developer with expertise in web development and a strong focus on creating elegant, efficient solutions.</p>
+    <a mat-raised-button routerLink="/about" class="cta-button">Learn More</a>
+  </section>
+
+  <section class="skills-section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card" *ngFor="let skill of skills">
+        <img [src]="skill.icon" [alt]="skill.name" class="skill-icon">
+        <h3>{{skill.name}}</h3>
+        <p>{{skill.description}}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" *ngFor="let project of projects">
+        <img [src]="project.image" [alt]="project.title">
+        <div class="project-info">
+          <h3>{{project.title}}</h3>
+          <p>{{project.description}}</p>
+          <a mat-raised-button [href]="project.link" target="_blank" class="cta-button">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <h2>Get in Touch</h2>
+    <p>Interested in working together? Let's connect!</p>
+    <a mat-raised-button routerLink="/contact" class="cta-button">Contact Me</a>
+  </section>
 </div> 

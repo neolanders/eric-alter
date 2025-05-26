@@ -82,10 +82,23 @@ interface Project {
       <section id="sectionSkills" class="skills-section" [@fadeIn]>
         <h2>Technical Skills</h2>
         <div class="skills-grid">
-          <div class="skill-card" *ngFor="let skill of skills">
-            <img [src]="skill.icon" [alt]="skill.name" class="skill-icon">
-            <h3>{{skill.name}}</h3>
-            <p>{{skill.description}}</p>
+          <div class="skill-category" *ngFor="let category of skills">
+            <mat-card>
+              <mat-card-header>
+                <mat-card-title>{{category.category}}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <ul class="skills-list">
+                  <li *ngFor="let skill of category.items">
+                    <img [src]="skill.icon" [alt]="skill.name" class="skill-icon">
+                    <div class="skill-info">
+                      <h3>{{skill.name}}</h3>
+                      <p>{{skill.description}}</p>
+                    </div>
+                  </li>
+                </ul>
+              </mat-card-content>
+            </mat-card>
           </div>
         </div>
       </section>
@@ -226,34 +239,114 @@ export class HomeComponent implements OnInit {
 
   skills = [
     {
-      name: 'TypeScript',
-      icon: 'assets/icons/typescript.svg',
-      description: 'Strong typing and modern JavaScript features'
+      category: 'Front-End',
+      items: [
+        {
+          name: 'JavaScript',
+          icon: 'assets/icons/javascript.svg',
+          description: 'Core language for web development'
+        },
+        {
+          name: 'TypeScript',
+          icon: 'assets/icons/typescript.svg',
+          description: 'Strongly typed JavaScript'
+        },
+        {
+          name: 'React',
+          icon: 'assets/icons/react.svg',
+          description: 'UI library for building interfaces'
+        },
+        {
+          name: 'Angular',
+          icon: 'assets/icons/angular.svg',
+          description: 'Platform for building web applications'
+        },
+        {
+          name: 'HTML5',
+          icon: 'assets/icons/html5.svg',
+          description: 'Markup language for web content'
+        },
+        {
+          name: 'CSS3',
+          icon: 'assets/icons/css3.svg',
+          description: 'Styling language for web design'
+        },
+        {
+          name: 'Sass',
+          icon: 'assets/icons/sass.svg',
+          description: 'CSS preprocessor for better styling'
+        }
+      ]
     },
     {
-      name: 'React',
-      icon: 'assets/icons/react.svg',
-      description: 'Building dynamic and responsive user interfaces'
+      category: 'Back-End',
+      items: [
+        {
+          name: 'Node.js',
+          icon: 'assets/icons/nodejs.svg',
+          description: 'JavaScript runtime for server-side'
+        },
+        {
+          name: 'Python',
+          icon: 'assets/icons/python.svg',
+          description: 'Versatile programming language'
+        },
+        {
+          name: 'Java',
+          icon: 'assets/icons/java.svg',
+          description: 'Enterprise-level programming'
+        },
+        {
+          name: 'SQL',
+          icon: 'assets/icons/sql.svg',
+          description: 'Database query language'
+        },
+        {
+          name: 'MongoDB',
+          icon: 'assets/icons/mongodb.svg',
+          description: 'NoSQL database'
+        },
+        {
+          name: 'Firebase',
+          icon: 'assets/icons/firebase.svg',
+          description: 'Backend-as-a-Service platform'
+        }
+      ]
     },
     {
-      name: 'Angular',
-      icon: 'assets/icons/angular.svg',
-      description: 'Enterprise-grade web applications'
-    },
-    {
-      name: 'Node.js',
-      icon: 'assets/icons/nodejs.svg',
-      description: 'Scalable backend development'
-    },
-    {
-      name: 'Python',
-      icon: 'assets/icons/python.svg',
-      description: 'Data analysis and automation'
-    },
-    {
-      name: 'Databases',
-      icon: 'assets/icons/database.svg',
-      description: 'SQL and NoSQL database management'
+      category: 'DevOps & Tools',
+      items: [
+        {
+          name: 'Git',
+          icon: 'assets/icons/git.svg',
+          description: 'Version control system'
+        },
+        {
+          name: 'Docker',
+          icon: 'assets/icons/docker.svg',
+          description: 'Containerization platform'
+        },
+        {
+          name: 'AWS',
+          icon: 'assets/icons/aws.svg',
+          description: 'Cloud computing platform'
+        },
+        {
+          name: 'Kubernetes',
+          icon: 'assets/icons/kubernetes.svg',
+          description: 'Container orchestration'
+        },
+        {
+          name: 'Jenkins',
+          icon: 'assets/icons/jenkins.svg',
+          description: 'CI/CD automation'
+        },
+        {
+          name: 'Jira',
+          icon: 'assets/icons/jira.svg',
+          description: 'Project management tool'
+        }
+      ]
     }
   ];
 

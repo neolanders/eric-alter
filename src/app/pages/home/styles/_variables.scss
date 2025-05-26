@@ -1,0 +1,16 @@
+// Core values
+$t: all .3s cubic-bezier(.4,0,.2,1);
+$g: rgba(255,255,255,.1);
+$s: 0 2px 4px rgba(0,0,0,.1);
+$h: 0 8px 16px rgba(0,0,0,.2);
+
+// Mixins
+@mixin g($b:5px) {
+  background: $g;
+  // backdrop-filter: blur($b);
+}
+
+@mixin h {
+  transform: translateY(-8px);
+  box-shadow: $h;
+} 

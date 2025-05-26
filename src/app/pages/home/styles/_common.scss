@@ -1,0 +1,67 @@
+// Common variables
+$transition-base: all .3s cubic-bezier(.4,0,.2,1);
+$shadow-sm: 0 2px 4px rgba(0,0,0,.1);
+$shadow-md: 0 4px 8px rgba(0,0,0,.2);
+$shadow-lg: 0 8px 16px rgba(0,0,0,.2);
+$bg-overlay: rgba(255,255,255,.1);
+$text-shadow: 1px 1px 2px rgba(0,0,0,.3);
+
+// Common mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin glass-effect($blur: 5px) {
+  background: $bg-overlay;
+  backdrop-filter: blur($blur);
+}
+
+@mixin hover-lift {
+  transform: translateY(-8px);
+  box-shadow: $shadow-lg;
+}
+
+@mixin responsive-text($base-size, $mobile-size) {
+  font-size: $base-size;
+  @media (max-width: 768px) {
+    font-size: $mobile-size;
+  }
+}
+
+@mixin section-base {
+  padding: 4rem 2rem;
+  margin: 2rem;
+  border-radius: 8px;
+  box-shadow: $shadow-sm;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+@mixin card-base {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: $shadow-sm;
+  transition: $transition-base;
+  background: $bg-overlay;
+  border: 1px solid rgba(255,255,255,.2);
+}
+
+@mixin button-base {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  transition: $transition-base;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  
+  &:hover {
+    @include hover-lift;
+  }
+} 

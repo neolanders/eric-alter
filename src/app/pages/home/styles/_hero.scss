@@ -1,0 +1,63 @@
+@import './common';
+
+.hero-section {
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section-header {
+  position: absolute;
+  bottom: 10rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #FFF !important;
+  z-index: 3;
+  width: 100%;
+  padding: 2rem;
+}
+
+.hero-content {
+  @include glass-effect;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFF;
+  z-index: 3;
+  width: 100%;
+  padding: 2rem;
+
+  h1 {
+    @include responsive-text(4rem, 2.5rem);
+    margin: 0 0 1rem;
+    font-weight: 700;
+    text-shadow: $text-shadow;
+    animation: s .5s forwards;
+  }
+
+  p {
+    @include responsive-text(1.5rem, 1.4rem);
+    margin: 0 0 2rem;
+    text-shadow: $text-shadow;
+    animation: s .5s .2s forwards;
+  }
+}
+
+.cta-buttons {
+  @include flex-center;
+  gap: 1rem;
+  position: relative;
+  top: 12rem;
+  animation: f .5s .3s forwards;
+
+  a {
+    @include button-base;
+    color: #333;
+    text-decoration: none;
+
+    mat-icon { margin-right: 0.5rem; }
+  }
+} 

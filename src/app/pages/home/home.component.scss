@@ -1,28 +1,9 @@
-@import './styles/common';
-@import './styles/variables';
-@import './styles/animations';
-@import './styles/layout';
-@import './styles/hero';
-@import './styles/skills';
-@import './styles/projects';
-@import './styles/responsive';
-@import './styles/dialog';
-@import './styles/carousel';
-
-// Common variables
-$transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-$glass-bg: rgba(255, 255, 255, 0.1);
-$glass-border: rgba(255, 255, 255, 0.2);
-
-// Mixins
-@mixin glass-effect($blur: 5px) {
-  background: $glass-bg;
-}
-
-@mixin hover-transform {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-}
+@use './styles/common';
+@use './styles/variables';
+@use './styles/animations';
+@use './styles/responsive';
+@use './styles/carousel';
+@use '../../styles/mixins' as mixins;
 
 .home-container {
   overflow-x: hidden;
@@ -56,7 +37,7 @@ $glass-border: rgba(255, 255, 255, 0.2);
 }
 
 .hero-content {
-  @include glass-effect;
+  @include mixins.glass-effect;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -94,14 +75,14 @@ $glass-border: rgba(255, 255, 255, 0.2);
   a {
     padding: 0.75rem 1.5rem;
     font-size: 1.1rem;
-    @include glass-effect;
+    @include mixins.glass-effect;
     color: #333;
     text-decoration: none;
     border-radius: 4px;
-    transition: $transition-base;
+    transition: mixins.$transition-base;
 
     &:hover {
-      @include hover-transform;
+      @include mixins.hover-transform;
     }
 
     mat-icon { margin-right: 0.5rem; }
@@ -109,7 +90,7 @@ $glass-border: rgba(255, 255, 255, 0.2);
 }
 
 .skills-section {
-  @include glass-effect;
+  @include mixins.glass-effect;
   padding: 4rem 2rem;
   margin: 2rem;
   border-radius: 8px;
@@ -121,13 +102,6 @@ $glass-border: rgba(255, 255, 255, 0.2);
   position: relative;
   z-index: 2;
 
-  h2 {
-    font-size: 2.5rem;
-    margin: 0 0 2rem;
-    color: #333;
-    text-align: center;
-  }
-
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -135,79 +109,6 @@ $glass-border: rgba(255, 255, 255, 0.2);
     width: 100%;
     max-width: 1200px;
     margin-top: 2rem;
-  }
-}
-
-.skill-category {
-  mat-card {
-    height: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-  }
-
-  mat-card-header {
-    padding: 1rem;
-    border-bottom: 1px solid #eee;
-    background: #f5f5f5;
-  }
-
-  mat-card-title {
-    font-size: 1.5rem;
-    color: #333;
-    margin: 0;
-  }
-
-  .skills-list {
-    list-style: none;
-    padding: 1rem;
-    padding-bottom: 16px;
-    max-height: 30rem;
-    overflow-y: scroll;
-    margin-bottom: 2rem;
-
-    li {
-      display: flex;
-      align-items: center;
-      padding: 1rem;
-      border-bottom: 1px solid #eee;
-      transition: background-color 0.3s ease;
-
-      &:last-child {
-        border-bottom: none;
-      }
-
-      &:hover {
-        background-color: #f9f9f9;
-      }
-
-      .skill-icon {
-        width: 32px;
-        height: 32px;
-        margin-right: 1rem;
-        flex-shrink: 0;
-      }
-
-      .skill-info {
-        flex-grow: 1;
-
-        h3 {
-          margin: 0 0 0.5rem;
-          font-size: 1.1rem;
-          color: #333;
-        }
-
-        p {
-          margin: 0;
-          font-size: 0.9rem;
-          color: #666;
-          line-height: 1.4;
-        }
-      }
-    }
   }
 }
 
@@ -225,14 +126,11 @@ $glass-border: rgba(255, 255, 255, 0.2);
   z-index: 2;
   overflow: hidden;
 
-  h2 {
-    font-size: 2.5rem;
-    margin: 0 0 2rem;
-    color: #333;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }  
 }
 
 @keyframes slideInRight {
@@ -266,131 +164,6 @@ $glass-border: rgba(255, 255, 255, 0.2);
   }
 }
 
-.project-card {
-  @include glass-effect;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  transition: $transition-base;
-  cursor: pointer;
-  position: relative;
-  border: 1px solid $glass-border;
-
-  &:hover {
-    @include hover-transform;
-    backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.15);
-
-    .project-image img { transform: scale(1.05); }
-    .project-overlay { opacity: 1; }
-    .project-info h3 { color: var(--primary-color); }
-    .view-project-btn {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-}
-
-.project-image {
-  position: relative;
-  height: 200px;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: $transition-base;
-  }
-
-  .project-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.5);
-    backdrop-filter: blur(3px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: $transition-base;
-  }
-}
-
-.project-info {
-  padding: 20px;
-  @include glass-effect;
-
-  h3 {
-    margin: 0 0 12px;
-    font-size: 20px;
-    color: #333;
-    transition: color 0.3s ease;
-  }
-
-  p {
-    margin: 0 0 20px;
-    color: #666;
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .tech-stack {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 16px;
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    backdrop-filter: blur(5px);
-
-    .tech-icon {
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
-      transition: transform 0.2s ease;
-
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
-  }
-
-  .view-project-btn {
-    width: 100%;
-    transform: translateY(10px);
-    opacity: 0.9;
-    transition: $transition-base;
-    @include glass-effect;
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-      background: rgba(255, 255, 255, 0.3);
-      backdrop-filter: blur(10px);
-    }
-  }
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 1rem;
-
-  .project-card {
-    animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    opacity: 0;
-
-    @for $i from 1 through 10 {
-      &:nth-child(#{$i}) {
-        animation-delay: #{$i * 0.1}s;
-      }
-    }
-  }
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -402,36 +175,10 @@ $glass-border: rgba(255, 255, 255, 0.2);
   }
 }
 
-.projects-tabs {
-  margin-top: 2rem;
-  width: 100%;
-  
-  ::ng-deep {
-    .mat-mdc-tab-header {
-      margin-bottom: 2rem;
-    }
-    
-    .mat-mdc-tab {
-      font-size: 1.1rem;
-      padding: 0 2rem;
-      
-      &.mat-mdc-tab-active {
-        .mdc-tab__text-label {
-          color: var(--primary-color);
-        }
-      }
-    }
-    
-    .mat-mdc-tab-body-content {
-      padding: 1rem 0;
-    }
-  }
-}
-
 ::ng-deep {
   .mat-mdc-tooltip {
     background: rgba(0, 0, 0, 0.8) !important;
-    backdrop-filter: blur(4px);
+    // backdrop-filter: blur(4px);
     font-size: 12px !important;
     padding: 4px 8px !important;
     border-radius: 4px !important;

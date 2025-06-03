@@ -2,161 +2,181 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { SkillsBubblesComponent } from '../../core/components/skills-bubbles/skills-bubbles.component';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatIconModule, SkillsBubblesComponent],
-  template: `
-    <div class="skills-container">
-      <section id="sectionSkills" class="skills-section">
-        <h2>Core Competencies</h2>
-        <app-skills-bubbles></app-skills-bubbles>
-      </section>
-
-      <section class="skills-section">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-          <mat-card class="skill-category">
-            <mat-card-header>
-              <mat-card-title>Front-End</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <ul class="skills-list">
-                <li><mat-icon>javascript</mat-icon>JavaScript</li>
-                <li><mat-icon>typescript</mat-icon>TypeScript</li>
-                <li><mat-icon>react</mat-icon>React</li>
-                <li><mat-icon>angular</mat-icon>Angular</li>
-                <li><mat-icon>html5</mat-icon>HTML5</li>
-                <li><mat-icon>css3</mat-icon>CSS3</li>
-                <li><mat-icon>sass</mat-icon>Sass</li>
-                <li><mat-icon>nextjs</mat-icon>Next.js</li>
-                <li><mat-icon>redux</mat-icon>Redux</li>
-                <li><mat-icon>tailwind</mat-icon>Tailwind</li>
-                <li><mat-icon>bootstrap</mat-icon>Bootstrap</li>
-                <li><mat-icon>material</mat-icon>Material UI</li>
-                <li><mat-icon>tailwind</mat-icon>Tailwind</li>
-                <li><mat-icon>bootstrap</mat-icon>Bootstrap</li>
-                <li><mat-icon>material</mat-icon>Material UI</li>
-              </ul>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card class="skill-category">
-            <mat-card-header>
-              <mat-card-title>Back-End</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <ul class="skills-list">
-                <li><mat-icon>node_js</mat-icon>Node.js</li>
-                <li><mat-icon>python</mat-icon>Python</li>
-                <li><mat-icon>java</mat-icon>Java</li>
-                <li><mat-icon>database</mat-icon>SQL</li>
-                <li><mat-icon>mongodb</mat-icon>MongoDB</li>
-                <li><mat-icon>firebase</mat-icon>Firebase</li>
-              </ul>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card class="skill-category">
-            <mat-card-header>
-              <mat-card-title>DevOps & Tools</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <ul class="skills-list">
-                <li><mat-icon>git</mat-icon>Git</li>
-                <li><mat-icon>docker</mat-icon>Docker</li>
-                <li><mat-icon>aws</mat-icon>AWS</li>
-                <li><mat-icon>kubernetes</mat-icon>Kubernetes</li>
-                <li><mat-icon>jenkins</mat-icon>Jenkins</li>
-                <li><mat-icon>jira</mat-icon>Jira</li>
-              </ul>
-            </mat-card-content>
-          </mat-card>
-        </div>
-      </section>
-    </div>
-  `,
-  styles: [`
-    .skills-container {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .skills-section {
-      margin-bottom: 3rem;
-      padding: 2rem;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-      h2 {
-        margin-bottom: 2rem;
-        color: #1f2937;
-        font-size: 2rem;
-        text-align: center;
-      }
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .skill-category {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      mat-card-header {
-        margin-bottom: 1rem;
-      }
-
-      mat-card-title {
-        font-size: 1.5rem;
-        color: #1f2937;
-      }
-    }
-
-    .skills-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-
-      li {
-        display: flex;
-        align-items: center;
-        padding: 0.75rem 0;
-        color: #4b5563;
-        font-size: 1.1rem;
-
-        mat-icon {
-          margin-right: 1rem;
-          color: #6b7280;
-        }
-      }
-    }
-
-    @media (max-width: 768px) {
-      .skills-container {
-        padding: 1rem;
-      }
-
-      .skills-section {
-        padding: 1rem;
-      }
-
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  `]
+  imports: [CommonModule, MatCardModule, MatIconModule],
+  templateUrl: './skills.component.html', 
+  styleUrls: ['./skills.component.scss']
 })
-export class SkillsComponent {} 
+export class SkillsComponent {
+
+  skills = [
+    {
+      category: 'Front-End',
+      items: [
+        {
+          name: 'JavaScript',
+          icon: 'assets/icons/javascript.svg',
+          description: 'Core language for web development',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'TypeScript',
+          icon: 'assets/icons/typescript.svg',
+          description: 'Strongly typed JavaScript',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'React',
+          icon: 'assets/icons/react.svg',
+          description: 'UI library for building interfaces',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'Angular',
+          icon: 'assets/icons/angular.svg',
+          description: 'Platform for building web applications',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'HTML5',
+          icon: 'assets/icons/html5.svg',
+          description: 'Markup language for web content',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'CSS3',
+          icon: 'assets/icons/css3.svg',
+          description: 'Styling language for web design',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'Sass',
+          icon: 'assets/icons/sass.svg',
+          description: 'CSS preprocessor for better styling',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'Bootstrap',
+          icon: 'assets/icons/bootstrap.svg',
+          description: 'Powerful, extensible, and feature-packed frontend toolkit.',
+          link: "https://getbootstrap.com/",
+        },
+        {
+          name: 'MaterialUI',
+          icon: 'assets/icons/materialui.svg',
+          description: 'A React UI library implementing Google\'s Material Design.',
+          link: "https://mui.com/material-ui/getting-started/",
+        },
+        {
+          name: 'Next.js',
+          icon: 'assets/icons/nextjs.svg',
+          description: 'A React framework for hybrid static & server rendering.',
+          link: "https://nextjs.org/",
+        },
+        {
+          name: 'Redux',
+          icon: 'assets/icons/sass.svg',
+          description: 'A predictable state container for JavaScript apps.',
+          link: "https://redux.js.org/",
+        },
+        {
+          name: 'Tailwind',
+          icon: 'assets/icons/tailwind.svg',
+          description: 'A utility-first CSS framework for building custom designs.',
+          link: "https://tailwindcss.com/docs/installation/using-vite",
+        },
+        {
+          name: 'Sass',
+          icon: 'assets/icons/sass.svg',
+          description: 'A preprocessor scripting language that extends CSS.',
+          link: "https://sass-lang.com/documentation/",
+        }
+      ]
+    },
+    {
+      category: 'Back-End',
+      items: [
+        {
+          name: 'Node.js',
+          icon: 'assets/icons/nodejs.svg',
+          description: 'JavaScript runtime for server-side',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'Python',
+          icon: 'assets/icons/python.svg',
+          description: 'Versatile programming language',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'Java',
+          icon: 'assets/icons/java.svg',
+          description: 'Enterprise-level programming',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'MySQL',
+          icon: 'assets/icons/mysql.svg',
+          description: 'Database query language',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'MongoDB',
+          icon: 'assets/icons/mongodb.svg',
+          description: 'NoSQL database',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'Firebase',
+          icon: 'assets/icons/firebase.svg',
+          description: 'Backend-as-a-Service platform',
+          link: "https://docs.djangoproject.com/",
+        }
+      ]
+    },
+    {
+      category: 'DevOps & Tools',
+      items: [
+        {
+          name: 'Git',
+          icon: 'assets/icons/git.svg',
+          description: 'Version control system',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'Docker',
+          icon: 'assets/icons/docker.svg',
+          description: 'Containerization platform',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'AWS',
+          icon: 'assets/icons/aws.svg',
+          description: 'Cloud computing platform',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'Kubernetes',
+          icon: 'assets/icons/kubernetes.svg',
+          description: 'Container orchestration',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'Jenkins',
+          icon: 'assets/icons/jenkins.svg',
+          description: 'CI/CD automation',
+          link: "https://docs.djangoproject.com/",
+        },
+        {
+          name: 'Jira',
+          icon: 'assets/icons/jira.svg',
+          description: 'Project management tool',
+          link: "https://docs.djangoproject.com/",
+        }
+      ]
+    }
+  ];
+} 

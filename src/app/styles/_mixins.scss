@@ -1,0 +1,29 @@
+// Variables
+$transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$glass-bg: rgba(255, 255, 255, 0.1);
+$glass-border: rgba(255, 255, 255, 0.2);
+
+// Mixins
+@mixin glass-effect($blur: 5px) {
+  background: $glass-bg;
+  // backdrop-filter: blur($blur);
+  border: 1px solid $glass-border;
+}
+
+@mixin hover-transform {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card-hover {
+  transition: $transition-base;
+  &:hover {
+    @include hover-transform;
+  }
+} 

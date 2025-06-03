@@ -63,12 +63,6 @@ import { ProjectService, Project } from '../../../core/services/project.service'
       color: #333;
     }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-
     .project-card {
       display: flex;
       flex-direction: column;

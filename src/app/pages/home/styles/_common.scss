@@ -15,7 +15,7 @@ $text-shadow: 1px 1px 2px rgba(0,0,0,.3);
 
 @mixin glass-effect($blur: 5px) {
   background: $bg-overlay;
-  backdrop-filter: blur($blur);
+  // backdrop-filter: blur($blur);
 }
 
 @mixin hover-lift {

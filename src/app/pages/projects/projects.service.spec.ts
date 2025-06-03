@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
-import { ProjectsService } from './projects.service';
+import { ProjectsService } from '../../services/projects.service';
 
 describe('Service: ProjectsService', () => {
   let service: ProjectsService = null;

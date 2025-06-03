@@ -2,23 +2,23 @@
   "projects": [
     {
       "id": 1,
-      "title": "E-commerce Platform",
-      "description": "A full-stack e-commerce solution with real-time inventory management",
-      "shortDescription": "Modern e-commerce platform with real-time features",
-      "image": "assets/images/project1.jpg",
-      "link": "#",
-      "technologies": [
+      "title": "Property Management Platform",
+      "description": "A full-stack real estate property management solution specializes in providing comprehensive and innovative solutions for property owners and investors. The company leverages technology to streamline and enhance various aspects of property management.",
+      "shortDescription": "Real Estate Property Management Platform",
+      "image": "assets/img/projects/darwin/darwin.webp",
+      "link": "https://www.darwinhomes.com/",
+      "logo": {
+        "name": "Darwin Homes",
+        "icon": "assets/img/projects/darwin/darwin_homes_inc_logo.jpeg"
+      },
+      "stacks": [
         {
-          "name": "Angular",
-          "icon": "assets/icons/angular.svg"
+          "name": "React",
+          "icon": "assets/icons/react.svg"
         },
         {
-          "name": "Node.js",
-          "icon": "assets/icons/nodejs.svg"
-        },
-        {
-          "name": "MongoDB",
-          "icon": "assets/icons/database.svg"
+          "name": "Django",
+          "icon": "assets/icons/django.svg"
         }
       ],
       "features": [
@@ -33,8 +33,8 @@
         "Optimizing database queries for large product catalogs",
         "Ensuring secure payment processing"
       ],
-      "role": "Lead Developer",
-      "duration": "6 months",
+      "role": "Full Stack Engineer",
+      "duration": "2 years",
       "isCareer": true
     },
     {
@@ -42,20 +42,16 @@
       "title": "Task Management App",
       "description": "Collaborative project management tool with real-time updates",
       "shortDescription": "Real-time collaborative task management",
-      "image": "assets/images/project2.jpg",
+      "image": "assets/img/projects/globalrelay/globalrelay.webp",
       "link": "#",
-      "technologies": [
+      "logo": {
+          "name": "React",
+          "icon": "assets/img/projects/globalrelay/global_relay_logo.jpeg"
+      },
+      "stacks": [
         {
           "name": "React",
-          "icon": "assets/icons/react.svg"
-        },
-        {
-          "name": "TypeScript",
-          "icon": "assets/icons/typescript.svg"
-        },
-        {
-          "name": "Python",
-          "icon": "assets/icons/python.svg"
+          "icon": "assets/img/projects/globalrelay/global_relay_logo.jpeg"
         }
       ],
       "features": [
@@ -79,20 +75,16 @@
       "title": "Data Analytics Dashboard",
       "description": "Interactive dashboard for visualizing business metrics",
       "shortDescription": "Interactive business metrics visualization",
-      "image": "assets/images/project3.jpg",
+      "image": "assets/img/projects/vmtl/vmtl.webp",
       "link": "#",
-      "technologies": [
+      "logo": {
+        "name": "Angular",
+        "icon": "assets/icons/angular.svg"
+      },
+      "stacks": [
         {
-          "name": "Angular",
-          "icon": "assets/icons/angular.svg"
-        },
-        {
-          "name": "Python",
-          "icon": "assets/icons/python.svg"
-        },
-        {
-          "name": "Node.js",
-          "icon": "assets/icons/nodejs.svg"
+          "name": "React",
+          "icon": "assets/img/projects/globalrelay/global_relay_logo.jpeg"
         }
       ],
       "features": [

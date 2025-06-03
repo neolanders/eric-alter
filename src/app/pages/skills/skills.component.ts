@@ -31,6 +31,14 @@ import { SkillsBubblesComponent } from '../../core/components/skills-bubbles/ski
                 <li><mat-icon>html5</mat-icon>HTML5</li>
                 <li><mat-icon>css3</mat-icon>CSS3</li>
                 <li><mat-icon>sass</mat-icon>Sass</li>
+                <li><mat-icon>nextjs</mat-icon>Next.js</li>
+                <li><mat-icon>redux</mat-icon>Redux</li>
+                <li><mat-icon>tailwind</mat-icon>Tailwind</li>
+                <li><mat-icon>bootstrap</mat-icon>Bootstrap</li>
+                <li><mat-icon>material</mat-icon>Material UI</li>
+                <li><mat-icon>tailwind</mat-icon>Tailwind</li>
+                <li><mat-icon>bootstrap</mat-icon>Bootstrap</li>
+                <li><mat-icon>material</mat-icon>Material UI</li>
               </ul>
             </mat-card-content>
           </mat-card>

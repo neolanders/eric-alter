@@ -101,6 +101,7 @@
 }
 
 .nav-button {
+  z-index: 99;
   @include flex-center;
   position: absolute;
   top: 50%;

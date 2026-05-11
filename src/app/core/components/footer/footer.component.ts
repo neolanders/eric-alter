@@ -3,6 +3,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 
+declare const window: Window & {
+  __chatwidget?: { open: () => void; close: () => void; toggle: () => void };
+};
+
 @Component({
   selector: 'app-footer',
   standalone: true,
@@ -10,4 +14,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent {} 
+export class FooterComponent {
+  openChat(): void {
+    window.__chatwidget?.open();
+  }
+} 

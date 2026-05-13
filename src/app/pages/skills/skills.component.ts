@@ -127,7 +127,7 @@ export class SkillsComponent {
           name: 'MongoDB',
           icon: 'assets/icons/mongodb.svg',
           description: 'NoSQL database',
-          link: "https://docs.djangoproject.com/",
+          link: "https://www.mongodb.com/",
         },
       ]
     },
@@ -138,37 +138,37 @@ export class SkillsComponent {
           name: 'Git',
           icon: 'assets/icons/git.svg',
           description: 'Version control system',
-          link: "https://docs.djangoproject.com/",
+          link: "https://git-scm.com/",
         },
         {
           name: 'Docker',
           icon: 'assets/icons/docker.svg',
           description: 'Containerization platform',
-          link: "https://docs.djangoproject.com/",
+          link: "https://www.docker.com/",
         },
         {
           name: 'AWS',
           icon: 'assets/icons/aws.svg',
           description: 'Cloud computing platform',
-          link: "https://docs.djangoproject.com/",
+          link: "https://aws.amazon.com/",
         },
         {
           name: 'Kubernetes',
           icon: 'assets/icons/kubernetes.svg',
           description: 'Container orchestration',
-          link: "https://docs.djangoproject.com/",
+          link: "https://kubernetes.io/",
         },
         {
           name: 'Jenkins',
           icon: 'assets/icons/jenkins.svg',
           description: 'CI/CD automation',
-          link: "https://docs.djangoproject.com/",
+          link: "https://www.jenkins.io/",
         },
         {
           name: 'Jira',
           icon: 'assets/icons/jira.svg',
           description: 'Project management tool',
-          link: "https://docs.djangoproject.com/",
+          link: "https://www.atlassian.com/software/jira",
         }
       ]
     }
